@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Vantage Point — CV Parser</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#0F2A24;
+    --paper:#F7F5EF;
+    --surface:#FFFFFF;
+    --terracotta:#C8632C;
+    --sage:#5B6B63;
+    --line:#E1DDD2;
+    --line-soft:#EDEAE0;
+    --good:#3F6B4F;
+    --bad:#A8432C;
+
+    --c-contact:#0C447C;     --c-contact-bg:#E6F1FB;   --c-contact-bd:#85B7EB;
+    --c-summary:#5F5E5A;     --c-summary-bg:#F1EFE8;   --c-summary-bd:#B4B2A9;
+    --c-experience:#085041;  --c-experience-bg:#E1F5EE;--c-experience-bd:#5DCAA5;
+    --c-education:#3C3489;  --c-education-bg:#EEEDFE; --c-education-bd:#AFA9EC;
+    --c-skills:#854F0B;      --c-skills-bg:#FAEEDA;    --c-skills-bd:#EF9F27;
+    --c-certs:#993556;       --c-certs-bg:#FBEAF0;     --c-certs-bd:#ED93B1;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1320px;margin:0 auto;padding:36px 32px 80px;}
+
+  .topbar{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+  .brand{font-family:'Source Serif 4',serif;font-weight:700;font-size:19px;}
+  .brand-sub{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--sage);text-transform:uppercase;letter-spacing:0.08em;}
+  h1{font-family:'Source Serif 4',serif;font-size:27px;font-weight:600;margin:16px 0 8px;letter-spacing:-0.01em;}
+  .dek{color:var(--sage);font-size:13.5px;line-height:1.6;max-width:640px;margin:0 0 28px;}
+
+  .uploadbar{
+    display:flex;align-items:center;gap:14px;
+    border:1px solid var(--line);border-radius:12px;background:var(--surface);
+    padding:18px 22px;margin-bottom:24px;
+  }
+  .dropzone{
+    flex:1;border:1.5px dashed var(--sage);border-radius:9px;
+    padding:16px;text-align:center;cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .dropzone:hover, .dropzone.drag{border-color:var(--terracotta);background:#FBF2EC;}
+  .dropzone .dz-text{font-size:13px;font-weight:500;}
+  .dropzone .dz-sub{font-size:11.5px;color:var(--sage);margin-top:3px;}
+  input[type=file]{display:none;}
+  .filename-badge{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+    background:var(--line-soft);padding:6px 12px;border-radius:100px;color:var(--ink);
+    flex-shrink:0;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .pickbtn{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--sage);
+    border:1px solid var(--line);border-radius:100px;padding:6px 13px;cursor:pointer;background:var(--surface);
+    flex-shrink:0;
+  }
+  .pickbtn:hover{border-color:var(--terracotta);color:var(--terracotta);}
+
+  .status-line{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--sage);margin-bottom:18px;min-height:18px;}
+  .spinner{
+    display:inline-block;width:13px;height:13px;border:2px solid var(--line);
+    border-top-color:var(--terracotta);border-radius:50%;
+    animation:spin 0.7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .status-line.error{color:var(--bad);}
+  .status-line.done{color:var(--good);}
+
+  .splitgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+  @media (max-width:980px){.splitgrid{grid-template-columns:1fr;}}
+
+  .pane{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .pane-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:13px 18px;border-bottom:1px solid var(--line);
+  }
+  .pane-head .pt{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sage);}
+  .pane-head .pc{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--sage);}
+  .pane-body{padding:18px 20px;max-height:720px;overflow-y:auto;}
+
+  #rawText{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.85;
+    white-space:pre-wrap;word-break:break-word;color:var(--sage);
+  }
+  #rawText mark{
+    border-radius:3px;padding:1px 2px;color:inherit;background:none;
+    box-shadow:inset 0 -1.4em 0 0 var(--hl);
+  }
+
+  .section-block{margin-bottom:18px;}
+  .section-head{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
+  .section-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .section-title{font-family:'Source Serif 4',serif;font-size:14.5px;font-weight:600;}
+  .section-count{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--sage);margin-left:auto;}
+
+  .field-row{display:flex;gap:8px;padding:5px 0;font-size:12.5px;border-bottom:1px solid var(--line-soft);}
+  .field-row:last-child{border-bottom:none;}
+  .field-row .fk{color:var(--sage);min-width:90px;flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:11px;}
+  .field-row .fv{color:var(--ink);}
+
+  .entry-card{
+    border-left:3px solid var(--line-bd);
+    background:var(--line-bg);
+    border-radius:0 8px 8px 0;
+    padding:11px 14px;margin-bottom:8px;
+  }
+  .entry-title{font-weight:600;font-size:13px;color:var(--line-fg);}
+  .entry-sub{font-size:11.5px;color:var(--sage);margin-top:1px;}
+  .entry-dates{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--sage);margin-top:2px;}
+  .entry-desc{font-size:12px;color:var(--ink);margin-top:6px;line-height:1.55;}
+
+  .skill-pills{display:flex;flex-wrap:wrap;gap:6px;}
+  .pill{font-family:'IBM Plex Mono',monospace;font-size:11px;border-radius:100px;padding:4px 11px;}
+
+  .empty-state{
+    border:1px dashed var(--line);border-radius:12px;padding:70px 30px;text-align:center;color:var(--sage);
+    grid-column:1/-1;
+  }
+  .empty-state .es-icon{font-size:24px;margin-bottom:10px;}
+  .empty-state .es-title{font-weight:600;color:var(--ink);font-size:14px;margin-bottom:4px;}
+  .empty-state .es-sub{font-size:12.5px;max-width:380px;margin:0 auto;line-height:1.6;}
+
+  .err-banner{
+    background:#FBEAE3;border:1px solid #E8B8A4;color:var(--bad);
+    border-radius:8px;padding:10px 14px;font-size:12.5px;margin-bottom:14px;
+  }
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px;}
+  .legend-item{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--sage);}
+  .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">Vantage Point</div>
+    <div class="brand-sub">CV section parser · v0.1</div>
+  </div>
+  <h1>See exactly how an ATS reads this CV</h1>
+  <p class="dek">Upload a CV and watch it get broken into the structured sections a real applicant tracking system stores — contact info, summary, work history, education, skills, and certifications — each one mapped back to the source text on the left.</p>
+
+  <div class="uploadbar">
+    <div class="dropzone" id="dropzone">
+      <div class="dz-text">Drop a CV here or click to browse</div>
+      <div class="dz-sub">PDF, DOCX, or .txt</div>
+    </div>
+    <input type="file" id="fileInput" accept=".pdf,.docx,.txt" />
+    <span class="filename-badge" id="filenameBadge" style="display:none;"></span>
+    <button class="pickbtn" id="changeBtn" style="display:none;">Change file</button>
+  </div>
+
+  <div class="status-line" id="statusLine"></div>
+
+  <div class="legend" id="legend" style="display:none;">
+    <div class="legend-item"><span class="legend-dot" style="background:var(--c-contact-bd);"></span>Contact</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--c-summary-bd);"></span>Summary</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--c-experience-bd);"></span>Experience</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--c-education-bd);"></span>Education</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--c-skills-bd);"></span>Skills</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--c-certs-bd);"></span>Certifications</div>
+  </div>
+
+  <div class="splitgrid" id="splitgrid">
+    <div class="empty-state">
+      <div class="es-icon">◎</div>
+      <div class="es-title">No CV loaded yet</div>
+      <div class="es-sub">Upload a PDF, DOCX, or text CV above to see it parsed into ATS-style sections.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const filenameBadge = document.getElementById('filenameBadge');
+const changeBtn = document.getElementById('changeBtn');
+const statusLine = document.getElementById('statusLine');
+const splitgrid = document.getElementById('splitgrid');
+const legend = document.getElementById('legend');
+
+dropzone.addEventListener('click', ()=>fileInput.click());
+changeBtn.addEventListener('click', ()=>fileInput.click());
+['dragenter','dragover'].forEach(ev=>dropzone.addEventListener(ev, e=>{e.preventDefault(); dropzone.classList.add('drag');}));
+['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev, e=>{e.preventDefault(); dropzone.classList.remove('drag');}));
+dropzone.addEventListener('drop', e=>{ if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', e=>{ if(e.target.files.length) handleFile(e.target.files[0]); fileInput.value=''; });
+
+function setStatus(text, kind){
+  statusLine.className = 'status-line' + (kind? ' '+kind : '');
+  statusLine.innerHTML = kind==='loading' ? `<span class="spinner"></span>${text}` : text;
+}
+
+async function extractText(file){
+  const ext = file.name.split('.').pop().toLowerCase();
+  if(ext === 'txt') return await file.text();
+  if(ext === 'pdf'){
+    const buf = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({data: buf}).promise;
+    let text = '';
+    for(let i=1;i<=pdf.numPages;i++){
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      text += content.items.map(it=>it.str).join(' ') + '\n';
+    }
+    return text;
+  }
+  if(ext === 'docx'){
+    const buf = await file.arrayBuffer();
+    const result = await mammoth.extractRawText({arrayBuffer: buf});
+    return result.value;
+  }
+  throw new Error('Unsupported file type: .'+ext);
+}
+
+// Calls OUR OWN backend, not Anthropic directly.
+// The backend (server.js) holds the real API key and proxies to Claude.
+async function parseCvOnServer(cvText){
+  const response = await fetch('/api/parse-cv', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cvText })
+  });
+  const data = await response.json();
+  if(!response.ok){
+    throw new Error(data.error || ('Server error: ' + response.status));
+  }
+  return data.parsed;
+}
+
+function escapeHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function handleFile(file){
+  filenameBadge.style.display = 'inline-block';
+  filenameBadge.textContent = file.name;
+  changeBtn.style.display = 'inline-block';
+  legend.style.display = 'none';
+  splitgrid.innerHTML = '';
+  setStatus('Extracting text from file…', 'loading');
+
+  let rawText;
+  try {
+    rawText = await extractText(file);
+  } catch(err){
+    setStatus('Could not read this file: ' + (err.message||err), 'error');
+    splitgrid.innerHTML = `<div class="empty-state"><div class="es-icon">!</div><div class="es-title">Extraction failed</div><div class="es-sub">${err.message||err}</div></div>`;
+    return;
+  }
+  const rawTextGlobal = rawText.slice(0, 14000);
+  if(!rawTextGlobal.trim()){
+    setStatus('No readable text found in this file.', 'error');
+    return;
+  }
+
+  setStatus('Identifying sections…', 'loading');
+
+  let parsed;
+  try {
+    parsed = await parseCvOnServer(rawTextGlobal);
+  } catch(err){
+    setStatus('Parsing failed: ' + (err.message||err), 'error');
+    splitgrid.innerHTML = `<div class="empty-state"><div class="es-icon">!</div><div class="es-title">Parsing failed</div><div class="es-sub">${err.message||err}</div></div>`;
+    return;
+  }
+
+  setStatus('Parsed successfully.', 'done');
+  legend.style.display = 'flex';
+  renderSplit(rawTextGlobal, parsed);
+}
+
+function highlightRaw(rawText, parsed){
+  const marks = [];
+  const colorFor = {
+    contact: '#B5D4F4', summary:'#D3D1C7', experience:'#9FE1CB',
+    education:'#CECBF6', skills:'#FAC775', certifications:'#F4C0D1'
+  };
+  function addSnippet(snippet, kind){
+    if(!snippet) return;
+    const idx = rawText.indexOf(snippet);
+    if(idx === -1) return;
+    marks.push({start: idx, end: idx+snippet.length, kind});
+  }
+  addSnippet(parsed.contact?.source_snippet, 'contact');
+  addSnippet(parsed.summary?.source_snippet, 'summary');
+  (parsed.experience||[]).forEach(e=>addSnippet(e.source_snippet, 'experience'));
+  (parsed.education||[]).forEach(e=>addSnippet(e.source_snippet, 'education'));
+  addSnippet(parsed.skills?.source_snippet, 'skills');
+  addSnippet(parsed.certifications?.source_snippet, 'certifications');
+
+  marks.sort((a,b)=>a.start-b.start);
+  const merged = [];
+  marks.forEach(m=>{
+    if(merged.length && m.start < merged[merged.length-1].end){
+      return;
+    }
+    merged.push(m);
+  });
+
+  let out = '';
+  let cursor = 0;
+  merged.forEach(m=>{
+    out += escapeHtml(rawText.slice(cursor, m.start));
+    out += `<mark style="--hl:${colorFor[m.kind]};">${escapeHtml(rawText.slice(m.start, m.end))}</mark>`;
+    cursor = m.end;
+  });
+  out += escapeHtml(rawText.slice(cursor));
+  return out;
+}
+
+function renderSplit(rawText, parsed){
+  splitgrid.innerHTML = `
+    <div class="pane">
+      <div class="pane-head"><span class="pt">Original document</span><span class="pc">${rawText.length.toLocaleString()} chars extracted</span></div>
+      <div class="pane-body"><div id="rawText"></div></div>
+    </div>
+    <div class="pane">
+      <div class="pane-head"><span class="pt">Parsed structure</span><span class="pc">ATS field map</span></div>
+      <div class="pane-body" id="structured"></div>
+    </div>
+  `;
+  document.getElementById('rawText').innerHTML = highlightRaw(rawText, parsed);
+  document.getElementById('structured').innerHTML = renderStructured(parsed);
+}
+
+function renderStructured(p){
+  let html = '';
+
+  html += `<div class="section-block">
+    <div class="section-head"><span class="section-dot" style="background:var(--c-contact-bd);"></span><span class="section-title">Contact</span></div>`;
+  if(p.contact && (p.contact.name||p.contact.email||p.contact.phone)){
+    const rows = [['Name',p.contact.name],['Email',p.contact.email],['Phone',p.contact.phone],['Location',p.contact.location],['LinkedIn',p.contact.linkedin]];
+    html += rows.filter(r=>r[1]).map(r=>`<div class="field-row"><span class="fk">${r[0]}</span><span class="fv">${escapeHtml(r[1])}</span></div>`).join('');
+  } else {
+    html += `<div class="field-row"><span class="fv" style="color:var(--sage);">Not detected</span></div>`;
+  }
+  html += `</div>`;
+
+  html += `<div class="section-block">
+    <div class="section-head"><span class="section-dot" style="background:var(--c-summary-bd);"></span><span class="section-title">Summary</span></div>`;
+  html += p.summary && p.summary.text
+    ? `<div class="entry-desc">${escapeHtml(p.summary.text)}</div>`
+    : `<div class="field-row"><span class="fv" style="color:var(--sage);">Not detected</span></div>`;
+  html += `</div>`;
+
+  const exp = p.experience||[];
+  html += `<div class="section-block">
+    <div class="section-head"><span class="section-dot" style="background:var(--c-experience-bd);"></span><span class="section-title">Experience</span><span class="section-count">${exp.length} entr${exp.length===1?'y':'ies'}</span></div>`;
+  if(exp.length){
+    html += exp.map(e=>`
+      <div class="entry-card" style="--line-bd:var(--c-experience-bd);--line-bg:var(--c-experience-bg);--line-fg:var(--c-experience);">
+        <div class="entry-title">${escapeHtml(e.title||'—')}</div>
+        <div class="entry-sub">${escapeHtml(e.organization||'—')}${e.location?' · '+escapeHtml(e.location):''}</div>
+        <div class="entry-dates">${escapeHtml(e.start_date||'?')} — ${escapeHtml(e.end_date||'?')}</div>
+        ${e.description?`<div class="entry-desc">${escapeHtml(e.description)}</div>`:''}
+      </div>`).join('');
+  } else {
+    html += `<div class="field-row"><span class="fv" style="color:var(--sage);">Not detected</span></div>`;
+  }
+  html += `</div>`;
+
+  const edu = p.education||[];
+  html += `<div class="section-block">
+    <div class="section-head"><span class="section-dot" style="background:var(--c-education-bd);"></span><span class="section-title">Education</span><span class="section-count">${edu.length} entr${edu.length===1?'y':'ies'}</span></div>`;
+  if(edu.length){
+    html += edu.map(e=>`
+      <div class="entry-card" style="--line-bd:var(--c-education-bd);--line-bg:var(--c-education-bg);--line-fg:var(--c-education);">
+        <div class="entry-title">${escapeHtml(e.degree||'—')}</div>
+        <div class="entry-sub">${escapeHtml(e.institution||'—')}${e.location?' · '+escapeHtml(e.location):''}</div>
+        ${e.year?`<div class="entry-dates">${escapeHtml(e.year)}</div>`:''}
+      </div>`).join('');
+  } else {
+    html += `<div class="field-row"><span class="fv" style="color:var(--sage);">Not detected</span></div>`;
+  }
+  html += `</div>`;
+
+  const skills = (p.skills && p.skills.items) || [];
+  html += `<div class="section-block">
+    <div class="section-head"><span class="section-dot" style="background:var(--c-skills-bd);"></span><span class="section-title">Skills</span><span class="section-count">${skills.length}</span></div>`;
+  html += skills.length
+    ? `<div class="skill-pills">${skills.map(s=>`<span class="pill" style="background:var(--c-skills-bg);color:var(--c-skills);">${escapeHtml(s)}</span>`).join('')}</div>`
+    : `<div class="field-row"><span class="fv" style="color:var(--sage);">Not detected</span></div>`;
+  html += `</div>`;
+
+  const certs = (p.certifications && p.certifications.items) || [];
+  html += `<div class="section-block">
+    <div class="section-head"><span class="section-dot" style="background:var(--c-certs-bd);"></span><span class="section-title">Certifications</span><span class="section-count">${certs.length}</span></div>`;
+  html += certs.length
+    ? `<div class="skill-pills">${certs.map(s=>`<span class="pill" style="background:var(--c-certs-bg);color:var(--c-certs);">${escapeHtml(s)}</span>`).join('')}</div>`
+    : `<div class="field-row"><span class="fv" style="color:var(--sage);">Not detected</span></div>`;
+  html += `</div>`;
+
+  return html;
+}
+</script>
+</body>
+</html>
