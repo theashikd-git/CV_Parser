@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "candidate@project.com",
+      "password_hash": "$2a$10$K9lmgnse.njAH5dSYNSK9uVZLZ.WBNvFI0OgwovDZGqawNd7NctVO",
+      "role": "candidate",
+      "created_at": "2026-07-04T08:00:18.186Z"
+    },
+    {
+      "id": 2,
+      "email": "agency@project.com",
+      "password_hash": "$2a$10$.30XouDbLyNQ9pt1YKq7A.fKy/ha3GTC/YW9TGkfYT6xHH1Eg8VUa",
+      "role": "agent",
+      "created_at": "2026-07-04T08:03:31.548Z"
+    }
+  ],
+  "profiles": [
+    {
+      "user_id": 1,
+      "full_name": "MD RIADDUZZAMAN",
+      "email": "riadduzzaman@gmail.com",
+      "phone": "+880 1806 - 465410",
+      "address": "Bashundhara, Dhaka",
+      "nationality": "",
+      "date_of_birth": "",
+      "about_me": "Results-driven Civil Engineering professional with over 3 years of hands-on experience in high-rise residential and commercial construction. Proven track record in end-to-end project supervision from drawing review and contractor coordination to quality control and timely delivery. Adept at managing multi-stakeholder construction sites, enforcing safety standards, and optimizing resources to minimize waste. Committed to delivering projects that meet the highest standards of structural integrity and client satisfaction.",
+      "work_experience": [
+        {
+          "description": "Reviewed all types of project drawings, including RAJUK, Architectural, Structural and Perspective plans, identifying discrepancies and coordinating with relevant departments for timely corrections. Supervised day-to-day construction activities on-site, ensuring work is executed as per drawings, specifications, and schedule. Coordinated and instructed contractors to execute work according to the planned work program. Prepared monthly work schedules, achievement reports and monitored daily progress to maintain project timelines. Conducted on-site training for workers to enhance skills and ensure superior construction quality. Inspected material quality, enforced safety protocols and ensured the security of both construction activities and workforce. Focused on minimizing material wastage through proper handling and execution oversight. Ensured effective project merchandising and branding throughout the construction period. Maintained high standards of construction quality, ensuring timely project completion and client satisfaction.",
+          "end_date": "Present",
+          "location": "91 Gulshan Avenue, Dhaka",
+          "organization": "Asset Developments & Holdings Ltd",
+          "start_date": "March 2026",
+          "title": "Assistant Project Engineer"
+        },
+        {
+          "description": null,
+          "end_date": "February 2026",
+          "location": "91 Gulshan Avenue, Dhaka",
+          "organization": "Asset Developments & Holdings Ltd",
+          "start_date": "October 2023",
+          "title": "Junior Project Engineer"
+        },
+        {
+          "description": null,
+          "end_date": "October 2023",
+          "location": "91 Gulshan Avenue, Dhaka",
+          "organization": "Asset Developments & Holdings Ltd",
+          "start_date": "March 2023",
+          "title": "Apprentice Engineer"
+        },
+        {
+          "description": "Gained practical experience in rural infrastructure projects, including road and bridge construction. Assisted in field inspections and site supervision under the guidance of senior engineers. Studied engineering drawings and construction documentation relevant to government projects. Developed understanding of project estimation, BOQ preparation and tender evaluation processes. Learned about quality control practices, safety measures and environmental considerations in civil works. Participated in meetings and site visits that deepened understanding of public infrastructure planning and implementation.",
+          "end_date": "February 2023",
+          "location": "Bangladesh",
+          "organization": "Local Government Engineering Department (LGED)",
+          "start_date": "August 2022",
+          "title": "Engineering Intern"
+        }
+      ],
+      "education": [
+        {
+          "degree": "Diploma in Civil Engineering",
+          "institution": "Sylhet Polytechnic Institute",
+          "year": "2023"
+        },
+        {
+          "degree": "Higher Secondary Certificate (HSC) – Science",
+          "institution": "Sylhet Government College",
+          "year": "2018"
+        },
+        {
+          "degree": "Secondary School Certificate (SSC) – Science",
+          "institution": "Rasamoy Memorial High School",
+          "year": "2016"
+        }
+      ],
+      "languages": [],
+      "digital_skills": "",
+      "other_skills": "",
+      "sectors": [
+        "Governance",
+        "Public financial management"
+      ],
+      "skill_tags": [
+        "Stakeholder facilitation",
+        "Capacity building",
+        "Procurement",
+        "R"
+      ],
+      "donor_tags": [],
+      "additional_info": "",
+      "cv_filename": "",
+      "updated_at": "2026-07-04T08:03:18.057Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "agent_id": 2,
+      "created_at": "2026-07-04T08:22:05.447Z",
+      "title": "Ministry of Housing",
+      "client": "World Bank",
+      "duration": "10 Months",
+      "location": "UK",
+      "notes": "Invitation for   Tender (Single Lot)   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division :   :   Ministry of Housing and Public Works  Agency :   :   Public Works Department (PWD)  Procuring Entity Name :   :   Executive Engineer, Jashore PWD Division, Jashore  Procuring Entity Code :   :   khlJes  Procuring Entity District :   :   Jashore  Invitation For   :   Works  Invitation Reference No   :   ACE ,PWD,Khulna,Memo-25.36.....1597, Date- 19/08/20  Date   :   19/08/2024  KEY INFORMATION  Procurement Method   :   NCT Open Tendering Method  FUNDING INFORMATION  Budget and Source of Funds :   :   Development Budget GOB  Development Partner   :   N/A  PARTICULAR INFORMATION  Project/Programme Code   :  Project/Programme Name   :  Tender Package No   :   Jash.MCH/WD-06  Tender Package Name   :   Construction Emergency Staff Dormitory for Hospital , Construction of Staff Nurses Dormitory at Jashore under the Project of -\" Establishment of 500-Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised)(Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised))\nTender Publication Date   :   11/09/2024  Tender Last Selling Date   :   08/10/2024  Tender Closing Date and Time   :   09/10/2024 04:00 PM  Tender Opening Date and Time   :   09/10/2024 12:00 AM  Office Address Information  Selling Tender Document (Principal)   e_GP  Receiving Tender Document   e_GP  Opening Tender Document   e_GP  Selling Tender Document (Others)   e_GP  Place/Date/Time of Tender Meeting (Optional)   :   Place : e_GP   Date: 10/09/2024   Time: 02:00 PM\nINFORMATION FOR TENDERER  Eligibility of Tenderer :   :   (A) Minimum Number of Years of General Experience in Construction Works Shall be 10 years. (B) Must have successful completion of at least 1 number of 4 storied RCC building work(in/c civil,sanitary, electrification works) of Government / semi\u0000Government / autonomous organization of Bangladesh during last 05 years amounting minimum Tk.1100.00 Lakh in a single Contract during last 05 years. (C) The Tenderer shall have a minimum average annual construction turnover amounting Tk. 1800.00 Lakh. This must be supported by total certified payment received for contracts in progress or work complete under Government / semi- Government / autonomous organization of Bangladesh during last 05 years. Interested tenderer are requested to provide payment certificate mentioning Fiscal year and share percent (in case of JVCA) in the certificate. (D) Tenderer must have a Minimum Liquid Assets/Credit facilities/Credit Line(unconditional) Tk. 400.00 Lakh (Must be Issued Within publication of IFT in egp system to The Last Date of Lodgment of The Tender and must be followed by the appropriate format (PW3-7)). (E) Minimum Tender Capacity must be Tk. 1300.00 Lakh. Relevant documents in support of the tender capacity must be submit with the tender: (F) Tenderer Must submit with the tender: (i) Upto date Income Tax Clearance Certificate, Trade License, ABC Category Contractorship & Supervisory License from Electricity Licensing Board. (ii) Valid VAT Registration Certificate. Please follow the instructions stated in TDS , PCC , ITT , GCC , section 2,4,6, 7, 8, 9 (document tab) of this tender. Other Notable Terms & conditions are pointed out at TDS, PCC, ITT & GCC.  Brief Description of Goods or Works :   :   Construction Emergency Staff Dormitory for Hospital , Construction of Staff Nurses Dormitory at Jashore under the Project of -\" Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised)( Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised))  Brief Description of Related Services :   :\nTender Document Price :   :   4000.00  Tender Lot Information  Lot No   Identification   Location  Security Amount  Completion Time in Weeks/Months  1.   Tender/Proposal ID : 1012436  Jashore   4500000   30-Jun-2026  PROCURING ENTITY DETAILS  Name of Official Inviting Tender :   :   Office of the Executive Engineer, Jashore PWD Division, Jashore.  Designation of Official Inviting Tender :   :   Executive Engineer.  Address of Official Inviting Tender :   :   Executive Engineer, Jashore PWD Division, Jashore.  Contact Details of Official Inviting Tender :   :   Phone: 02477762794 , Fax: 02477762318, Email: ee_jessr@pwd.gov.bd  The procuring entity reserves the right to accept or reject all tenders",
+      "sectors": [],
+      "skill_tags": [],
+      "donor_tags": []
+    }
+  ],
+  "seq": {
+    "users": 2,
+    "projects": 1
+  }
+}
