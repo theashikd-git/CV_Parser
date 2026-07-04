@@ -24,6 +24,7 @@ function load() {
   data.profiles ||= [];
   data.projects ||= [];
   data.seq ||= { users: 0, projects: 0 };
+  data.shortlistCache ||= {}; // { [projectId]: { fingerprint, result, cachedAt } }
 }
 function persist() {
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
@@ -96,6 +97,7 @@ const store = {
       try { if (fs.existsSync(fp)) fs.unlinkSync(fp); } catch {}
     }
     data.projects = data.projects.filter(p => !(p.id === id && p.agent_id === agent_id));
+    if (data.shortlistCache) delete data.shortlistCache[id];
     persist();
   },
 
@@ -117,6 +119,16 @@ const store = {
     if (!stored) return null;
     const fp = path.join(FILES_DIR, stored);
     return fs.existsSync(fp) ? fp : null;
+  },
+
+  /* shortlist cache — avoids re-running the AI ranking when nothing changed */
+  getShortlistCache(projectId) {
+    return (data.shortlistCache && data.shortlistCache[projectId]) || null;
+  },
+  saveShortlistCache(projectId, fingerprint, result) {
+    data.shortlistCache ||= {};
+    data.shortlistCache[projectId] = { fingerprint, result, cachedAt: new Date().toISOString() };
+    persist();
   }
 };
 
