@@ -1,6 +1,9 @@
 node_modules/
 .env
+<<<<<<< HEAD
 db/*.db
 db/*.db-*
+=======
+>>>>>>> da7e240b7c51e458a1ffb5435f0d68dc07962c54
 *.log
 .DS_Store

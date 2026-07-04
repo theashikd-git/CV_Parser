@@ -329,11 +329,14 @@ function applyParsed(d) {
   if (Array.isArray(d.donor_tags)) profile.donor_tags = d.donor_tags;
 }
 
+
 /* ---------- AGENT ---------- */
-let agentTab = 'projects';
+let agentSection = 'projects';   // 'projects' | 'cvs' | 'sorting'
 let projects = [];
 let candidatePool = [];
-let selectedProjectId = null;
+let sortProjectId = null;
+let projectModalId = null;
+let cvModalUserId = null;
 
 async function renderAgent() {
   root.innerHTML = shell('agent', `<div class="empty"><span class="spinner"></span> Loading…</div>`);
@@ -344,29 +347,32 @@ async function drawAgent() {
   const wrap = document.getElementById('viewWrap');
   wrap.innerHTML = `
     <div class="eyebrow">Agency workspace</div>
-    <h1>Projects &amp; matching</h1>
-    <p class="sub">Post a project, then open it to get an instant ranked shortlist of candidates.</p>
+    <h1>${agentSection==='projects'?'Projects':agentSection==='cvs'?'CVs':'Sorting'}</h1>
+    <p class="sub">${
+      agentSection==='projects' ? 'All your projects. Click a project to open its original document.' :
+      agentSection==='cvs' ? 'Everyone in the candidate pool. Click a CV to see the full profile.' :
+      'Pick a project and rank the candidates against it.'}</p>
     <div class="tabs">
-      <button class="tab ${agentTab==='projects'?'active':''}" id="tabP">Projects</button>
-      <button class="tab ${agentTab==='pool'?'active':''}" id="tabC">Candidate pool</button>
+      <button class="tab ${agentSection==='projects'?'active':''}" id="tabProjects">Projects</button>
+      <button class="tab ${agentSection==='cvs'?'active':''}" id="tabCvs">CVs</button>
+      <button class="tab ${agentSection==='sorting'?'active':''}" id="tabSorting">Sorting</button>
     </div>
     <div id="agentBody"><div class="empty"><span class="spinner"></span> Loading…</div></div>`;
-  document.getElementById('tabP').onclick = () => { agentTab='projects'; drawAgent(); };
-  document.getElementById('tabC').onclick = () => { agentTab='pool'; drawAgent(); };
-  if (agentTab === 'projects') await drawProjectsTab();
-  else await drawPoolTab();
+  document.getElementById('tabProjects').onclick = () => { agentSection='projects'; drawAgent(); };
+  document.getElementById('tabCvs').onclick = () => { agentSection='cvs'; drawAgent(); };
+  document.getElementById('tabSorting').onclick = () => { agentSection='sorting'; drawAgent(); };
+  if (agentSection === 'projects') await drawProjectsSection();
+  else if (agentSection === 'cvs') await drawCvsSection();
+  else await drawSortingSection();
 }
 
-async function drawProjectsTab() {
+/* ===== SECTION 1: PROJECTS ===== */
+async function drawProjectsSection() {
   try { projects = await api('/projects'); } catch (e) { toast(e.message, true); }
   const body = document.getElementById('agentBody');
   body.innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start;">
-      <div>
-        <div style="font-size:12px;font-weight:600;margin-bottom:10px;">Your projects — click one to shortlist</div>
-        <div id="projList"></div>
-        <div id="shortlistArea" style="margin-top:20px;"></div>
-      </div>
+      <div id="projListWrap"></div>
       <div class="card">
         <h2>New project</h2>
         <div class="field"><label>Title</label><input id="np_title" placeholder="e.g. Tax Reform Team Leader"></div>
@@ -376,20 +382,23 @@ async function drawProjectsTab() {
         </div>
         <div class="field"><label>Location</label><input id="np_location" placeholder="East Africa"></div>
         <div class="field">
-          <label>Requirement document <span class="hint">upload a ToR (PDF/DOCX/txt)</span></label>
-          <div class="dropzone" id="np_dz"><div class="dz-text">Drop the project document here or click</div><div class="dz-sub">Its text becomes the requirement candidates are matched against</div></div>
+          <label>Requirement document <span class="hint">PDF/DOCX/txt</span></label>
+          <div class="dropzone" id="np_dz"><div class="dz-text">Drop the project document here or click</div><div class="dz-sub">Stored and viewable later; its text is used for matching</div></div>
           <input type="file" id="np_file" accept=".pdf,.docx,.txt" class="hidden">
           <div id="np_fileStatus" class="sub" style="margin:8px 0 0;"></div>
         </div>
-        <div class="field"><label>Requirement text <span class="hint">auto-filled from the file, or type/paste directly</span></label><textarea id="np_notes" rows="6" placeholder="Describe the role, required expertise, sectors, donor experience, languages…"></textarea></div>
+        <div class="field"><label>Requirement text <span class="hint">auto-filled from the file, or type/paste</span></label><textarea id="np_notes" rows="6" placeholder="Describe the role, required expertise, sectors, donor experience, languages…"></textarea></div>
         <button class="btn" style="width:100%;" id="postProj">Post project</button>
       </div>
-    </div>`;
+    </div>
+    <div id="projectModal"></div>`;
   setupProjectUpload();
   document.getElementById('postProj').onclick = postProject;
-  drawProjList();
-  if (selectedProjectId) loadShortlist(selectedProjectId);
+  drawProjectCards();
 }
+
+// Holds the pending upload for a new project (base64 + meta), so we can store the original file.
+let pendingProjectFile = null;
 
 function setupProjectUpload() {
   const dz = document.getElementById('np_dz');
@@ -400,45 +409,90 @@ function setupProjectUpload() {
   dz.addEventListener('drop', e => { if (e.dataTransfer.files.length) handleProjectFile(e.dataTransfer.files[0]); });
   input.onchange = e => { if (e.target.files.length) handleProjectFile(e.target.files[0]); input.value = ''; };
 }
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result.split(',')[1]);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
 async function handleProjectFile(file) {
   const status = document.getElementById('np_fileStatus');
-  status.innerHTML = `<span class="spinner"></span> Extracting text…`;
+  status.innerHTML = `<span class="spinner"></span> Reading file…`;
   try {
     const text = await extractText(file);
-    if (!text.trim()) { status.textContent = 'No readable text found in that file.'; return; }
-    const notes = document.getElementById('np_notes');
-    notes.value = text.trim();
-    status.textContent = `Loaded "${file.name}" — review the requirement text below, then post.`;
+    const b64 = await fileToBase64(file);
+    pendingProjectFile = { file_base64: b64, file_name: file.name, file_mime: file.type || '' };
+    if (text.trim()) document.getElementById('np_notes').value = text.trim();
+    status.textContent = `Loaded "${file.name}" — it will be stored with the project. Review the text below, then post.`;
   } catch (e) {
     status.textContent = 'Could not read file: ' + e.message;
+    pendingProjectFile = null;
   }
 }
 
-function drawProjList() {
-  const list = document.getElementById('projList');
-  if (!projects.length) { list.innerHTML = `<div class="empty"><div class="et">No projects yet</div>Create your first project on the right.</div>`; return; }
-  list.innerHTML = projects.map(p => `
-    <div class="proj-item ${selectedProjectId===p.id?'active':''}" data-id="${p.id}">
-      <div>
+function projectSummary(p) {
+  // a short one-line summary from notes
+  const t = (p.notes || '').replace(/\s+/g, ' ').trim();
+  return t ? (t.length > 120 ? t.slice(0, 120) + '…' : t) : 'No requirement text.';
+}
+
+function drawProjectCards() {
+  const wrap = document.getElementById('projListWrap');
+  if (!projects.length) { wrap.innerHTML = `<div class="empty"><div class="et">No projects yet</div>Create your first project on the right.</div>`; return; }
+  wrap.innerHTML = projects.map(p => `
+    <div class="proj-item" data-open="${p.id}" style="cursor:pointer;">
+      <div style="flex:1;min-width:0;">
         <h4>${esc(p.title)}</h4>
         <div class="pm">${esc(p.client||'—')} · ${esc(p.duration||'—')}${p.location?' · '+esc(p.location):''}</div>
+        <div style="font-size:12px;color:var(--sage);margin-top:6px;line-height:1.5;">${esc(projectSummary(p))}</div>
+        <div style="margin-top:7px;">${p.file_stored ? `<span class="pill donor">📎 ${esc(p.file_name||'document')}</span>` : `<span class="pill">no file</span>`}</div>
       </div>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <span class="mono" style="font-size:11px;color:var(--terracotta);">${selectedProjectId===p.id?'shortlisting':'shortlist →'}</span>
+      <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
+        <span class="mono" style="font-size:11px;color:var(--terracotta);">open →</span>
         <button class="btn danger sm" data-del="${p.id}">Delete</button>
       </div>
     </div>`).join('');
-  list.querySelectorAll('.proj-item').forEach(item => {
-    item.onclick = (e) => { if (e.target.dataset.del) return; selectedProjectId = +item.dataset.id; drawProjList(); loadShortlist(selectedProjectId); };
+  wrap.querySelectorAll('[data-open]').forEach(item => {
+    item.onclick = (e) => { if (e.target.dataset.del) return; openProjectModal(+item.dataset.open); };
   });
-  list.querySelectorAll('[data-del]').forEach(b => b.onclick = async (e) => {
+  wrap.querySelectorAll('[data-del]').forEach(b => b.onclick = async (e) => {
     e.stopPropagation();
     await api('/projects/' + b.dataset.del, 'DELETE');
-    if (selectedProjectId === +b.dataset.del) { selectedProjectId = null; document.getElementById('shortlistArea').innerHTML = ''; }
     projects = projects.filter(p => p.id !== +b.dataset.del);
-    drawProjList();
+    drawProjectCards();
     toast('Project deleted');
   });
+}
+
+function openProjectModal(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  const modal = document.getElementById('projectModal');
+  const fileView = p.file_stored
+    ? `<iframe src="/api/projects/${p.id}/file" style="width:100%;height:60vh;border:1px solid var(--line);border-radius:8px;"></iframe>
+       <div style="margin-top:8px;"><a class="btn ghost sm" href="/api/projects/${p.id}/file" target="_blank">Open document in new tab</a></div>`
+    : `<div class="empty">No document was uploaded for this project.</div>`;
+  modal.innerHTML = `
+    <div class="modal-backdrop" id="mBack">
+      <div class="modal">
+        <div class="modal-head">
+          <div><div class="serif" style="font-size:18px;font-weight:600;">${esc(p.title)}</div>
+          <div style="font-size:12px;color:var(--sage);margin-top:2px;">${esc(p.client||'—')} · ${esc(p.duration||'—')}${p.location?' · '+esc(p.location):''}</div></div>
+          <button class="lnk" id="mClose">Close</button>
+        </div>
+        <div class="modal-body">
+          <h2 style="font-size:14px;">Original document</h2>
+          ${fileView}
+          <h2 style="font-size:14px;margin-top:20px;">Requirement text</h2>
+          <div style="font-size:13px;line-height:1.6;white-space:pre-wrap;color:var(--ink);">${esc(p.notes||'—')}</div>
+        </div>
+      </div>
+    </div>`;
+  const close = () => modal.innerHTML = '';
+  document.getElementById('mClose').onclick = close;
+  document.getElementById('mBack').onclick = (e) => { if (e.target.id === 'mBack') close(); };
 }
 
 async function postProject() {
@@ -446,31 +500,143 @@ async function postProject() {
   const title = val('np_title').trim();
   if (!title) { toast('Give the project a title first', true); return; }
   const notes = val('np_notes').trim();
-  if (!notes) { toast('Add requirement text or upload a document', true); return; }
+  if (!notes && !pendingProjectFile) { toast('Add requirement text or upload a document', true); return; }
+  const payload = { title, client: val('np_client'), duration: val('np_duration'), location: val('np_location'), notes };
+  if (pendingProjectFile) Object.assign(payload, pendingProjectFile);
   try {
-    const r = await api('/projects', 'POST', {
-      title, client: val('np_client'), duration: val('np_duration'), location: val('np_location'), notes
-    });
+    await api('/projects', 'POST', payload);
     toast('Project posted');
-    selectedProjectId = r.id;
-    await drawProjectsTab();
-    loadShortlist(r.id);
+    pendingProjectFile = null;
+    await drawProjectsSection();
   } catch (e) { toast(e.message, true); }
 }
 
-async function loadShortlist(projId) {
-  const area = document.getElementById('shortlistArea');
-  area.innerHTML = `<div class="empty"><span class="spinner"></span> Reading CVs and scoring against the requirement… this can take a few seconds.</div>`;
+/* ===== SECTION 2: CVs ===== */
+function designation(c) {
+  const w = (c.work_experience || [])[0];
+  if (w && (w.title || w.organization)) return [w.title, w.organization].filter(Boolean).join(', ');
+  return c.nationality ? c.nationality : '—';
+}
+async function drawCvsSection() {
+  const body = document.getElementById('agentBody');
+  try { candidatePool = await api('/candidates'); } catch (e) { toast(e.message, true); }
+  if (!candidatePool.length) { body.innerHTML = `<div class="empty"><div class="et">No CVs yet</div>Candidates who register and build a profile appear here.</div>`; return; }
+  body.innerHTML = `
+    <div class="field" style="max-width:340px;"><input id="cvSearch" placeholder="Search by name, designation, or skill…"></div>
+    <div class="cand-grid" id="cvGrid"></div>
+    <div id="cvModal"></div>`;
+  const draw = (filter) => {
+    const f = (filter || '').toLowerCase();
+    const list = candidatePool.filter(c => {
+      if (!f) return true;
+      const hay = [c.full_name, designation(c), c.about_me, ...(c.skill_tags||[]), ...(c.sectors||[])].join(' ').toLowerCase();
+      return hay.includes(f);
+    });
+    const grid = document.getElementById('cvGrid');
+    if (!list.length) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1;">No matches.</div>`; return; }
+    grid.innerHTML = list.map(c => `
+      <div class="cand" data-cv="${c.user_id}" style="cursor:pointer;">
+        <div class="ch"><div class="avatar">${initials(c.full_name)}</div>
+          <div><div class="cn">${esc(c.full_name||'(unnamed)')}</div><div class="cl">${esc(designation(c))}</div></div></div>
+        ${c.about_me ? `<div style="font-size:11.5px;color:var(--sage);line-height:1.5;">${esc(c.about_me.slice(0,130))}${c.about_me.length>130?'…':''}</div>` : `<div style="font-size:11.5px;color:var(--sage);">No summary yet.</div>`}
+        <div class="tags" style="gap:5px;margin-top:10px;">
+          ${(c.sectors||[]).slice(0,3).map(s => `<span class="pill sector">${esc(s)}</span>`).join('')}
+          ${(c.skill_tags||[]).slice(0,2).map(s => `<span class="pill skill">${esc(s)}</span>`).join('')}
+        </div>
+      </div>`).join('');
+    grid.querySelectorAll('[data-cv]').forEach(el => el.onclick = () => openCvModal(+el.dataset.cv));
+  };
+  draw('');
+  document.getElementById('cvSearch').oninput = (e) => draw(e.target.value);
+}
+
+function openCvModal(userId) {
+  const c = candidatePool.find(x => x.user_id === userId);
+  if (!c) return;
+  const modal = document.getElementById('cvModal');
+  const workHtml = (c.work_experience||[]).map(w => `
+    <div class="repeat" style="margin-bottom:8px;">
+      <div style="font-weight:600;font-size:13px;">${esc(w.title||'—')}</div>
+      <div style="font-size:11.5px;color:var(--sage);">${esc(w.organization||'')}${w.location?' · '+esc(w.location):''} ${w.start_date||w.end_date?`· ${esc(w.start_date||'')}–${esc(w.end_date||'')}`:''}</div>
+      ${w.description?`<div style="font-size:12px;margin-top:5px;line-height:1.5;">${esc(w.description)}</div>`:''}
+    </div>`).join('') || '<div class="sub">None listed.</div>';
+  const eduHtml = (c.education||[]).map(e => `
+    <div style="font-size:12.5px;padding:5px 0;border-bottom:1px solid var(--line-soft);">
+      <b style="font-weight:600;">${esc(e.degree||'—')}</b> — ${esc(e.institution||'')} ${e.year?`(${esc(e.year)})`:''}</div>`).join('') || '<div class="sub">None listed.</div>';
+  const langHtml = (c.languages||[]).map(l => `<span class="pill">${esc(l.language||'')}${l.level?' · '+esc(l.level):''}</span>`).join(' ') || '<span class="sub">None listed.</span>';
+  modal.innerHTML = `
+    <div class="modal-backdrop" id="cvBack">
+      <div class="modal">
+        <div class="modal-head">
+          <div><div class="serif" style="font-size:18px;font-weight:600;">${esc(c.full_name||'(unnamed)')}</div>
+          <div style="font-size:12px;color:var(--sage);margin-top:2px;">${esc(designation(c))}${c.address?' · '+esc(c.address):''}${c.nationality?' · '+esc(c.nationality):''}</div></div>
+          <button class="lnk" id="cvClose">Close</button>
+        </div>
+        <div class="modal-body">
+          ${c.about_me?`<h2 style="font-size:14px;">About</h2><div style="font-size:13px;line-height:1.6;margin-bottom:16px;">${esc(c.about_me)}</div>`:''}
+          <h2 style="font-size:14px;">Work experience</h2>${workHtml}
+          <h2 style="font-size:14px;margin-top:16px;">Education</h2>${eduHtml}
+          <h2 style="font-size:14px;margin-top:16px;">Languages</h2><div class="tags" style="gap:6px;">${langHtml}</div>
+          ${c.digital_skills?`<h2 style="font-size:14px;margin-top:16px;">Digital skills</h2><div style="font-size:12.5px;">${esc(c.digital_skills)}</div>`:''}
+          ${c.other_skills?`<h2 style="font-size:14px;margin-top:16px;">Other skills</h2><div style="font-size:12.5px;">${esc(c.other_skills)}</div>`:''}
+          ${c.additional_info?`<h2 style="font-size:14px;margin-top:16px;">Additional</h2><div style="font-size:12.5px;">${esc(c.additional_info)}</div>`:''}
+          <h2 style="font-size:14px;margin-top:16px;">Tags</h2>
+          <div class="tags" style="gap:5px;">
+            ${(c.sectors||[]).map(s=>`<span class="pill sector">${esc(s)}</span>`).join('')}
+            ${(c.skill_tags||[]).map(s=>`<span class="pill skill">${esc(s)}</span>`).join('')}
+            ${(c.donor_tags||[]).map(s=>`<span class="pill donor">${esc(s)}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  const close = () => modal.innerHTML = '';
+  document.getElementById('cvClose').onclick = close;
+  document.getElementById('cvBack').onclick = (e) => { if (e.target.id === 'cvBack') close(); };
+}
+
+/* ===== SECTION 3: SORTING ===== */
+async function drawSortingSection() {
+  const body = document.getElementById('agentBody');
+  try { projects = await api('/projects'); } catch (e) { toast(e.message, true); }
+  if (!projects.length) { body.innerHTML = `<div class="empty"><div class="et">No projects to sort by</div>Create a project in the Projects section first.</div>`; return; }
+  body.innerHTML = `
+    <div class="card">
+      <div class="field"><label>Search projects</label><input id="sortSearch" placeholder="Type a project title…"></div>
+      <div class="field"><label>Select a project to rank candidates against</label>
+        <select id="sortSelect"></select>
+      </div>
+      <button class="btn" id="runSort">Rank candidates</button>
+    </div>
+    <div id="sortResults" style="margin-top:18px;"></div>`;
+  const fillSelect = (filter) => {
+    const f = (filter||'').toLowerCase();
+    const opts = projects.filter(p => !f || p.title.toLowerCase().includes(f));
+    const sel = document.getElementById('sortSelect');
+    sel.innerHTML = opts.map(p => `<option value="${p.id}">${esc(p.title)} — ${esc(p.client||'')}</option>`).join('') || `<option value="">No matching projects</option>`;
+    if (sortProjectId && opts.some(p => p.id === sortProjectId)) sel.value = sortProjectId;
+  };
+  fillSelect('');
+  document.getElementById('sortSearch').oninput = (e) => fillSelect(e.target.value);
+  document.getElementById('runSort').onclick = () => {
+    const sel = document.getElementById('sortSelect');
+    if (!sel.value) { toast('Pick a project first', true); return; }
+    sortProjectId = +sel.value;
+    loadSortResults(sortProjectId);
+  };
+  if (sortProjectId) { document.getElementById('sortSelect').value = sortProjectId; loadSortResults(sortProjectId); }
+}
+
+async function loadSortResults(projId) {
+  const area = document.getElementById('sortResults');
+  area.innerHTML = `<div class="empty"><span class="spinner"></span> Reading CVs and scoring against the requirement…</div>`;
   let data;
   try { data = await api('/projects/' + projId + '/shortlist'); }
   catch (e) { area.innerHTML = `<div class="empty">${esc(e.message)}</div>`; return; }
   const { project, ranked, mode } = data;
+  if (!ranked.length) { area.innerHTML = `<div class="empty"><div class="et">No candidates to rank</div>Once candidates build profiles, they'll be scored here.</div>`; return; }
   const strong = ranked.filter(r => r.total >= 50).length;
-
-  if (!ranked.length) { area.innerHTML = `<div class="empty"><div class="et">No candidates in the system yet</div>Once candidates register and build profiles, they'll be scored here.</div>`; return; }
-
   area.innerHTML = `
-    <h2 class="serif">Ranked shortlist · ${esc(project.title)}</h2>
+    <h2 class="serif">Ranked candidates · ${esc(project.title)}</h2>
     <div class="scorecard">
       <div class="stat"><div class="sv">${ranked.length}</div><div class="sl">candidates scored</div></div>
       <div class="stat"><div class="sv">${strong}</div><div class="sl">strong matches (50+)</div></div>
@@ -494,20 +660,4 @@ async function loadShortlist(projId) {
         ${Array.isArray(r.strengths) && r.strengths.length ? `<div class="match-row" style="margin-top:6px;"><b style="font-weight:600;">Strengths:</b> <span class="ok">${r.strengths.map(esc).join(', ')}</span></div>` : ''}
         ${Array.isArray(r.gaps) && r.gaps.length ? `<div class="match-row"><b style="font-weight:600;">Gaps:</b> <span style="color:var(--sage);">${r.gaps.map(esc).join(', ')}</span></div>` : ''}
       </div>`).join('')}`;
-}
-
-async function drawPoolTab() {
-  const body = document.getElementById('agentBody');
-  try { candidatePool = await api('/candidates'); } catch (e) { toast(e.message, true); }
-  if (!candidatePool.length) { body.innerHTML = `<div class="empty"><div class="et">No candidates yet</div>Candidates who register and build a profile will appear here.</div>`; return; }
-  body.innerHTML = `<div class="cand-grid">${candidatePool.map(c => `
-    <div class="cand">
-      <div class="ch"><div class="avatar">${initials(c.full_name)}</div><div><div class="cn">${esc(c.full_name||'(unnamed)')}</div><div class="cl">${esc(c.address||'—')}${c.nationality?' · '+esc(c.nationality):''}</div></div></div>
-      <div class="tags" style="gap:5px;">
-        ${c.sectors.slice(0,3).map(s => `<span class="pill sector">${esc(s)}</span>`).join('')}
-        ${c.skill_tags.slice(0,3).map(s => `<span class="pill skill">${esc(s)}</span>`).join('')}
-        ${c.donor_tags.slice(0,2).map(s => `<span class="pill donor">${esc(s)}</span>`).join('')}
-      </div>
-      ${c.about_me ? `<div style="font-size:11.5px;color:var(--sage);margin-top:10px;line-height:1.5;">${esc(c.about_me.slice(0,140))}${c.about_me.length>140?'…':''}</div>` : ''}
-    </div>`).join('')}</div>`;
 }
