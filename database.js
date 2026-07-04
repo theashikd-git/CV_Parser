@@ -1,5 +1,6 @@
 // Tiny zero-dependency persistence layer.
 // Stores all data in db/vantage.json and writes on every change.
+// Project requirement files (PDF/DOCX/txt) are stored as real files in db/project_files/.
 // No native compilation, installs and runs on any machine with Node.
 
 const fs = require('fs');
@@ -7,8 +8,10 @@ const path = require('path');
 
 const DB_DIR = path.join(__dirname, 'db');
 const DB_FILE = path.join(DB_DIR, 'vantage.json');
+const FILES_DIR = path.join(DB_DIR, 'project_files');
 
 if (!fs.existsSync(DB_DIR)) fs.mkdirSync(DB_DIR, { recursive: true });
+if (!fs.existsSync(FILES_DIR)) fs.mkdirSync(FILES_DIR, { recursive: true });
 
 let data;
 function load() {
@@ -17,7 +20,6 @@ function load() {
   } catch {
     data = { users: [], profiles: [], projects: [], seq: { users: 0, projects: 0 } };
   }
-  // ensure shape
   data.users ||= [];
   data.profiles ||= [];
   data.projects ||= [];
@@ -87,9 +89,34 @@ const store = {
     return data.projects.find(p => p.id === id && p.agent_id === agent_id) || null;
   },
   deleteProject(id, agent_id) {
-    const before = data.projects.length;
+    const proj = data.projects.find(p => p.id === id && p.agent_id === agent_id);
+    if (!proj) return;
+    if (proj.file_stored) {
+      const fp = path.join(FILES_DIR, proj.file_stored);
+      try { if (fs.existsSync(fp)) fs.unlinkSync(fp); } catch {}
+    }
     data.projects = data.projects.filter(p => !(p.id === id && p.agent_id === agent_id));
-    if (data.projects.length !== before) persist();
+    persist();
+  },
+
+  /* project files (the original uploaded requirement document) */
+  saveProjectFile(projectId, base64Data, originalName, mimeType) {
+    const ext = (originalName.split('.').pop() || 'bin').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const stored = `project_${projectId}.${ext}`;
+    fs.writeFileSync(path.join(FILES_DIR, stored), Buffer.from(base64Data, 'base64'));
+    const proj = data.projects.find(p => p.id === projectId);
+    if (proj) {
+      proj.file_stored = stored;
+      proj.file_name = originalName;
+      proj.file_mime = mimeType || '';
+      persist();
+    }
+    return stored;
+  },
+  getProjectFilePath(stored) {
+    if (!stored) return null;
+    const fp = path.join(FILES_DIR, stored);
+    return fs.existsSync(fp) ? fp : null;
   }
 };
 
