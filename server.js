@@ -269,6 +269,16 @@ app.get('/api/projects/:id/shortlist', requireAuth('agent'), async (req, res) =>
 
   const requirement = proj.notes || proj.title;
 
+  // Build a fingerprint of the inputs. If it matches the cached one, reuse the saved ranking
+  // instead of calling the AI again (saves API calls, time, and memory churn).
+  const fingerprint = makeFingerprint(proj, candidates);
+  if (req.query.refresh !== '1') {
+    const cached = store.getShortlistCache(proj.id);
+    if (cached && cached.fingerprint === fingerprint) {
+      return res.json({ ...cached.result, cached: true, cachedAt: cached.cachedAt });
+    }
+  }
+
   // Try AI scoring first.
   if (ai) {
     try {
@@ -319,7 +329,9 @@ Return a JSON array, one object per candidate, each with: index (the CANDIDATE n
           gaps: s.gaps || []
         };
       }).sort((a, b) => b.total - a.total);
-      return res.json({ project: proj, ranked, mode: 'ai' });
+      const result = { project: proj, ranked, mode: 'ai' };
+      store.saveShortlistCache(proj.id, fingerprint, result);
+      return res.json({ ...result, cached: false });
     } catch (err) {
       console.error('AI shortlist error, falling back to keyword scoring:', err.message);
       // fall through to keyword fallback
@@ -331,8 +343,29 @@ Return a JSON array, one object per candidate, each with: index (the CANDIDATE n
     const s = keywordScore(c, requirement);
     return { candidate: publicCand(c), total: s.total, reasoning: '', strengths: s.strengths, gaps: s.gaps };
   }).sort((a, b) => b.total - a.total);
-  res.json({ project: proj, ranked, mode: 'fallback' });
+  const result = { project: proj, ranked, mode: 'fallback' };
+  store.saveShortlistCache(proj.id, fingerprint, result);
+  res.json({ ...result, cached: false });
 });
+
+// Fingerprint = project fields that affect matching + a signature of every candidate profile.
+// Any edit to the project or to any candidate changes this string, so the cache auto-invalidates.
+function makeFingerprint(proj, candidates) {
+  const projPart = [proj.title, proj.client, proj.location, proj.notes].join('|');
+  const candPart = candidates
+    .map(c => `${c.user_id}:${c.updated_at || ''}`)
+    .sort()
+    .join(',');
+  return simpleHash(projPart + '||' + candPart);
+}
+function simpleHash(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    h = (h << 5) - h + str.charCodeAt(i);
+    h |= 0;
+  }
+  return String(h);
+}
 
 function publicCand(c) {
   return {
