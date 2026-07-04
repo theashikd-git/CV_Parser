@@ -626,22 +626,30 @@ async function drawSortingSection() {
   if (sortProjectId) { document.getElementById('sortSelect').value = sortProjectId; loadSortResults(sortProjectId); }
 }
 
-async function loadSortResults(projId) {
+async function loadSortResults(projId, forceRefresh) {
   const area = document.getElementById('sortResults');
-  area.innerHTML = `<div class="empty"><span class="spinner"></span> Reading CVs and scoring against the requirement…</div>`;
+  area.innerHTML = `<div class="empty"><span class="spinner"></span> ${forceRefresh ? 'Re-ranking from scratch…' : 'Loading ranking…'}</div>`;
   let data;
-  try { data = await api('/projects/' + projId + '/shortlist'); }
+  try { data = await api('/projects/' + projId + '/shortlist' + (forceRefresh ? '?refresh=1' : '')); }
   catch (e) { area.innerHTML = `<div class="empty">${esc(e.message)}</div>`; return; }
-  const { project, ranked, mode } = data;
+  const { project, ranked, mode, cached, cachedAt } = data;
   if (!ranked.length) { area.innerHTML = `<div class="empty"><div class="et">No candidates to rank</div>Once candidates build profiles, they'll be scored here.</div>`; return; }
   const strong = ranked.filter(r => r.total >= 50).length;
+  const when = cachedAt ? new Date(cachedAt).toLocaleString() : '';
   area.innerHTML = `
-    <h2 class="serif">Ranked candidates · ${esc(project.title)}</h2>
-    <div class="scorecard">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <h2 class="serif" style="margin:0;">Ranked candidates · ${esc(project.title)}</h2>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="mono" style="font-size:11px;color:var(--sage);">${cached ? 'saved result' + (when ? ' · ' + esc(when) : '') : 'freshly ranked'}</span>
+        <button class="btn ghost sm" id="rerankBtn">Re-rank</button>
+      </div>
+    </div>
+    <div class="scorecard" style="margin-top:14px;">
       <div class="stat"><div class="sv">${ranked.length}</div><div class="sl">candidates scored</div></div>
       <div class="stat"><div class="sv">${strong}</div><div class="sl">strong matches (50+)</div></div>
       <div class="stat"><div class="sv">~${ranked.length} min</div><div class="sl">manual screening saved</div></div>
     </div>
+    ${cached ? `<div class="sub" style="margin:-4px 0 16px;color:var(--sage);">Reused a saved ranking — nothing changed since last time, so no new AI scoring was run. Click Re-rank to force a fresh scoring.</div>` : ''}
     ${mode === 'fallback' ? `<div class="sub" style="margin:-8px 0 16px;color:var(--bad);">AI scoring unavailable (no Gemini key or quota) — showing a basic keyword-based ranking instead.</div>` : ''}
     ${ranked.map((r, i) => `
       <div class="rank-card ${i===0&&r.total>0?'top':''}">
@@ -660,4 +668,6 @@ async function loadSortResults(projId) {
         ${Array.isArray(r.strengths) && r.strengths.length ? `<div class="match-row" style="margin-top:6px;"><b style="font-weight:600;">Strengths:</b> <span class="ok">${r.strengths.map(esc).join(', ')}</span></div>` : ''}
         ${Array.isArray(r.gaps) && r.gaps.length ? `<div class="match-row"><b style="font-weight:600;">Gaps:</b> <span style="color:var(--sage);">${r.gaps.map(esc).join(', ')}</span></div>` : ''}
       </div>`).join('')}`;
+  const rb = document.getElementById('rerankBtn');
+  if (rb) rb.onclick = () => loadSortResults(projId, true);
 }
