@@ -13,6 +13,13 @@
       "password_hash": "$2a$10$.30XouDbLyNQ9pt1YKq7A.fKy/ha3GTC/YW9TGkfYT6xHH1Eg8VUa",
       "role": "agent",
       "created_at": "2026-07-04T08:03:31.548Z"
+    },
+    {
+      "id": 3,
+      "email": "c1@gmail.com",
+      "password_hash": "$2a$10$DZl4N9hflWYlGUpA3PCKMuoPQRVf9Mkm9/nV44xVqxk/G7kH0RLH2",
+      "role": "candidate",
+      "created_at": "2026-07-04T11:44:04.572Z"
     }
   ],
   "profiles": [
@@ -93,6 +100,75 @@
       "additional_info": "",
       "cv_filename": "",
       "updated_at": "2026-07-04T08:03:18.057Z"
+    },
+    {
+      "user_id": 3,
+      "full_name": "Md. Humayun Kobir",
+      "email": "hunayun603773@gmail.com",
+      "phone": "+880 1751 - 192449",
+      "address": "House #263, Satarkul Road, Uttar Badda, Dhaka",
+      "nationality": "Bangladeshi",
+      "date_of_birth": "",
+      "about_me": "A dynamic and achievement-oriented Civil Engineering professional with over 7 years of hands-on experience in project management, site supervision, construction execution, and quality assurance. Proven ability to deliver infrastructure, commercial, and residential projects on time and within budget. Skilled in team leadership, vendor coordination, risk management, and ATS-compliant reporting. Seeking a Probationary Officer or Management Trainee role to leverage technical expertise, strategic planning, and operational excellence in a growth-oriented organization. Strong administration, organizing, and time management skills with the ability to work under pressure and handle confidential matters. Always ready to learn new technologies; a strong team player with solid analytical reasoning and problem-solving skills. Self-motivated, assertive, and possessing excellent communication skills with a positive, balanced, and professional demeanor. A smart, young, energetic, and dynamic self-starter with an outgoing personality and strong interpersonal skills, capable of working independently at a high pace.",
+      "work_experience": [
+        {
+          "description": "Supervised daily construction activities ensuring alignment with project timelines and milestones. Monitored site compliance with technical drawings, safety standards, and quality specifications. Maintained work schedules based on BOQ and coordinated with subcontractors to resolve issues. Controlled project budgets and certified bills for labor, contractors, and material suppliers. Prepared daily and weekly progress reports for senior management and stakeholder review. Managed material procurement and liaised with supply chain teams to prevent delays.",
+          "end_date": "Present",
+          "location": "Dhaka, Bangladesh",
+          "organization": "ABM Water Company Ltd.",
+          "start_date": "March 2021",
+          "title": "Assistant Project Engineer (Civil)"
+        },
+        {
+          "description": "Developed and maintained civil layout plans for refugee camp construction projects. Ensured work progressed per Master Project Schedule and BOQ specifications. Supervised skilled mason and labor teams to maintain productivity and safety compliance. Certified vendor and contractor bills while managing daily site activity reporting. Coordinated material requisitions with supply chain to support uninterrupted construction.",
+          "end_date": "February 2021",
+          "location": "Ukhia, Cox’s Bazar",
+          "organization": "Infinity Construction",
+          "start_date": "February 2019",
+          "title": "Assistant Project Engineer (Civil)"
+        },
+        {
+          "description": "Oversaw civil layout engineering and installation for multi-story building projects. Monitored contractor performance and certified completion-based billing accurately. Executed structural works including piling, foundations, RCC, and finishing systems. Managed onsite activities for water tanks, retaining walls, slabs, beams, and sanitary works.",
+          "end_date": "January 2019",
+          "location": "Dhaka, Bangladesh",
+          "organization": "S.M.A Engineering",
+          "start_date": "December 2016",
+          "title": "Site Engineer (Civil)"
+        }
+      ],
+      "education": [
+        {
+          "degree": "Diploma in Engineering, Civil Technology",
+          "institution": "Dinajpur Polytechnic Institute",
+          "year": "2016"
+        },
+        {
+          "degree": "Secondary School Certificate (SSC), Science",
+          "institution": "Binod-Nogor High School",
+          "year": "2012"
+        }
+      ],
+      "languages": [
+        {
+          "language": "Bengali",
+          "level": "Native"
+        },
+        {
+          "language": "English",
+          "level": "C1"
+        }
+      ],
+      "digital_skills": "Proficient in Project Management Tools (AutoCAD 2D & 3D, MS Project, Microsoft Word, Excel) and Construction Software (AutoCAD Civil 3D, MS Office Suite, Estimating Software).",
+      "other_skills": "",
+      "sectors": [],
+      "skill_tags": [
+        "Procurement",
+        "R"
+      ],
+      "donor_tags": [],
+      "additional_info": "",
+      "cv_filename": "",
+      "updated_at": "2026-07-04T11:44:44.714Z"
     }
   ],
   "projects": [
@@ -111,12 +187,12 @@
     }
   ],
   "seq": {
-    "users": 2,
+    "users": 3,
     "projects": 1
   },
   "shortlistCache": {
     "1": {
-      "fingerprint": "297555773",
+      "fingerprint": "-194782609",
       "result": {
         "project": {
           "id": 1,
@@ -132,6 +208,45 @@
           "donor_tags": []
         },
         "ranked": [
+          {
+            "candidate": {
+              "full_name": "Md. Humayun Kobir",
+              "address": "House #263, Satarkul Road, Uttar Badda, Dhaka",
+              "nationality": "Bangladeshi",
+              "about_me": "A dynamic and achievement-oriented Civil Engineering professional with over 7 years of hands-on experience in project management, site supervision, construction execution, and quality assurance. Proven ability to deliver infrastructure, commercial, and residential projects on time and within budget. Skilled in team leadership, vendor coordination, risk management, and ATS-compliant reporting. Seeking a Probationary Officer or Management Trainee role to leverage technical expertise, strategic planning, and operational excellence in a growth-oriented organization. Strong administration, organizing, and time management skills with the ability to work under pressure and handle confidential matters. Always ready to learn new technologies; a strong team player with solid analytical reasoning and problem-solving skills. Self-motivated, assertive, and possessing excellent communication skills with a positive, balanced, and professional demeanor. A smart, young, energetic, and dynamic self-starter with an outgoing personality and strong interpersonal skills, capable of working independently at a high pace.",
+              "sectors": [],
+              "skill_tags": [
+                "Procurement",
+                "R"
+              ],
+              "donor_tags": [],
+              "languages": [
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "C1"
+                }
+              ],
+              "cv_filename": ""
+            },
+            "total": 55,
+            "reasoning": "Md. Humayun Kobir has 7.5 years of solid experience in civil engineering project management and site supervision in Bangladesh, including multi-story buildings, providing a strong technical foundation to understand tender requirements. However, his experience is primarily with private firms, not explicitly with Government of Bangladesh projects, and he lacks the senior-level strategic or financial expertise needed for a high-level consultancy role, as well as any indication of international experience required for the UK location.",
+            "strengths": [
+              "Substantial (7.5 years) experience in project management, site supervision, and construction execution",
+              "Experience includes structural works and multi-story building projects",
+              "Strong technical background with digital skills in project management and estimating software",
+              "Experience in budget control and bill certification for labor, contractors, and material suppliers"
+            ],
+            "gaps": [
+              "Experience not explicitly with Government of Bangladesh (GOB) or semi-GOB projects of the specified scale",
+              "Lacks senior-level expertise or strategic/financial understanding of large tenders (e.g., assessing contractor turnover, liquid assets)",
+              "Total experience (7.5 years) is still below the 10 years general experience benchmark for contractors",
+              "No international experience or stated ability to work in the UK"
+            ]
+          },
           {
             "candidate": {
               "full_name": "MD RIADDUZZAMAN",
@@ -153,25 +268,25 @@
               "cv_filename": ""
             },
             "total": 25,
-            "reasoning": "MD RIADDUZZAMAN's 'over 3 years' of experience is substantially less than the 10 years required for the assignment. While he has relevant hands-on supervision and quality control experience in residential/commercial construction and exposure to government projects through an LGED internship, he lacks demonstrated experience with projects of the required scale and value for a government client. His current roles are at a junior level, which does not align with the seniority implied by the project requirements.",
+            "reasoning": "MD RIADDUZZAMAN is too junior with only 3 years of experience for a consultancy role advising on large GOB tenders, especially with a World Bank client. While he has exposure to GOB through an LGED internship, his primary experience is with a private developer, and he lacks the deep understanding of GOB tender specifics or the financial aspects required for contractor evaluation. His resume also contains confusing dates regarding his current employment.",
             "strengths": [
-              "Experience in high-rise residential and commercial construction",
-              "Hands-on project supervision, quality control, and contractor coordination",
-              "Familiarity with Bangladeshi government entity processes (LGED internship)",
-              "Knowledge of BOQ and tender evaluation processes"
+              "Exposure to Government of Bangladesh (GOB) through LGED internship",
+              "Basic understanding of tender evaluation processes",
+              "Direct experience with high-rise residential construction technical aspects",
+              "Experience in site supervision and quality control"
             ],
             "gaps": [
-              "Total experience significantly less than 10 years required",
-              "No proven experience on a 4-storied RCC building project for a Government/semi-government client of specified value (Tk.1100 Lakh)",
-              "Junior-level experience, not senior enough for a consultancy on this scale",
-              "No explicit World Bank project experience",
-              "Confusing and future-dated work experience timeline"
+              "Limited overall professional experience (3 years)",
+              "Primary experience not explicitly with Government of Bangladesh (GOB) projects, except for an internship",
+              "Insufficient financial evaluation knowledge for large tenders (e.g., turnover, liquid assets)",
+              "No international experience or stated ability to work in the UK",
+              "Confusing dates in work history (current role listed as starting in 2026)"
             ]
           }
         ],
         "mode": "ai"
       },
-      "cachedAt": "2026-07-04T11:15:01.696Z"
+      "cachedAt": "2026-07-04T11:45:48.792Z"
     }
   }
 }
