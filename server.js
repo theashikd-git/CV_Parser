@@ -9,7 +9,7 @@ const { SECTORS, SKILLS, DONORS } = require('./taxonomy');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ limit: '15mb' }));
+app.use(express.json({ limit: '30mb' }));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'change-this-secret-in-production',
   resave: false,
@@ -122,8 +122,9 @@ if (process.env.GEMINI_API_KEY) {
 
 app.post('/api/parse-cv', requireAuth('candidate'), async (req, res) => {
   if (!ai) return res.status(503).json({ error: 'CV auto-fill is not configured (no GEMINI_API_KEY set). Fill the form manually instead.' });
-  const { cvText } = req.body || {};
-  if (!cvText || !cvText.trim()) return res.status(400).json({ error: 'No text supplied.' });
+  const { cvText, images } = req.body || {};
+  const hasImages = Array.isArray(images) && images.length > 0;
+  if ((!cvText || !cvText.trim()) && !hasImages) return res.status(400).json({ error: 'No text or images supplied.' });
 
   const { Type } = require('@google/genai');
   const schema = {
@@ -171,10 +172,20 @@ SKILLS: ${SKILLS.join(', ')}
 DONORS: ${DONORS.join(', ')}
 For languages, use CEFR levels (A1-C2) or "Native" when you can infer them. Do not invent content not supported by the CV.`;
 
+  // Build the request: either the extracted text, or the scanned page images (Gemini reads them via OCR).
+  let contents;
+  if (hasImages) {
+    const parts = [{ text: instructions + '\n\nThe CV is provided as scanned page image(s). Read the text from the images and extract the fields.' }];
+    images.slice(0, 5).forEach(b64 => parts.push({ inlineData: { mimeType: 'image/png', data: b64 } }));
+    contents = [{ role: 'user', parts }];
+  } else {
+    contents = `${instructions}\n\nCV text:\n"""\n${cvText.slice(0, 14000)}\n"""`;
+  }
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
-      contents: `${instructions}\n\nCV text:\n"""\n${cvText.slice(0, 14000)}\n"""`,
+      contents,
       config: { responseMimeType: 'application/json', responseSchema: schema }
     });
     const parsed = JSON.parse(response.text);
@@ -195,8 +206,9 @@ For languages, use CEFR levels (A1-C2) or "Native" when you can infer them. Do n
 
 /* ---------- parse project document (agent) ---------- */
 app.post('/api/parse-project', requireAuth('agent'), async (req, res) => {
-  const { docText } = req.body || {};
-  if (!docText || !docText.trim()) return res.status(400).json({ error: 'No text supplied.' });
+  const { docText, images } = req.body || {};
+  const hasImages = Array.isArray(images) && images.length > 0;
+  if ((!docText || !docText.trim()) && !hasImages) return res.status(400).json({ error: 'No text or images supplied.' });
   if (!ai) return res.status(503).json({ error: 'no Gemini key set' });
 
   const { Type } = require('@google/genai');
@@ -206,7 +218,8 @@ app.post('/api/parse-project', requireAuth('agent'), async (req, res) => {
       title: { type: Type.STRING, nullable: true },
       client: { type: Type.STRING, nullable: true },
       duration: { type: Type.STRING, nullable: true },
-      location: { type: Type.STRING, nullable: true }
+      location: { type: Type.STRING, nullable: true },
+      requirement_text: { type: Type.STRING, nullable: true }
     }
   };
   const instructions = `You are reading a consultancy project document / Terms of Reference (ToR). Extract these fields if present:
@@ -214,12 +227,22 @@ app.post('/api/parse-project', requireAuth('agent'), async (req, res) => {
 - client: the funding or contracting organisation (e.g. "World Bank", "ADB", a government ministry)
 - duration: the assignment length or level of effort (e.g. "8 months", "120 working days")
 - location: the country or region of the assignment (e.g. "East Africa", "Kenya")
+- requirement_text: a clean plain-text version of the full requirement / scope of work from the document (only fill this when reading from images; otherwise you may leave it null)
 Use null for anything not clearly stated. Do not guess wildly.`;
+
+  let contents;
+  if (hasImages) {
+    const parts = [{ text: instructions + '\n\nThe document is provided as scanned page image(s). Read the text from the images and extract the fields, including requirement_text.' }];
+    images.slice(0, 5).forEach(b64 => parts.push({ inlineData: { mimeType: 'image/png', data: b64 } }));
+    contents = [{ role: 'user', parts }];
+  } else {
+    contents = `${instructions}\n\nDocument:\n"""\n${docText.slice(0, 14000)}\n"""`;
+  }
 
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
-      contents: `${instructions}\n\nDocument:\n"""\n${docText.slice(0, 14000)}\n"""`,
+      contents,
       config: { responseMimeType: 'application/json', responseSchema: schema }
     });
     res.json({ parsed: JSON.parse(response.text) });
