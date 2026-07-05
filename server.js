@@ -193,6 +193,42 @@ For languages, use CEFR levels (A1-C2) or "Native" when you can infer them. Do n
   }
 });
 
+/* ---------- parse project document (agent) ---------- */
+app.post('/api/parse-project', requireAuth('agent'), async (req, res) => {
+  const { docText } = req.body || {};
+  if (!docText || !docText.trim()) return res.status(400).json({ error: 'No text supplied.' });
+  if (!ai) return res.status(503).json({ error: 'no Gemini key set' });
+
+  const { Type } = require('@google/genai');
+  const schema = {
+    type: Type.OBJECT,
+    properties: {
+      title: { type: Type.STRING, nullable: true },
+      client: { type: Type.STRING, nullable: true },
+      duration: { type: Type.STRING, nullable: true },
+      location: { type: Type.STRING, nullable: true }
+    }
+  };
+  const instructions = `You are reading a consultancy project document / Terms of Reference (ToR). Extract these fields if present:
+- title: the role or assignment title (e.g. "Tax Reform Team Leader"), NOT the whole document heading
+- client: the funding or contracting organisation (e.g. "World Bank", "ADB", a government ministry)
+- duration: the assignment length or level of effort (e.g. "8 months", "120 working days")
+- location: the country or region of the assignment (e.g. "East Africa", "Kenya")
+Use null for anything not clearly stated. Do not guess wildly.`;
+
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: `${instructions}\n\nDocument:\n"""\n${docText.slice(0, 14000)}\n"""`,
+      config: { responseMimeType: 'application/json', responseSchema: schema }
+    });
+    res.json({ parsed: JSON.parse(response.text) });
+  } catch (err) {
+    console.error('parse-project error:', err);
+    res.status(500).json({ error: err.message || 'Parsing failed.' });
+  }
+});
+
 /* ---------- projects (agent) ---------- */
 app.get('/api/projects', requireAuth('agent'), (req, res) => {
   res.json(store.projectsByAgent(req.session.userId));
