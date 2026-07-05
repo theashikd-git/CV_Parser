@@ -553,19 +553,21 @@ function openProjectModal(id) {
   if (!p) return;
   const modal = document.getElementById('projectModal');
   const fileView = p.file_stored
-    ? `<iframe src="/api/projects/${p.id}/file" style="width:100%;height:60vh;border:1px solid var(--line);border-radius:8px;"></iframe>
-       <div style="margin-top:8px;"><a class="btn ghost sm" href="/api/projects/${p.id}/file" target="_blank">Open document in new tab</a></div>`
+    ? `<iframe src="/api/projects/${p.id}/file#view=FitH&toolbar=1" style="width:100%;height:78vh;border:1px solid var(--line);border-radius:8px;background:#fff;"></iframe>
+       <div style="margin-top:10px;"><a class="btn ghost sm" href="/api/projects/${p.id}/file" target="_blank">Open document in a new tab</a></div>`
     : `<div class="empty">No document was uploaded for this project.</div>`;
   modal.innerHTML = `
     <div class="modal-backdrop" id="mBack">
-      <div class="modal">
+      <div class="modal modal-wide">
         <div class="modal-head">
           <div><div class="serif" style="font-size:18px;font-weight:600;">${esc(p.title)}</div>
           <div style="font-size:12px;color:var(--sage);margin-top:2px;">${esc(p.client||'—')} · ${esc(p.duration||'—')}${p.location?' · '+esc(p.location):''}</div></div>
           <button class="lnk" id="mClose">Close</button>
         </div>
         <div class="modal-body">
-          <h2 style="font-size:14px;">Original document</h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <h2 style="font-size:14px;margin:0;">Original document</h2>
+          </div>
           ${fileView}
           <h2 style="font-size:14px;margin-top:20px;">Requirement text</h2>
           <div style="font-size:13px;line-height:1.6;white-space:pre-wrap;color:var(--ink);">${esc(p.notes||'—')}</div>
@@ -626,16 +628,25 @@ async function drawCvsSection() {
           ${(c.skill_tags||[]).slice(0,2).map(s => `<span class="pill skill">${esc(s)}</span>`).join('')}
         </div>
       </div>`).join('');
-    grid.querySelectorAll('[data-cv]').forEach(el => el.onclick = () => openCvModal(+el.dataset.cv));
+    grid.querySelectorAll('[data-cv]').forEach(el => el.onclick = () => openCvModalByUserId(+el.dataset.cv));
   };
   draw('');
   document.getElementById('cvSearch').oninput = (e) => draw(e.target.value);
 }
 
-function openCvModal(userId) {
+function openCvModalByUserId(userId) {
   const c = candidatePool.find(x => x.user_id === userId);
-  if (!c) return;
-  const modal = document.getElementById('cvModal');
+  if (c) renderCvModal(c);
+}
+
+function renderCvModal(c) {
+  // Ensure a modal container exists even when called from the Sorting section.
+  let modal = document.getElementById('cvModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'cvModal';
+    document.body.appendChild(modal);
+  }
   const workHtml = (c.work_experience||[]).map(w => `
     <div class="repeat" style="margin-bottom:8px;">
       <div style="font-weight:600;font-size:13px;">${esc(w.title||'—')}</div>
@@ -646,6 +657,7 @@ function openCvModal(userId) {
     <div style="font-size:12.5px;padding:5px 0;border-bottom:1px solid var(--line-soft);">
       <b style="font-weight:600;">${esc(e.degree||'—')}</b> — ${esc(e.institution||'')} ${e.year?`(${esc(e.year)})`:''}</div>`).join('') || '<div class="sub">None listed.</div>';
   const langHtml = (c.languages||[]).map(l => `<span class="pill">${esc(l.language||'')}${l.level?' · '+esc(l.level):''}</span>`).join(' ') || '<span class="sub">None listed.</span>';
+  const contactBits = [c.email, c.phone].filter(Boolean).map(esc).join(' · ');
   modal.innerHTML = `
     <div class="modal-backdrop" id="cvBack">
       <div class="modal">
@@ -655,6 +667,7 @@ function openCvModal(userId) {
           <button class="lnk" id="cvClose">Close</button>
         </div>
         <div class="modal-body">
+          ${contactBits?`<div style="font-size:12px;color:var(--sage);margin-bottom:14px;">${contactBits}</div>`:''}
           ${c.about_me?`<h2 style="font-size:14px;">About</h2><div style="font-size:13px;line-height:1.6;margin-bottom:16px;">${esc(c.about_me)}</div>`:''}
           <h2 style="font-size:14px;">Work experience</h2>${workHtml}
           <h2 style="font-size:14px;margin-top:16px;">Education</h2>${eduHtml}
@@ -734,7 +747,7 @@ async function loadSortResults(projId, forceRefresh) {
     ${cached ? `<div class="sub" style="margin:-4px 0 16px;color:var(--sage);">Reused a saved ranking — nothing changed since last time, so no new AI scoring was run. Click Re-rank to force a fresh scoring.</div>` : ''}
     ${mode === 'fallback' ? `<div class="sub" style="margin:-8px 0 16px;color:var(--bad);">AI scoring unavailable (no Gemini key or quota) — showing a basic keyword-based ranking instead.</div>` : ''}
     ${ranked.map((r, i) => `
-      <div class="rank-card ${i===0&&r.total>0?'top':''}">
+      <div class="rank-card ${i===0&&r.total>0?'top':''}" data-rank="${i}" style="cursor:pointer;">
         <div class="rank-top">
           <div style="display:flex;gap:12px;">
             <div class="rank-badge">${i+1}</div>
@@ -743,13 +756,20 @@ async function loadSortResults(projId, forceRefresh) {
               <div style="font-size:11.5px;color:var(--sage);margin-top:1px;">${esc(r.candidate.address||'—')}${r.candidate.nationality?' · '+esc(r.candidate.nationality):''}</div>
             </div>
           </div>
-          <div class="score">${r.total}<span class="lbl">fit</span></div>
+          <div style="text-align:right;">
+            <div class="score">${r.total}<span class="lbl">fit</span></div>
+            <div class="mono" style="font-size:10px;color:var(--terracotta);margin-top:2px;">view full CV →</div>
+          </div>
         </div>
         <div class="bar"><div class="bar-fill" style="width:${r.total}%;"></div></div>
         ${r.reasoning ? `<div class="match-row" style="color:var(--ink);">${esc(r.reasoning)}</div>` : ''}
         ${Array.isArray(r.strengths) && r.strengths.length ? `<div class="match-row" style="margin-top:6px;"><b style="font-weight:600;">Strengths:</b> <span class="ok">${r.strengths.map(esc).join(', ')}</span></div>` : ''}
         ${Array.isArray(r.gaps) && r.gaps.length ? `<div class="match-row"><b style="font-weight:600;">Gaps:</b> <span style="color:var(--sage);">${r.gaps.map(esc).join(', ')}</span></div>` : ''}
       </div>`).join('')}`;
+  // Clicking a ranked candidate opens their full CV.
+  document.querySelectorAll('#sortResults [data-rank]').forEach(card => {
+    card.onclick = () => renderCvModal(ranked[+card.dataset.rank].candidate);
+  });
   const rb = document.getElementById('rerankBtn');
   if (rb) rb.onclick = () => loadSortResults(projId, true);
 }
