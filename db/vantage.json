@@ -20,6 +20,13 @@
       "password_hash": "$2a$10$DZl4N9hflWYlGUpA3PCKMuoPQRVf9Mkm9/nV44xVqxk/G7kH0RLH2",
       "role": "candidate",
       "created_at": "2026-07-04T11:44:04.572Z"
+    },
+    {
+      "id": 4,
+      "email": "c2@gmail.com",
+      "password_hash": "$2a$10$uZOcygJ5e7K4uaHUl0TTv.uHgojS95R7uuxkyw2qNiKlNQUJrgbQq",
+      "role": "candidate",
+      "created_at": "2026-07-04T15:35:21.387Z"
     }
   ],
   "profiles": [
@@ -169,6 +176,164 @@
       "additional_info": "",
       "cv_filename": "",
       "updated_at": "2026-07-04T11:44:44.714Z"
+    },
+    {
+      "user_id": 4,
+      "full_name": "A K M Momtaz Uddin",
+      "email": "c2@gmail.com",
+      "phone": "",
+      "address": "",
+      "nationality": "Bangladeshi",
+      "date_of_birth": "",
+      "about_me": "Deputy Team Leader / Senior Hydrologist /River Training Specialist",
+      "work_experience": [
+        {
+          "description": null,
+          "end_date": null,
+          "location": null,
+          "organization": "BCL Associates Limited",
+          "start_date": "Oct 2018",
+          "title": "Manager - Water Resources, Drainage & Hydrology"
+        },
+        {
+          "description": "Responsible for review of hydrological report, collection of all available hydrological, morphological and climatic data, planning and executing hydrological and navigational survey, analysis of data for local requirement of drainage opening, analysing and determining flood levels, bed scour, bank movement, review of design of all river bank/ slope protection works and preparing specification of works. The Sylhet area also experiences very intensive rainfall (the highest in Bangladesh). Therefore, the Consultant has carefully analysed the rainfall intensity records in the area to identify the hydrological requirements of the bridges and culverts. In total, There are 10 major bridges, length varying from 80 metres to 830 metres and 53 minor bridges, length varying from 22 metres to 78 metres and also 309 culverts for smooth drainage that the consultant has monitored.",
+          "end_date": "Feb 2020",
+          "location": "Dhaka - Sylhet, Bangladesh",
+          "organization": "BCL Associates Limited",
+          "start_date": "Sep 2019",
+          "title": "Senior Hydrologist (Reviewing and Updating Designs of Highway, Bridge, Flyover, Interchange and other Road Infrastructure)"
+        },
+        {
+          "description": "Responsible for hydrological investigation, survey, collection and analysing of hydrological data to determining flood levels, bed scour, bank movement, and preparing report on upgrading of the highway into 4 - lane expressway including other appurtenant structures.",
+          "end_date": "Jun 2020",
+          "location": "Gabtoli - Savar - Nabinagar in Bangladesh",
+          "organization": "BCL Associates Limited",
+          "start_date": "Sep 2019",
+          "title": "Senior Hydrologist (PPP Transaction Advisory Services for Upgrading of Gabtoli - Savar - Nabinagar)"
+        },
+        {
+          "description": "Responsible for - Review of hydrological report prepared by CEGIS. Recommendation of design standard high water level, low water level and navigational requirement for design of highway geometry as well as cross drainage structures along the roads based on the model generated data, public opinion and frequency analysis of BWDB data; Design of river training works to protect the foundation of bridges; Detail design of road side drain and outfall structures and configuration of bridges and box culverts along the roads.",
+          "end_date": "Aug 2019",
+          "location": "Bangladesh",
+          "organization": "BCL Associates Limited",
+          "start_date": "Dec 2018",
+          "title": "Sr Hydrologist/ River Training Specialist (Additional Financing to the Subregional Transport Project)"
+        },
+        {
+          "description": "Supervising and providing technical guidance to the Additional Director Generals of the Board and providing administrative decision to the projects, Coordination to the Ministry of Water Resources and Planning Commission. Responsible for providing support, managing and control of national projects all over Bangladesh funded by WB/ADB/JICA/GoB, policy making and administration of the department, Coordination to the Ministry of Water Resources and Planning Commission.",
+          "end_date": "Jan 2018",
+          "location": "Dhaka, Bangladesh",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Nov 2017",
+          "title": "Director General"
+        },
+        {
+          "description": "Technical support, guidance and control of projects under Eastern Region. Responsible for providing support, guidance, managing and controlling of 42 national projects (including Char Development and Settlement Project (CDSP - IV), Irrigation Management & Improvement Project (IMIP), Haor Flood Management and Livelihood Improvement Project, Climate Smart Agricultural Water Management Project). Expedite payment process for works/services, project consultants, contractors and associated parties and stakeholders. Support, guidance and approved/recommended to the procurement process.",
+          "end_date": "Oct 2017",
+          "location": "Dhaka, Kishoreganj, Habiganj, Sunamganj, Netrokona, Feni, Jashore, Sylhet, Cumilla, Chattogram and Faridpur in Bangladesh",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Sep 2016",
+          "title": "Additional Director General (East Region)"
+        },
+        {
+          "description": "Technical guidance to the Superintending Engineers of different circles under the zone, reviewing the Annual Procurement Plans, DPPs of different projects and attending in meeting at Board, Ministry and Planning Commission. Responsible for providing support, guidance, managing and controlling of projects (including Sirajganj Hard Point, Bank Protection of Jamuna River, Bank Protection of Padma River, Flood & River Bank Erosion Risk Management Mitigation Project). Expedite payment process to facilitate consultants, contractors and associated parties. Support, guidance and approved/recommended to the procurement process.",
+          "end_date": "Aug 2016",
+          "location": "North Western Zone, Rajshahi, Bangladesh",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Jul 2015",
+          "title": "Chief Engineer"
+        },
+        {
+          "description": "Administrative activities of Bogura O&M Circle. Responsible for providing support, guidance, managing and controlling of projects (including Protection of Sirajganj Hard Point, Right Bank Protection of Jamuna River, Management and Monitoring of River Training Works). Expedite payment process to facilitate consultants, contractors and associated parties. Support, guidance and approved/recommended to the procurement process.",
+          "end_date": "Jun 2015",
+          "location": "Bogura, Sirajganj, Kazipur in Bangladesh",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Oct 2012",
+          "title": "Superintending Engineer, Bogura O&M Circle"
+        },
+        {
+          "description": "Procurement process, supervision and managing of town protection project. Responsible for project management and top supervision of town protection works. Expedite payment process to facilitated consultants, contractors and associated parties. Support, guidance and approved/recommended to the procurement process.",
+          "end_date": "Sep 2012",
+          "location": "Dhaka, Narayanganj, Demra in Bangladesh",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Jan 2012",
+          "title": "Superintending Engineer / Project Director"
+        },
+        {
+          "description": "Supporting the Project Director in implementing different component of the project works. Responsible for assisting the Project Director in implementation of the project works, monitoring performance of consultants, contractors and facilitate their activities, providing administrative and financial support. Reviewing hydrological analysis done by the design consultant.",
+          "end_date": "Dec 2011",
+          "location": "Pabna, Bangladesh",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Aug 2011",
+          "title": "Superintending Engineer / Project Management Officer, JMREMP"
+        },
+        {
+          "description": null,
+          "end_date": "Jul 2011",
+          "location": null,
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Jun 2003",
+          "title": "Executive Engineer, Different Divisions"
+        },
+        {
+          "description": null,
+          "end_date": "May 2003",
+          "location": null,
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Sep 1989",
+          "title": "Sub-Divisional Engineer, Different Field Offices"
+        },
+        {
+          "description": null,
+          "end_date": "Aug 1989",
+          "location": "Dhaka",
+          "organization": "Bangladesh Water Development Board (BWDB)",
+          "start_date": "Jan 1983",
+          "title": "Assistant Engineer/Sub-Divisional Engineer of different design offices"
+        }
+      ],
+      "education": [
+        {
+          "degree": "MSc Engineering (Water Resources)",
+          "institution": "Bangladesh University of Engineering and Technology (BUET), Dhaka",
+          "year": "1988"
+        },
+        {
+          "degree": "BSc in Civil Engineering",
+          "institution": "BUET, Dhaka",
+          "year": "1982"
+        }
+      ],
+      "languages": [
+        {
+          "language": "English",
+          "level": "C2"
+        },
+        {
+          "language": "Bengali",
+          "level": "Native"
+        }
+      ],
+      "digital_skills": "Basic Language programming, Fortran Language programming",
+      "other_skills": "",
+      "sectors": [
+        "Climate finance",
+        "Public financial management"
+      ],
+      "skill_tags": [
+        "Procurement",
+        "Policy drafting",
+        "Stakeholder facilitation",
+        "Capacity building",
+        "R"
+      ],
+      "donor_tags": [
+        "World Bank",
+        "ADB"
+      ],
+      "additional_info": "",
+      "cv_filename": "",
+      "updated_at": "2026-07-04T15:36:40.151Z"
     }
   ],
   "projects": [
@@ -184,11 +349,27 @@
       "sectors": [],
       "skill_tags": [],
       "donor_tags": []
+    },
+    {
+      "id": 2,
+      "agent_id": 2,
+      "created_at": "2026-07-04T15:33:16.735Z",
+      "title": "Bangladesh Regional Connectivity Project-1 (BRCP-1)",
+      "client": "Consulting Firm (National) (Lump-Sump)",
+      "duration": "10",
+      "location": "Bangladesh",
+      "notes": "Invitation for   Request for Expressions of Interest   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division   :   Ministry of Commerce  Agency   :   Ministry of Commerce  Procuring Entity Name   :   Bangladesh Regional Connectivity Project-1 (BRCP-1)  Procuring Entity Code   :   2230029  Procuring Entity District   :   Dhaka  Expression of Interest for Selection of   :   Consulting Firm   (National)   (Lump-Sump)  Title Of Service   :   Relevant trade related studies and policy studies (03 studies).  EOI Ref. No.   :   26.00.0000.066.07.067.26-81  Date   :   10/06/2026  KEY INFORMATION  Procurement Sub-Method   :   Consultants Qualifications Selection (CQS)  FUNDING INFORMATION  Budget and Source of Funds   :   Development Budget Grant/Credit  Development Partners   :  PARTICULAR INFORMATION  Project/Programme Name   :  EOI Closing Date and Time   :   28/06/2026 2.00  Publication Date   :   14/06/2026  6/14/26, 11:17 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10618.html   1/3\nINFORMATION FOR APPLICANT  Brief Description of Assignment   :   1. The consulting firm/institute shall have the legal capacity to enter into the contract and shall have minimum 10 years of general experience in providing consulting services out of which at least 03 years of experiences in conducting business related surveys/sectoral assessment; 2. The firm/institute should have successfully completed at least one service contract similar/related to conducting major sectoral assessment in the last 05 years; 3. Prior experience in conducting assessment of export-oriented industries will be an advantage; 4. The required average annual turnover of the consulting Firm/Institute shall be at least BDT 50 (fifty) lakh in last three years; and 5. Experience(s) in working with development partner’s funded projects will be added an advantage.  Experience, Resources and Delivery Capacity Required   :   1. The consulting firm/institute shall have the legal capacity to enter into the contract and shall have minimum 10 years of general experience in providing consulting services out of which at least 03 years of experiences in conducting business related surveys/sectoral assessment; 2. The firm/institute should have successfully completed at least one service contract similar/related to conducting major sectoral assessment in the last 05 years; 3. Prior experience in conducting assessment of export-oriented industries will be an advantage; 4. The required average annual turnover of the consulting Firm/Institute shall be at least BDT 50 (fifty) lakh in last three years; and 5. Experience(s) in working with development partner’s funded projects will be added an advantage.  Other Details (if applicable)   :  Association with foreign firms is   :   Not Applicable  Eoi Detail Information  6/14/26, 11:17 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10618.html   2/3\nRef No   Phasing Of Services   Location   Start Date   Completion Date  SD-58   One phase   Dhaka   15/07/2026   30/11/2026  PROCURING ENTITY DETAILS  Name of Official Inviting EOI   :   Shaila Yasmin  Designation of Official Inviting EOI   :   Project Director (Joint Secretary)  Address of Official Inviting EOI   :   Bangladesh Regional Connectivity Project- 1, Level-12 (West side), Probashi Kollayn Bhaban, 71-72 Eskaton Garden Road, Dhaka-1000  Contact details of Official Inviting EOI   :   Phone : +880255138022, Fax : , Email : pdbrcp1moc@gmail.com  The procuring entity reserves the right to accept or reject all tenders  6/14/26, 11:17 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10618.html   3/3",
+      "sectors": [],
+      "skill_tags": [],
+      "donor_tags": [],
+      "file_stored": "project_2.pdf",
+      "file_name": "Bangladesh Regional connectivity Project (BRCP-1)_ Relevant trade related stuydies and policy studies (3 studies).pdf",
+      "file_mime": "application/pdf"
     }
   ],
   "seq": {
-    "users": 3,
-    "projects": 1
+    "users": 4,
+    "projects": 2
   },
   "shortlistCache": {
     "1": {
@@ -287,6 +468,145 @@
         "mode": "ai"
       },
       "cachedAt": "2026-07-04T11:45:48.792Z"
+    },
+    "2": {
+      "fingerprint": "-605371980",
+      "result": {
+        "project": {
+          "id": 2,
+          "agent_id": 2,
+          "created_at": "2026-07-04T15:33:16.735Z",
+          "title": "Bangladesh Regional Connectivity Project-1 (BRCP-1)",
+          "client": "Consulting Firm (National) (Lump-Sump)",
+          "duration": "10",
+          "location": "Bangladesh",
+          "notes": "Invitation for   Request for Expressions of Interest   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division   :   Ministry of Commerce  Agency   :   Ministry of Commerce  Procuring Entity Name   :   Bangladesh Regional Connectivity Project-1 (BRCP-1)  Procuring Entity Code   :   2230029  Procuring Entity District   :   Dhaka  Expression of Interest for Selection of   :   Consulting Firm   (National)   (Lump-Sump)  Title Of Service   :   Relevant trade related studies and policy studies (03 studies).  EOI Ref. No.   :   26.00.0000.066.07.067.26-81  Date   :   10/06/2026  KEY INFORMATION  Procurement Sub-Method   :   Consultants Qualifications Selection (CQS)  FUNDING INFORMATION  Budget and Source of Funds   :   Development Budget Grant/Credit  Development Partners   :  PARTICULAR INFORMATION  Project/Programme Name   :  EOI Closing Date and Time   :   28/06/2026 2.00  Publication Date   :   14/06/2026  6/14/26, 11:17 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10618.html   1/3\nINFORMATION FOR APPLICANT  Brief Description of Assignment   :   1. The consulting firm/institute shall have the legal capacity to enter into the contract and shall have minimum 10 years of general experience in providing consulting services out of which at least 03 years of experiences in conducting business related surveys/sectoral assessment; 2. The firm/institute should have successfully completed at least one service contract similar/related to conducting major sectoral assessment in the last 05 years; 3. Prior experience in conducting assessment of export-oriented industries will be an advantage; 4. The required average annual turnover of the consulting Firm/Institute shall be at least BDT 50 (fifty) lakh in last three years; and 5. Experience(s) in working with development partner’s funded projects will be added an advantage.  Experience, Resources and Delivery Capacity Required   :   1. The consulting firm/institute shall have the legal capacity to enter into the contract and shall have minimum 10 years of general experience in providing consulting services out of which at least 03 years of experiences in conducting business related surveys/sectoral assessment; 2. The firm/institute should have successfully completed at least one service contract similar/related to conducting major sectoral assessment in the last 05 years; 3. Prior experience in conducting assessment of export-oriented industries will be an advantage; 4. The required average annual turnover of the consulting Firm/Institute shall be at least BDT 50 (fifty) lakh in last three years; and 5. Experience(s) in working with development partner’s funded projects will be added an advantage.  Other Details (if applicable)   :  Association with foreign firms is   :   Not Applicable  Eoi Detail Information  6/14/26, 11:17 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10618.html   2/3\nRef No   Phasing Of Services   Location   Start Date   Completion Date  SD-58   One phase   Dhaka   15/07/2026   30/11/2026  PROCURING ENTITY DETAILS  Name of Official Inviting EOI   :   Shaila Yasmin  Designation of Official Inviting EOI   :   Project Director (Joint Secretary)  Address of Official Inviting EOI   :   Bangladesh Regional Connectivity Project- 1, Level-12 (West side), Probashi Kollayn Bhaban, 71-72 Eskaton Garden Road, Dhaka-1000  Contact details of Official Inviting EOI   :   Phone : +880255138022, Fax : , Email : pdbrcp1moc@gmail.com  The procuring entity reserves the right to accept or reject all tenders  6/14/26, 11:17 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10618.html   3/3",
+          "sectors": [],
+          "skill_tags": [],
+          "donor_tags": [],
+          "file_stored": "project_2.pdf",
+          "file_name": "Bangladesh Regional connectivity Project (BRCP-1)_ Relevant trade related stuydies and policy studies (3 studies).pdf",
+          "file_mime": "application/pdf"
+        },
+        "ranked": [
+          {
+            "candidate": {
+              "full_name": "A K M Momtaz Uddin",
+              "address": "",
+              "nationality": "Bangladeshi",
+              "about_me": "Deputy Team Leader / Senior Hydrologist /River Training Specialist",
+              "sectors": [
+                "Climate finance",
+                "Public financial management"
+              ],
+              "skill_tags": [
+                "Procurement",
+                "Policy drafting",
+                "Stakeholder facilitation",
+                "Capacity building",
+                "R"
+              ],
+              "donor_tags": [
+                "World Bank",
+                "ADB"
+              ],
+              "languages": [
+                {
+                  "language": "English",
+                  "level": "C2"
+                },
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                }
+              ],
+              "cv_filename": ""
+            },
+            "total": 45,
+            "reasoning": "A K M Momtaz Uddin possesses strong high-level project management, policy-making, and development partner project experience from his long career with BWDB and a consulting firm. However, his core expertise is in water resources and infrastructure engineering, not explicitly in trade-related studies or business sector assessments as required for this project's subject matter.",
+            "strengths": [
+              "Extensive senior-level government and consulting experience",
+              "Strong track record with development partner-funded projects (WB/ADB/JICA)",
+              "Experience in policy-making and project management at national level",
+              "Experience in conducting technical studies and assessments (hydrological)"
+            ],
+            "gaps": [
+              "Lack of direct experience in trade-related studies or policy analysis",
+              "No explicit experience in business-related surveys outside of infrastructure/hydrology"
+            ]
+          },
+          {
+            "candidate": {
+              "full_name": "MD RIADDUZZAMAN",
+              "address": "Bashundhara, Dhaka",
+              "nationality": "",
+              "about_me": "Results-driven Civil Engineering professional with over 3 years of hands-on experience in high-rise residential and commercial construction. Proven track record in end-to-end project supervision from drawing review and contractor coordination to quality control and timely delivery. Adept at managing multi-stakeholder construction sites, enforcing safety standards, and optimizing resources to minimize waste. Committed to delivering projects that meet the highest standards of structural integrity and client satisfaction.",
+              "sectors": [
+                "Governance",
+                "Public financial management"
+              ],
+              "skill_tags": [
+                "Stakeholder facilitation",
+                "Capacity building",
+                "Procurement",
+                "R"
+              ],
+              "donor_tags": [],
+              "languages": [],
+              "cv_filename": ""
+            },
+            "total": 5,
+            "reasoning": "MD RIADDUZZAMAN's experience is exclusively in civil construction project supervision, which is entirely unrelated to the requirement for trade-related studies and policy assessments. He lacks any demonstrated background in consulting services, business surveys, or policy analysis.",
+            "strengths": [
+              "Experience in civil construction project supervision",
+              "Quality control and site management skills"
+            ],
+            "gaps": [
+              "No consulting experience in studies or policy",
+              "No experience in trade-related studies",
+              "No experience in business surveys or sectoral assessment"
+            ]
+          },
+          {
+            "candidate": {
+              "full_name": "Md. Humayun Kobir",
+              "address": "House #263, Satarkul Road, Uttar Badda, Dhaka",
+              "nationality": "Bangladeshi",
+              "about_me": "A dynamic and achievement-oriented Civil Engineering professional with over 7 years of hands-on experience in project management, site supervision, construction execution, and quality assurance. Proven ability to deliver infrastructure, commercial, and residential projects on time and within budget. Skilled in team leadership, vendor coordination, risk management, and ATS-compliant reporting. Seeking a Probationary Officer or Management Trainee role to leverage technical expertise, strategic planning, and operational excellence in a growth-oriented organization. Strong administration, organizing, and time management skills with the ability to work under pressure and handle confidential matters. Always ready to learn new technologies; a strong team player with solid analytical reasoning and problem-solving skills. Self-motivated, assertive, and possessing excellent communication skills with a positive, balanced, and professional demeanor. A smart, young, energetic, and dynamic self-starter with an outgoing personality and strong interpersonal skills, capable of working independently at a high pace.",
+              "sectors": [],
+              "skill_tags": [
+                "Procurement",
+                "R"
+              ],
+              "donor_tags": [],
+              "languages": [
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "C1"
+                }
+              ],
+              "cv_filename": ""
+            },
+            "total": 5,
+            "reasoning": "Md. Humayun Kobir's extensive experience in civil engineering and construction management does not align with the project's focus on trade-related studies and policy assessments. His work history shows no involvement in business surveys, sectoral analysis, or policy formulation.",
+            "strengths": [
+              "Extensive civil project management and site supervision",
+              "Experience with infrastructure and residential projects"
+            ],
+            "gaps": [
+              "No consulting experience in studies or policy",
+              "No experience in trade-related studies",
+              "No experience in business surveys or sectoral assessment"
+            ]
+          }
+        ],
+        "mode": "ai"
+      },
+      "cachedAt": "2026-07-04T15:38:25.576Z"
     }
   }
 }
