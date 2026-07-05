@@ -428,9 +428,14 @@ function simpleHash(str) {
 
 function publicCand(c) {
   return {
-    full_name: c.full_name, address: c.address, nationality: c.nationality, about_me: c.about_me,
+    user_id: c.user_id,
+    full_name: c.full_name, email: c.email, phone: c.phone,
+    address: c.address, nationality: c.nationality, date_of_birth: c.date_of_birth,
+    about_me: c.about_me,
+    work_experience: c.work_experience, education: c.education, languages: c.languages,
+    digital_skills: c.digital_skills, other_skills: c.other_skills, additional_info: c.additional_info,
     sectors: c.sectors, skill_tags: c.skill_tags, donor_tags: c.donor_tags,
-    languages: c.languages, cv_filename: c.cv_filename
+    cv_filename: c.cv_filename
   };
 }
 
