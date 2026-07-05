@@ -121,7 +121,7 @@ const store = {
     return fs.existsSync(fp) ? fp : null;
   },
 
-  /* shortlist cache avoids re-running the AI ranking when nothing changed */
+  /* shortlist cache — avoids re-running the AI ranking when nothing changed */
   getShortlistCache(projectId) {
     return (data.shortlistCache && data.shortlistCache[projectId]) || null;
   },
