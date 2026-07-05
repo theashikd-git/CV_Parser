@@ -126,7 +126,7 @@ function drawCandidate() {
       <h2>Auto-fill from a CV file</h2>
       <p class="sub" style="margin-bottom:14px;">Optional. Upload a PDF or DOCX and we'll pre-fill the sections below. You can edit everything afterward.</p>
       <div class="dropzone" id="dz"><div class="dz-text">Drop a CV here or click to browse</div><div class="dz-sub">PDF, DOCX, or .txt</div></div>
-      <input type="file" id="cvFile" accept=".pdf,.docx,.txt" class="hidden">
+      <input type="file" id="cvFile" accept=".pdf,.docx,.txt,.jpg,.jpeg,.png,.webp" class="hidden">
       <div id="parseStatus" class="sub" style="margin:10px 0 0;"></div>
     </div>
 
@@ -298,17 +298,67 @@ async function extractText(file) {
   }
   throw new Error('Unsupported file type: .' + ext);
 }
+
+// Render PDF pages to base64 PNG images — used for scanned/image-only PDFs that have no text layer.
+// Returns up to `maxPages` images to keep the request size reasonable.
+async function pdfToImages(file, maxPages) {
+  const buf = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+  const n = Math.min(pdf.numPages, maxPages || 5);
+  const images = [];
+  for (let i = 1; i <= n; i++) {
+    const page = await pdf.getPage(i);
+    const viewport = page.getViewport({ scale: 2 }); // scale 2 = decent OCR resolution
+    const canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    const ctx = canvas.getContext('2d');
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    const dataUrl = canvas.toDataURL('image/png');
+    images.push(dataUrl.split(',')[1]); // strip the data: prefix, keep base64
+  }
+  return images;
+}
+
+// For an image file (jpg/png), read it as base64 directly.
+function imageFileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result.split(',')[1]);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
 async function handleCV(file) {
   const status = document.getElementById('parseStatus');
+  const ext = file.name.split('.').pop().toLowerCase();
   status.innerHTML = `<span class="spinner"></span> Extracting text…`;
-  let text;
-  try { text = await extractText(file); }
-  catch (e) { status.textContent = 'Could not read file: ' + e.message; return; }
-  if (!text.trim()) { status.textContent = 'No readable text found in that file.'; return; }
+
+  let text = '';
+  let images = null;
+  try {
+    if (['jpg', 'jpeg', 'png', 'webp'].includes(ext)) {
+      // A photo/scan uploaded as an image → go straight to image OCR.
+      images = [await imageFileToBase64(file)];
+    } else {
+      text = await extractText(file);
+      // If a PDF has (almost) no text, it's a scanned image → render pages and OCR them.
+      if (ext === 'pdf' && text.trim().length < 40) {
+        status.innerHTML = `<span class="spinner"></span> Looks like a scanned document — reading the pages…`;
+        images = await pdfToImages(file, 5);
+        text = '';
+      }
+    }
+  } catch (e) {
+    status.textContent = 'Could not read file: ' + e.message;
+    return;
+  }
+  if (!text.trim() && !images) { status.textContent = 'No readable content found in that file.'; return; }
 
   status.innerHTML = `<span class="spinner"></span> Reading your CV and filling the form…`;
   try {
-    const { parsed } = await api('/parse-cv', 'POST', { cvText: text.slice(0, 14000) });
+    const body = images ? { images } : { cvText: text.slice(0, 14000) };
+    const { parsed } = await api('/parse-cv', 'POST', body);
     applyParsed(parsed);
     profile.cv_filename = file.name;
     status.textContent = 'Done — fields filled in below. Review, edit, then Save profile.';
@@ -386,7 +436,7 @@ async function drawProjectsSection() {
         <div class="field">
           <label>Requirement document <span class="hint">PDF/DOCX/txt</span></label>
           <div class="dropzone" id="np_dz"><div class="dz-text">Drop the project document here or click</div><div class="dz-sub">Stored and viewable later; its text is used for matching</div></div>
-          <input type="file" id="np_file" accept=".pdf,.docx,.txt" class="hidden">
+          <input type="file" id="np_file" accept=".pdf,.docx,.txt,.jpg,.jpeg,.png,.webp" class="hidden">
           <div id="np_fileStatus" class="sub" style="margin:8px 0 0;"></div>
         </div>
         <div class="field"><label>Requirement text <span class="hint">auto-filled from the file, or type/paste</span></label><textarea id="np_notes" rows="6" placeholder="Describe the role, required expertise, sectors, donor experience, languages…"></textarea></div>
@@ -421,24 +471,42 @@ function fileToBase64(file) {
 }
 async function handleProjectFile(file) {
   const status = document.getElementById('np_fileStatus');
+  const ext = file.name.split('.').pop().toLowerCase();
   status.innerHTML = `<span class="spinner"></span> Reading file…`;
   try {
-    const text = await extractText(file);
     const b64 = await fileToBase64(file);
     pendingProjectFile = { file_base64: b64, file_name: file.name, file_mime: file.type || '' };
+
+    let text = '';
+    let images = null;
+    if (['jpg', 'jpeg', 'png', 'webp'].includes(ext)) {
+      images = [b64];
+    } else {
+      text = await extractText(file);
+      if (ext === 'pdf' && text.trim().length < 40) {
+        status.innerHTML = `<span class="spinner"></span> Looks like a scanned document — reading the pages…`;
+        images = await pdfToImages(file, 5);
+        text = '';
+      }
+    }
     if (text.trim()) document.getElementById('np_notes').value = text.trim();
+
     status.innerHTML = `<span class="spinner"></span> Extracting project details…`;
-    // Ask the server to pull out title/client/duration/location from the document.
     try {
-      const { parsed } = await api('/parse-project', 'POST', { docText: text.slice(0, 14000) });
+      const body = images ? { images } : { docText: text.slice(0, 14000) };
+      const { parsed } = await api('/parse-project', 'POST', body);
       const fillIfEmpty = (id, v) => { const el = document.getElementById(id); if (v && !el.value.trim()) el.value = v; };
       fillIfEmpty('np_title', parsed.title);
       fillIfEmpty('np_client', parsed.client);
       fillIfEmpty('np_duration', parsed.duration);
       fillIfEmpty('np_location', parsed.location);
+      // For scanned docs, also drop the OCR'd requirement text into the notes box if we got it.
+      if (images && parsed.requirement_text && !document.getElementById('np_notes').value.trim()) {
+        document.getElementById('np_notes').value = parsed.requirement_text;
+      }
       status.textContent = `Loaded "${file.name}" — details auto-filled. Review everything, then post.`;
     } catch (e) {
-      status.textContent = `Loaded "${file.name}". Auto-fill of details unavailable (${e.message}) — fill title/client/etc. manually.`;
+      status.textContent = `Loaded "${file.name}". Auto-fill unavailable (${e.message}) — fill fields manually.`;
     }
   } catch (e) {
     status.textContent = 'Could not read file: ' + e.message;
