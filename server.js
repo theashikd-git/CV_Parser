@@ -495,5 +495,5 @@ function publicCand(c) {
 
 app.listen(PORT, () => {
   console.log(`Xpie running at http://localhost:${PORT}`);
-  if (!ai) console.log('(Note: GEMINI_API_KEY not set — CV auto-fill disabled, manual entry still works.)');
+  if (!ai) console.log('(Note: GEMINI_API_KEY not set  CV auto-fill disabled, manual entry still works.)');
 });
