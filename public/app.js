@@ -307,8 +307,10 @@ function drawCandidate() {
     </div>
 
     <div style="display:flex;gap:10px;position:sticky;bottom:16px;">
-      <button class="btn" id="saveBtn" style="flex:1;">Save profile</button>
-    </div>`;
+      <button class="btn" id="saveNewBtn" style="flex:1;">Save as new candidate</button>
+      <button class="btn ghost" id="clearBtn">Clear form</button>
+    </div>
+    <div class="sub" style="text-align:center;margin-top:8px;">Each save adds a separate candidate to the pool. Upload a CV, save, then load the next one.</div>`;
 
   drawWork(); drawEdu(); drawLang();
   wrap.querySelectorAll('.tags').forEach(g => g.querySelectorAll('.tagbtn').forEach(b => b.onclick = () => b.classList.toggle('sel')));
@@ -316,7 +318,8 @@ function drawCandidate() {
   document.getElementById('addWork').onclick = () => { profile.work_experience.push({ title:'', organization:'', location:'', start_date:'', end_date:'', description:'' }); drawWork(); };
   document.getElementById('addEdu').onclick = () => { profile.education.push({ degree:'', institution:'', year:'' }); drawEdu(); };
   document.getElementById('addLang').onclick = () => { profile.languages.push({ language:'', level:'' }); drawLang(); };
-  document.getElementById('saveBtn').onclick = saveProfile;
+  document.getElementById('saveNewBtn').onclick = saveAsNewCandidate;
+  document.getElementById('clearBtn').onclick = () => { resetCandidateForm(); toast('Form cleared'); };
   setupUpload();
 }
 
@@ -380,16 +383,33 @@ function collectProfile() {
     about_me: val('f_about'),
     work_experience: profile.work_experience, education: profile.education, languages: profile.languages,
     digital_skills: val('f_digital'), other_skills: val('f_other'),
-    additional_info: val('f_additional')
+    additional_info: val('f_additional'),
+    // Tags were derived from the CV (by the parser); pass them along so they save with this candidate.
+    sectors: profile.sectors || [], skill_tags: profile.skill_tags || [], donor_tags: profile.donor_tags || [],
+    cv_filename: profile.cv_filename || ''
   };
 }
-async function saveProfile() {
+// Save everything on the form as a NEW candidate, then clear the form for the next CV.
+async function saveAsNewCandidate() {
   const payload = collectProfile();
+  if (!payload.full_name.trim()) { toast('Add at least a name first', true); return; }
   try {
-    await api('/profile', 'PUT', payload);
-    Object.assign(profile, payload);
-    toast('Profile saved');
+    await api('/candidates/new', 'POST', payload);
+    toast('Saved — added to the candidate pool');
+    resetCandidateForm();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch (e) { toast(e.message, true); }
+}
+
+// Empty the in-memory profile and redraw a blank form, ready for the next CV.
+function resetCandidateForm() {
+  profile = {
+    full_name: '', email: '', phone: '', address: '', nationality: '', date_of_birth: '',
+    about_me: '', work_experience: [], education: [], languages: [],
+    digital_skills: '', other_skills: '', additional_info: '',
+    sectors: [], skill_tags: [], donor_tags: [], cv_filename: ''
+  };
+  drawCandidate();
 }
 
 /* ---------- CV upload + parse ---------- */
