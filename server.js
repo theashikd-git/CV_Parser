@@ -9,6 +9,12 @@ const { SECTORS, SKILLS, DONORS } = require('./taxonomy');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ===== TEST MODE =====
+// When true, login is skipped: the front-end shows a Candidate/Agent toggle and
+// signs in to fixed test accounts automatically. Set to false to require real login again.
+const TEST_MODE = true;
+// =====================
+
 app.use(express.json({ limit: '30mb' }));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'change-this-secret-in-production',
@@ -69,6 +75,29 @@ app.get('/api/me', (req, res) => {
 });
 
 app.get('/api/taxonomy', (req, res) => res.json({ SECTORS, SKILLS, DONORS }));
+
+// Tells the front-end whether test mode is on (so it can show the toggle instead of login).
+app.get('/api/config', (req, res) => res.json({ testMode: TEST_MODE }));
+
+// Test-mode auto-login. Creates fixed test accounts the first time, then logs in as one.
+// Only works while TEST_MODE is true.
+app.post('/api/test-login', (req, res) => {
+  if (!TEST_MODE) return res.status(403).json({ error: 'Test mode is off.' });
+  const role = req.body && req.body.role === 'agent' ? 'agent' : 'candidate';
+  const email = role === 'agent' ? 'test-agent@xpie.local' : 'test-candidate@xpie.local';
+
+  // Find the fixed test account, or create it if it doesn't exist yet.
+  let user = store.findUserByEmail(email);
+  if (!user) {
+    const hash = bcrypt.hashSync('test-mode-password', 10);
+    user = store.createUser(email, hash, role);
+    if (role === 'candidate') store.createProfile(user.id, email);
+  }
+
+  req.session.userId = user.id;
+  req.session.role = role;
+  res.json({ ok: true, role });
+});
 
 /* ---------- derive tags from profile text (cheap, keyword-based) ---------- */
 function profileText(p) {

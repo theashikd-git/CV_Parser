@@ -27,6 +27,27 @@
       "password_hash": "$2a$10$uZOcygJ5e7K4uaHUl0TTv.uHgojS95R7uuxkyw2qNiKlNQUJrgbQq",
       "role": "candidate",
       "created_at": "2026-07-04T15:35:21.387Z"
+    },
+    {
+      "id": 5,
+      "email": "c3@gmail.com",
+      "password_hash": "$2a$10$vfsLRhm1BMhccI626Mr9rOWz7PrS0VCivvcTln8Te/FsdhJdZkLBG",
+      "role": "candidate",
+      "created_at": "2026-07-05T13:33:32.082Z"
+    },
+    {
+      "id": 6,
+      "email": "c4@gmail.com",
+      "password_hash": "$2a$10$UsCbqsdEWE9zRxoBO9oWqOJENj4eyUbCLFmD/FJ8nnbLRDGDZ/K16",
+      "role": "candidate",
+      "created_at": "2026-07-05T13:38:20.500Z"
+    },
+    {
+      "id": 7,
+      "email": "c5@gmail.com",
+      "password_hash": "$2a$10$IvxgdTl.Y7XrqB9YdWYfOOVgAwurO91df.r8euRqv/fzO9Qvwn1Oq",
+      "role": "candidate",
+      "created_at": "2026-07-05T13:40:04.159Z"
     }
   ],
   "profiles": [
@@ -334,22 +355,361 @@
       "additional_info": "",
       "cv_filename": "",
       "updated_at": "2026-07-04T15:36:40.151Z"
+    },
+    {
+      "user_id": 5,
+      "full_name": "Engr. Kazi Mominul Hoque, Peng",
+      "email": "c3@gmail.com",
+      "phone": "",
+      "address": "",
+      "nationality": "Bangladesh",
+      "date_of_birth": "",
+      "about_me": "",
+      "work_experience": [
+        {
+          "description": "The project objective is to introduce a community-based approach to urban improvements that would serve as a first step towards addressing the growing number of slums and informal settlements in Bangladesh. The Electro-Mechanical Engineer would conduct the related detailed design of electrical works, inclusive of related mechanical component design, finalize the related scope and prepare detailed design, drawings and cost estimates of the electrical works. Finalize various Detailed Engineering Design (DED), inclusive of all data and design pertaining to HT (11KV) installation and LT domestic switch gear installation, sub-station provisions; street lighting; Solar System supply and installation; and generator standby systems, motor, pumps, motor control panel board; and required MCCB, valves, meters. Prepare electrical and mechanical design consideration for stipulation in the Bid Documents; Assist in preparation of technical specification, cost estimates and bill of quantities for related works; Technical scrutiny of project proposals; Prepare the design and specifications for installation of motor, pumps and other mechanical and electrical works; Prepare relevant and related technical material for training modules, under the Project’s Training Plan, and conduct the necessary training at field level.",
+          "end_date": "Present",
+          "location": "Bangladesh",
+          "organization": "IMC Worldwide Ltd. In association with DPM.",
+          "start_date": "June 2019",
+          "title": "Consultancy Services as Electro-Mechanical Engineer for Low Income Community Housing Support Project, LICHSP"
+        },
+        {
+          "description": "Electrical Design Engineer. Designing and Tender preparation of the following packages: Electrical Works (LT), Electrical Works (HT), Substation, Generators, Lift services, Building Automation System (BAS), Telephone system, PA system, Computer Network system, Server system, Fire Detection and Protection system, CCTV Camera system, RFID system, Access Control system, Sewage Treatment Plant (STP), Top Supervision of the above-mentioned works, Shop drawing approval, Quality control of Materials, Lead the team in week end meeting, Liaison with the Top Management of Govt, Report writing on work progress, HVAC system, etc. Bill checking and forwarding with comment to Govt. for payment. Site visit and Meeting with the Executive Chairman of BEZA (Secretary).",
+          "end_date": "May 2019",
+          "location": "Bangladesh",
+          "organization": "RPMC, World Bank Project Consultant BEZA.",
+          "start_date": "February 2019",
+          "title": "Consultant (Electro-Mechanical Design Engineer)"
+        },
+        {
+          "description": "Duties and responsibilities included but not limited to: Architectural, Mechanical, Electrical, Civil, Landscaping, plumbing and Sanitary, interior decoration, Cafeteria, Cleaning & Paste Control, Deep Tube Well, Transport, New project, Estate, Legal Issues, Plantation, Flowering of Campus in regular basis and also with seasonal flowers, logistics, manage Events, Seminars and students clubs activities. Supervised and Managed Engineers, Officers and staffs of 241 Nos. (directly 110 & from 3rd party 131 Nos.); operate and Maintenance of 11KV substation, HT and LT switch gears, ACB of sizes 4200A, 3200A, 2500A etc. 4000kW Power Plant (Generators), 600 KVA ON Line UPS HVAC system of 2750TR (Chiller: 5x550TR). Select Vendors for Cafeteria services and to manage their activities. Acted as Member-Secretary of the following Committees; Campus Development Committee (CDC); Technical Committee (TC); Space Allocation Committee (SAC) and member of a lot of committees as such Procurement Committee (PC), Finance committee, Club committee, PF Committee and similar others; Organize and co-ordinate tendering process to select contractor of different disciplines; Co-ordinate, supervise and overall Engineering Management of existing campus and all related activities of NSU new campus project. Monitoring the progress of operation and Maintenance work and ensure that the work is being done as per the original architectural and other designs. Advice necessary measures for the existing as well as the new campus development and prepare regular development report of the construction work. Report of any discrepancies/differences of the operation and Maintenance work and taking proper measures to solve the crisis. Maintain liaison with relevant and appropriate Government bodies like RAJUK, Ministry of works, DESA, WASA, Titas Gas, Traffic Police, City Corporation and ward commissioner etc. Supervise / management of the personnel who are under the department of O & M. Ensure that all financial operations and transactions of the development work of the existing and new campus project comply with budgetary provisions and have approval of the competent authority. Represent the university in conducting different tenders/bids of the campus and advice the authority on engineering issues. Perform other duties as assigned by the authority.",
+          "end_date": "January 2018",
+          "location": "Bangladesh",
+          "organization": "North South University",
+          "start_date": "July 2012",
+          "title": "Director (Operation and Maintenance)"
+        },
+        {
+          "description": "Management and Supervision Consultants (World Bank Project), Municipal Services Project Phase - II : Responsible for monitoring and Evaluation of Electro-Mechanical activities of 72 sites; (i) Evaluation of Tender documents for E/M work; (ii) Solar Street Light; (iii) Building Electrification; (iv) Deep Tube Well and Water supply, Water treatment plant etc.",
+          "end_date": "Jun 2012",
+          "location": "Bangladesh",
+          "organization": "JV of Aqua, RPMC, EPC and Hifab (Sweden), World Bank Project",
+          "start_date": "July 2011",
+          "title": "Consultant (Electro-Mechanical)"
+        },
+        {
+          "description": "Design for Multi-storied Apartment Buildings: Electrical wiring, electrical substation (transformer, LT panel, HT Panel, PFI). MDB, DB, SDB etc. Selection of generator, HT power line, solar panel, selection of water pump. Assessment of energy consumption in water pump and building including energy savings system; design for a number of industries, electrical wiring, electrical substation, load sanction from DESCO; selection of water pump, Water Treatment Plant (WTP), gas sanction, etc. Responsibilities also involved Engineering compliance and implementation of national energy saving policy and environmental training.",
+          "end_date": "June 2011",
+          "location": null,
+          "organization": "Concept Engineering Consultant",
+          "start_date": "Jan 2011",
+          "title": "General Manager"
+        },
+        {
+          "description": "Solar Project: Developed business plan, recruitment and marketing policy, financial budget forecast and expected profit margin etc. Designed Solar Project; calculation of solar panels, battery rating, assessment of energy consumption, charge controller, inverter etc. Develop technical specifications, tender documents, BOQ and drawings; monitoring and evaluation of the overall activities of the 2-sistern concerns of Navana Group; attended meetings with Ministers, Secretaries, top officials of various organizations. teams activities were to participate in tender and after implementation provide them the required backup support for the solar energy, energy efficiency, CCTV, PA, access control, time attendance, fire detection and protection, X-Ray baggage scanner, energy meter etc. and overall administration, fund management, product sourcing, liaison with Group Chairman and Vice Chairman, leading the team in Navana Board Meeting. Visited China and Singapore for selection of solar panels, solar street light, solar pump and their related components and imported Spanish Brand “Zytech” Solar Panels from China and undertook related training of design, installation and operation of all energy efficiency electrical equipment’s.",
+          "end_date": "Dec 2010",
+          "location": "Bangladesh",
+          "organization": "Navana Renewable Energy and Navana Interlinks Limited",
+          "start_date": "Jul 2009",
+          "title": "General Manager"
+        },
+        {
+          "description": "North South University Campus Development Project : Monitored the works of the consultants, contractors and report to the Project Director regularly. Preparation of tender documents, BOQ, General Condition of Contract (GCC), Special Condition of Contract (SCC), Particular Condition of Contract (PCC). Prepared specification, drawings, BOQ, invitation of tender, participated pre-bid meeting, tender evaluation, assessed technical and financial offer, and awarded of contract for the electrical works (LT), electrical works (HT) and substation 3600 KVA, 11KV automatic voltage regulator (AVR), busbar trunking system (BBT) generators 4000 KW, 200 KVA UPS system, light fittings, cables (LT), cable (HT), earthing system, lightning protection system, ventilation of generator room, sewerage treatment plant (STP), telephone system, computer network system, server system, precision air conditioner of server room, dedicated power supply for server room, fire protection system, HVAC system, access control system, X-Ray baggage scanner access control system, and similar other packages. Calculated and purchased CFL bulbs. Liaison with the officials of Gas, Water, Power, Environment, Energy Regulatory Commission etc.",
+          "end_date": "Jun 2009",
+          "location": "Bangladesh",
+          "organization": "North South University",
+          "start_date": "Jun 2005",
+          "title": "Project Manager"
+        },
+        {
+          "description": "Design and installation of all Electro-Mechanical Installation: Implemented the electrical Works (LT), electrical works (HT) and substation, generators, telephone system, computer networking system, fire alarm system, CCTV camera system and access control system. Shop drawing preparation in coordination with other packages; supervision of the above works, procurement of local materials, liaison with the overseas suppliers for timely delivery of materials, quality control of materials, participate in the week-end meeting, monitoring and evaluation of the works of sub-contractors, liaison with top management of Siemens, Westin Hotel and the Consultants.",
+          "end_date": "May 2005",
+          "location": "Bangladesh",
+          "organization": "Siemens Bangladesh Limited",
+          "start_date": "Jun 2004",
+          "title": "Project Manager"
+        },
+        {
+          "description": "Sigma Pumps Limited: Project procurement and design and top supervision; worked for KSB Pump (Sigma Pumps Ltd), responsibility was to select pump on the basis of water flow requirement (CuM), head of water (M), power consumption by the pump (KW / HP). Pumps for chemicals, powder and mine. Pumps for other fluid (not water) considering fluid density, fluid temperature, fluid discharge and head.",
+          "end_date": "May 2004",
+          "location": "Bangladesh",
+          "organization": "Concept Engineering Consultant",
+          "start_date": "Apr 2002",
+          "title": "Project Manager"
+        },
+        {
+          "description": "Beximco Pharmaceuticals Ltd. (A USA - FDA Standard Project to Export Medicine in USA): Implementation of electrical works (LT), electrical works (HT) and substation, generators, light fittings, cables, earthing system, lightning protection system, telephone system, PA system, clock system (master and slave clock), fire alarm system, fire protection system, CCTV camera system, building automation system (BAS), water pump and gas line for Generators and similar others.",
+          "end_date": "Mar 2002",
+          "location": "Bangladesh",
+          "organization": "Beximco Pharmaceuticals Limited",
+          "start_date": "Jan 1996",
+          "title": "Project Manager"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.Sc. Engineering (Electrical and Electronic)",
+          "institution": "Bangladesh University of Engineering and Technology (BUET), Bangladesh",
+          "year": "1986"
+        }
+      ],
+      "languages": [
+        {
+          "language": "English",
+          "level": null
+        }
+      ],
+      "digital_skills": "AutoCAD, PLC Programming, Computer Network, Server",
+      "other_skills": "",
+      "sectors": [
+        "Social protection",
+        "Energy",
+        "Climate finance"
+      ],
+      "skill_tags": [
+        "Procurement",
+        "Capacity building",
+        "M&E",
+        "Stakeholder facilitation",
+        "R"
+      ],
+      "donor_tags": [
+        "World Bank",
+        "EU"
+      ],
+      "additional_info": "",
+      "cv_filename": "",
+      "updated_at": "2026-07-05T13:38:05.789Z"
+    },
+    {
+      "user_id": 6,
+      "full_name": "Dr. Khan Sarifuzzaman",
+      "email": "khansarifuzzaman@gmail.com",
+      "phone": "01797223313",
+      "address": "Plot# 06, Avenue# 06, Sector# 17/H - 1, Uttara, Dhaka - 1230, Bangladesh",
+      "nationality": "Bangladesh",
+      "date_of_birth": "",
+      "about_me": "Proactive lecturer and research leader with over 12 years of experience teaching various courses in Political Science and Social Science Research Methodology at college, university, and research organizations. Led five research projects, including a Ph.D. thesis, a fellowship, a research grant, and two consultancies. Published two peer-reviewed articles, three books, and over 50 columns. Expertise in qualitative and quantitative research, focusing on rights & protection, education, violence, and policy issues. Proficient in qualitative data collection methods like FGD, KII, IDI, and Case Studies, and experienced in designing and conducting research using PRA tools. Actively involved in research and grants for disadvantaged child education and the protection of vulnerable communities.",
+      "work_experience": [
+        {
+          "description": null,
+          "end_date": null,
+          "location": "Bangladesh",
+          "organization": "Shanto - Mariam University of Creative Technology (SMUCT)",
+          "start_date": "January 2024",
+          "title": "Faculty Member, Government & Politics"
+        },
+        {
+          "description": null,
+          "end_date": "September 2023",
+          "location": null,
+          "organization": "Scholars’ School & College",
+          "start_date": "January 2015",
+          "title": "Assistant Professor, Social Science Faculty"
+        },
+        {
+          "description": "Led end-line evaluation for 'Gender Responsive Education and Skill Programme in CHT (GRESP)' project. Responsibilities included coordination, organizing field studies, designing data collection and management systems, developing Kobo toolbox applications, and assisting with data analysis and report writing.",
+          "end_date": "2024",
+          "location": null,
+          "organization": "BISR Consultants Ltd",
+          "start_date": "2023",
+          "title": "Consultant"
+        },
+        {
+          "description": "Conducted 'An Analytical Study on the Quality of Science Education at Secondary Level of Aliyah Madrasahs in Bangladesh: Challenges and Opportunities.'",
+          "end_date": null,
+          "location": "Dhaka",
+          "organization": "Bangladesh Bureau of Educational Information & Statistics (BANBEIS), Ministry of Education",
+          "start_date": null,
+          "title": "Consultant"
+        },
+        {
+          "description": "Led research activities for the project 'Major Problems Faced by Undergraduate Students Towards Their Academic Progress at SMUCT'.",
+          "end_date": "June 2025",
+          "location": null,
+          "organization": "Shanto - Mariam University of Creative Technology (SMUCT)",
+          "start_date": "July 2024",
+          "title": "Principal Researcher"
+        },
+        {
+          "description": "Led research activities for the government-awarded project: 'The Teaching Learning Environment of Qwami Madrasa in Bangladesh'.",
+          "end_date": "2022",
+          "location": null,
+          "organization": "Social Science Research Council (SSRC), Planning Ministry, Bangladesh",
+          "start_date": "2021",
+          "title": "Research Fellow"
+        },
+        {
+          "description": "Assisted Lead Researcher Dr. Tasneem Siddiqui and program personnel in reviewing documents, conducting field studies, and preparing publications. Involved in literature review, KII, FGD, and questionnaire surveys.",
+          "end_date": "December 2014",
+          "location": null,
+          "organization": "Refugee and Migratory Movements Research Unit (RMMRU)",
+          "start_date": "December 2009",
+          "title": "Research Assistant & Research Associate"
+        },
+        {
+          "description": "Conducted and led the Ph.D. research titled 'Risk Assessment of Violent Extremism in the Learning Environment of Secondary Educational Institutions in Bangladesh'.",
+          "end_date": "2024",
+          "location": null,
+          "organization": "University of Dhaka",
+          "start_date": "2020",
+          "title": "Researcher (Ph.D.)"
+        },
+        {
+          "description": "Conducted and led the M.Phil. research titled 'Relationship between Political Islam and Democracy: An Egyptian Experience'.",
+          "end_date": "2017",
+          "location": null,
+          "organization": "University of Dhaka",
+          "start_date": "2012",
+          "title": "Researcher (M.Phil.)"
+        },
+        {
+          "description": "Conducted and led the Masters research titled 'Problems of Governance in Bangladesh'.",
+          "end_date": "2006",
+          "location": null,
+          "organization": "University of Dhaka",
+          "start_date": "2005",
+          "title": "Researcher (Masters)"
+        }
+      ],
+      "education": [
+        {
+          "degree": "Ph.D.",
+          "institution": "University of Dhaka",
+          "year": "2024"
+        },
+        {
+          "degree": "M.Phil.",
+          "institution": "University of Dhaka",
+          "year": "2017"
+        },
+        {
+          "degree": "B.Ed.",
+          "institution": "National University",
+          "year": "2012"
+        },
+        {
+          "degree": "MSS (Political Science)",
+          "institution": "University of Dhaka",
+          "year": "2006"
+        },
+        {
+          "degree": "BSS (Hons) Political Science",
+          "institution": "University of Dhaka",
+          "year": "2005"
+        },
+        {
+          "degree": "H.S.C (Humanities)",
+          "institution": "Jessore Education Board",
+          "year": "2000"
+        },
+        {
+          "degree": "S.S.C (Business Studies)",
+          "institution": "Jessore Education Board",
+          "year": "1998"
+        }
+      ],
+      "languages": [
+        {
+          "language": "Bengali",
+          "level": "Native"
+        },
+        {
+          "language": "English",
+          "level": "C1"
+        }
+      ],
+      "digital_skills": "Proficient in qualitative and quantitative research design, proposal writing, literature review, questionnaire development, data collection, data analysis, data presentation, and report writing. Experienced with SPSS and Kobo toolbox for quantitative and qualitative data collection and management.",
+      "other_skills": "",
+      "sectors": [
+        "Governance",
+        "Education",
+        "Social protection"
+      ],
+      "skill_tags": [
+        "M&E",
+        "Stakeholder facilitation",
+        "Policy drafting",
+        "Capacity building",
+        "Impact evaluation",
+        "R"
+      ],
+      "donor_tags": [],
+      "additional_info": "",
+      "cv_filename": "",
+      "updated_at": "2026-07-05T13:39:47.903Z"
+    },
+    {
+      "user_id": 7,
+      "full_name": "MD. TUHIN ALAM",
+      "email": "tuhinalam.uap@gmail.com",
+      "phone": "01789-470425",
+      "address": "7/C/3, South Begunbari, Tejgoan Industrial Area-A, Dhaka-1208",
+      "nationality": "",
+      "date_of_birth": "",
+      "about_me": "Success comes through hard work and creativity as part of belief. I am creative, hardworking, and able to perform well under pressure. I enjoy sharing knowledge, adapting quickly to new concepts, and taking on new challenges. I work well in teams, have the ability to multitask, and possess strong communication skills.",
+      "work_experience": [
+        {
+          "description": "Manage all typing-related tasks efficiently and accurately. Maintain office files, documents, and vouchers in a systematic and organized manner. Handle all banking-related activities including cheque and cash deposits, preparing bank drafts, and other transactions. Assist in organizing meetings, trainings, and program arrangements. Design creative materials such as banners, posters, reports, and other print-ready content using graphic design tools. Provide technical and administrative support to the IT and Communication teams. Coordinate procurement of office stationery and other non-inventory items as needed. Prepare and distribute employee ID cards, name tags, and business cards as required. Oversee housekeeping activities and ensure cleanliness and hygiene standards are maintained within the office.Support in managing canteen operations and oversee daily tasks and scheduling of support staff.",
+          "end_date": "Till date",
+          "location": null,
+          "organization": "BISR Consultants Ltd.",
+          "start_date": "Nov 2023",
+          "title": "Computer Operator"
+        },
+        {
+          "description": "Graphic Design, Facebook Marketing, Content Boosting, Managing Communication of the Admission Section, Coordinating Courses, Event Management, Capturing Videos and Documentation, Maintenance of office files.",
+          "end_date": "Oct 2023",
+          "location": null,
+          "organization": "Haque Law Academy",
+          "start_date": "Sep 2022",
+          "title": "Computer Operator"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.Sc in Civil Engineering",
+          "institution": "Sonargoan University (SU), Dhaka",
+          "year": "Ongoing"
+        },
+        {
+          "degree": "HSC (Science)",
+          "institution": "Kazipur Govt. Mansur Ali College, Sirajganj",
+          "year": "2023"
+        },
+        {
+          "degree": "SSC (Science)",
+          "institution": "Beltoil Alahi Baksa-Riaj Uddin (E-R) Multilateral High School",
+          "year": "2020"
+        }
+      ],
+      "languages": [
+        {
+          "language": "Bangla",
+          "level": "Native"
+        },
+        {
+          "language": "English",
+          "level": "Good"
+        }
+      ],
+      "digital_skills": "AutoCad, Office Application (Word, Excel, PowerPoint, Internet), Graphic Design (Illustrator, Photoshop, InDesign, Canva), Video Editing (Capcut, Filmora, AI), Digital Marketing (Facebook)",
+      "other_skills": "",
+      "sectors": [],
+      "skill_tags": [
+        "Capacity building",
+        "Procurement",
+        "Stakeholder facilitation",
+        "R"
+      ],
+      "donor_tags": [],
+      "additional_info": "",
+      "cv_filename": "",
+      "updated_at": "2026-07-05T13:40:44.130Z"
     }
   ],
   "projects": [
-    {
-      "id": 1,
-      "agent_id": 2,
-      "created_at": "2026-07-04T08:22:05.447Z",
-      "title": "Ministry of Housing",
-      "client": "World Bank",
-      "duration": "10 Months",
-      "location": "UK",
-      "notes": "Invitation for   Tender (Single Lot)   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division :   :   Ministry of Housing and Public Works  Agency :   :   Public Works Department (PWD)  Procuring Entity Name :   :   Executive Engineer, Jashore PWD Division, Jashore  Procuring Entity Code :   :   khlJes  Procuring Entity District :   :   Jashore  Invitation For   :   Works  Invitation Reference No   :   ACE ,PWD,Khulna,Memo-25.36.....1597, Date- 19/08/20  Date   :   19/08/2024  KEY INFORMATION  Procurement Method   :   NCT Open Tendering Method  FUNDING INFORMATION  Budget and Source of Funds :   :   Development Budget GOB  Development Partner   :   N/A  PARTICULAR INFORMATION  Project/Programme Code   :  Project/Programme Name   :  Tender Package No   :   Jash.MCH/WD-06  Tender Package Name   :   Construction Emergency Staff Dormitory for Hospital , Construction of Staff Nurses Dormitory at Jashore under the Project of -\" Establishment of 500-Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised)(Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised))\nTender Publication Date   :   11/09/2024  Tender Last Selling Date   :   08/10/2024  Tender Closing Date and Time   :   09/10/2024 04:00 PM  Tender Opening Date and Time   :   09/10/2024 12:00 AM  Office Address Information  Selling Tender Document (Principal)   e_GP  Receiving Tender Document   e_GP  Opening Tender Document   e_GP  Selling Tender Document (Others)   e_GP  Place/Date/Time of Tender Meeting (Optional)   :   Place : e_GP   Date: 10/09/2024   Time: 02:00 PM\nINFORMATION FOR TENDERER  Eligibility of Tenderer :   :   (A) Minimum Number of Years of General Experience in Construction Works Shall be 10 years. (B) Must have successful completion of at least 1 number of 4 storied RCC building work(in/c civil,sanitary, electrification works) of Government / semi\u0000Government / autonomous organization of Bangladesh during last 05 years amounting minimum Tk.1100.00 Lakh in a single Contract during last 05 years. (C) The Tenderer shall have a minimum average annual construction turnover amounting Tk. 1800.00 Lakh. This must be supported by total certified payment received for contracts in progress or work complete under Government / semi- Government / autonomous organization of Bangladesh during last 05 years. Interested tenderer are requested to provide payment certificate mentioning Fiscal year and share percent (in case of JVCA) in the certificate. (D) Tenderer must have a Minimum Liquid Assets/Credit facilities/Credit Line(unconditional) Tk. 400.00 Lakh (Must be Issued Within publication of IFT in egp system to The Last Date of Lodgment of The Tender and must be followed by the appropriate format (PW3-7)). (E) Minimum Tender Capacity must be Tk. 1300.00 Lakh. Relevant documents in support of the tender capacity must be submit with the tender: (F) Tenderer Must submit with the tender: (i) Upto date Income Tax Clearance Certificate, Trade License, ABC Category Contractorship & Supervisory License from Electricity Licensing Board. (ii) Valid VAT Registration Certificate. Please follow the instructions stated in TDS , PCC , ITT , GCC , section 2,4,6, 7, 8, 9 (document tab) of this tender. Other Notable Terms & conditions are pointed out at TDS, PCC, ITT & GCC.  Brief Description of Goods or Works :   :   Construction Emergency Staff Dormitory for Hospital , Construction of Staff Nurses Dormitory at Jashore under the Project of -\" Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised)( Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised))  Brief Description of Related Services :   :\nTender Document Price :   :   4000.00  Tender Lot Information  Lot No   Identification   Location  Security Amount  Completion Time in Weeks/Months  1.   Tender/Proposal ID : 1012436  Jashore   4500000   30-Jun-2026  PROCURING ENTITY DETAILS  Name of Official Inviting Tender :   :   Office of the Executive Engineer, Jashore PWD Division, Jashore.  Designation of Official Inviting Tender :   :   Executive Engineer.  Address of Official Inviting Tender :   :   Executive Engineer, Jashore PWD Division, Jashore.  Contact Details of Official Inviting Tender :   :   Phone: 02477762794 , Fax: 02477762318, Email: ee_jessr@pwd.gov.bd  The procuring entity reserves the right to accept or reject all tenders",
-      "sectors": [],
-      "skill_tags": [],
-      "donor_tags": []
-    },
     {
       "id": 2,
       "agent_id": 2,
@@ -365,112 +725,79 @@
       "file_stored": "project_2.pdf",
       "file_name": "Bangladesh Regional connectivity Project (BRCP-1)_ Relevant trade related stuydies and policy studies (3 studies).pdf",
       "file_mime": "application/pdf"
+    },
+    {
+      "id": 3,
+      "agent_id": 2,
+      "created_at": "2026-07-05T12:42:44.350Z",
+      "title": "Capacity building of women traders on trade related regulatory regime and E-Commerce solutions and procedures in 08 Divisional HQ including Reform dialogues (Policy Dialogues) to resolve the challenges facing the women traders.",
+      "client": "Bangladesh Regional Connectivity Project-1 (BRCP-1)",
+      "duration": "139 days",
+      "location": "Dhaka",
+      "notes": "Invitation for   Request for Expressions of Interest   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division   :   Ministry of Commerce  Agency   :   Ministry of Commerce  Procuring Entity Name   :   Bangladesh Regional Connectivity Project-1 (BRCP-1)  Procuring Entity Code   :   2230029  Procuring Entity District   :   Dhaka  Expression of Interest for Selection of   :   Consulting Firm   (National)   (Lump-Sump)  Title Of Service   :   Capacity building of women traders on trade related regulatory regime and E-Commerce solutions and procedures in 08 Divisional HQ including Reform dialogues (Policy Dialogues) to resolve the challenges facing the women traders.  EOI Ref. No.   :   26.00.0000.066.07.067.26-81  Date   :   10/06/2026  KEY INFORMATION  Procurement Sub-Method   :   Consultants Qualifications Selection (CQS)  FUNDING INFORMATION  Budget and Source of Funds   :   Development Budget Grant/Credit  Development Partners   :  PARTICULAR INFORMATION  Project/Programme Name   :  EOI Closing Date and Time   :   28/06/2026 2.00  Publication Date   :   14/06/2026  6/14/26, 11:21 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10619.html   1/3\nINFORMATION FOR APPLICANT  Brief Description of Assignment   :   Quality and Cost Based Selection (QCBS) method OR Consultant's Qualification - based Selection (CQS) method  Experience, Resources and Delivery Capacity Required   :   1. The Consulting firm shall have the legal capacity to enter into the contract with minimum 10 (Ten) years of general experience out of which at least 05 (five) years of experience in training management for public and private sector; 2. The minimum specific experience as lead consultant in providing training of at least cumulatively 500 (Five Hundred) numbers of trainees completed training course over last 05 (five) years shall be required. 3. The firm should have experience in working with development projects funded by any development partner; 4. The firm should have successfully completed at least one service contract related to capacity development (designing training module/organize training program) in any sector for women entrepreneurship development in last 05(five) years; 5. The required average annual turnover of the consulting firm shall be at least of the amount of Tk. 01 (One) Crore for the last three years; and 6. A capacity statement on available training infrastructure facilities, IT equipment, logistics support, transport and office space.  Other Details (if applicable)   :  Association with foreign firms is   :   Not Applicable  Eoi Detail Information  Ref No   Phasing Of Services   Location   Start Date   Completion Date  SD-61   One phase   Dhaka   15/07/2026   30/11/2026  6/14/26, 11:21 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10619.html   2/3\nPROCURING ENTITY DETAILS  Name of Official Inviting EOI   :   Shaila Yasmin  Designation of Official Inviting EOI   :   Project Director (Joint Secretary)  Address of Official Inviting EOI   :   Bangladesh Regional Connectivity Project- 1, Level-12 (West side), Probashi Kollayn Bhaban, 71-72 Eskaton Garden Road, Dhaka-1000  Contact details of Official Inviting EOI   :   Phone : +880255138022, Fax : , Email : pdbrcp1moc@gmail.com  The procuring entity reserves the right to accept or reject all tenders  6/14/26, 11:21 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10619.html   3/3",
+      "sectors": [],
+      "skill_tags": [],
+      "donor_tags": [],
+      "file_stored": "project_3.pdf",
+      "file_name": "CAPACI_1.PDF",
+      "file_mime": "application/pdf"
+    },
+    {
+      "id": 4,
+      "agent_id": 2,
+      "created_at": "2026-07-05T13:17:54.915Z",
+      "title": "Feasibility Study with detailed design for Expansion & Modernization of Railway Training Academy (RTA)",
+      "client": "Ministry of Railways, Government of the People's Republic of Bangladesh",
+      "duration": "6 months",
+      "location": "Bangladesh",
+      "notes": "This project involves the following but not limited to: Conducting feasibility study for modernization and expansion of Railway Training Academy, Halishahar, Chattogram. Preparing an innovative and appropriate organizational set up manual for improving the institutional competency of a Railway Training Academy (RTA). Preparation, Up gradation and Digitization of training manual, training modules for the RTA, Halishahar, Chattogram and Workshop Training Units (WTUs) at Pahartali, Dhaka, Ishwardi, Parbatipur. To identify and propose advanced ICT based education facilities, teaching materials and guidelines to make qualified instructors for newly procured Rolling Stock and railway systems i.e. Civil, Signal & Telecom, Electrical etc. Preparation of detail design and cost estimate for all infrastructures with modern facilities for Academy and all WTUs. Prepare Development Project Proposal (DPP) and Tender documents for investment project and assist in tender evaluation. Any other related issues instructed by the Project Director.",
+      "sectors": [],
+      "skill_tags": [],
+      "donor_tags": [],
+      "file_stored": "project_4.pdf",
+      "file_name": "Railway Academy EoI.pdf",
+      "file_mime": "application/pdf"
+    },
+    {
+      "id": 5,
+      "agent_id": 2,
+      "created_at": "2026-07-05T13:17:55.086Z",
+      "title": "Feasibility Study with detailed design for Expansion & Modernization of Railway Training Academy (RTA)",
+      "client": "Ministry of Railways, Government of the People's Republic of Bangladesh",
+      "duration": "6 months",
+      "location": "Bangladesh",
+      "notes": "This project involves the following but not limited to: Conducting feasibility study for modernization and expansion of Railway Training Academy, Halishahar, Chattogram. Preparing an innovative and appropriate organizational set up manual for improving the institutional competency of a Railway Training Academy (RTA). Preparation, Up gradation and Digitization of training manual, training modules for the RTA, Halishahar, Chattogram and Workshop Training Units (WTUs) at Pahartali, Dhaka, Ishwardi, Parbatipur. To identify and propose advanced ICT based education facilities, teaching materials and guidelines to make qualified instructors for newly procured Rolling Stock and railway systems i.e. Civil, Signal & Telecom, Electrical etc. Preparation of detail design and cost estimate for all infrastructures with modern facilities for Academy and all WTUs. Prepare Development Project Proposal (DPP) and Tender documents for investment project and assist in tender evaluation. Any other related issues instructed by the Project Director.",
+      "sectors": [],
+      "skill_tags": [],
+      "donor_tags": [],
+      "file_stored": "project_5.pdf",
+      "file_name": "Railway Academy EoI.pdf",
+      "file_mime": "application/pdf"
+    },
+    {
+      "id": 6,
+      "agent_id": 2,
+      "created_at": "2026-07-05T13:19:52.785Z",
+      "title": "Awareness program/orientation and campaign through BCC/IEC on dengue, chikungunya, air & sound pollution & climate change effects on public health and medical waste management to employees of CC/Municipalities, students & other Stakeholders.",
+      "client": "Local Government Division, Ministry of Local Government, Rural Development & Co-operatives.",
+      "duration": "",
+      "location": "Bangladesh",
+      "notes": "1. The Local Government Division, Ministry of Local Government, Rural Development & Co-operatives has received financing from the World Bank toward the cost of the IUPHPSP and intends to apply part of the proceeds toward payments under the contract for Awareness program and campaign on (1) air and sound pollution and climate change effects on public health; (2) Consultation with different stakeholders; (3) Healthy lifestyles and Creating Consciousness about non-communicable diseases and (4) Preventive Measures from Smoking, Dust, Unnecessary use of Vehicle Horns. 2. The Local Government Division now invites sealed Bids from eligible Bidders for Awareness program and campaign on (1) air and sound pollution and climate change effects on public health; (2) Consultation with different stakeholders; (3) Healthy lifestyles and Creating Consciousness about non-communicable diseases and (4) Preventive Measures from Smoking, Dust, Unnecessary use of Vehicle Horns. 3. Bidding will be conducted through international competitive procurement using a Request for Bids (RFB) as specified in the World Bank's \"Procurement Regulations for IPF Borrowers 1st September 2025 (\"Procurement Regulations\") and is open to all eligible Bidders as defined in the Procurement Regulations. 4. Bids will be evaluated in accordance with the evaluation process set out in the bidding documents. The following weightings shall apply for Rated Criteria (including techni-cal and non-price factors: 50% and for Bid cost: 50%). 5. Interested eligible Bidders may obtain further information and inspect the bidding doc-ument during office hours 0900 to 1600 hours at the address given below. For the con-venience of the Proposers an unofficial electronic copy of the RFB document can also be viewed at website https://iuphpsp.lgd.gov.bd/ (for inspection purpose only). 6. The bidding document in English may be purchased by interested eligible Bidders upon the submission of a written application to the address below and upon payment of a non-refundable fee BDT 10,000.00 or USD 100.00. The method of payment will be Cashier's Cheque or Pay Order. The document may be collected from project office or will be sent by querier. 7. Bids must be delivered to the address below on or before 16.00 hours on July 06, 2026. Electronic Bidding will not be permitted. Late Bids will be rejected. The outer Bid envelopes marked \"ORIGINAL BID\", and the inner envelopes marked \"TECHNICAL PART\" will be publicly opened in the presence of the Bidders' designated representa-tives and anyone who chooses to attend, at the address below. All envelopes marked \"FINANCIAL PART\" shall remain unopened and will be held in safe custody of the Employer until the second public Bid opening. 8. All Bids must be accompanied by a Bid Security shall be BDT 68,00,000.00 (sixty-eight lakh) or USD 56,000.00 (fifty-six thousand) only as mentioned in the bidding document. 9. Attention is drawn to the Procurement Regulations requiring the Borrower to disclose information on the successful bidder's beneficial ownership, as part of the Contract Award Notice, using the Beneficial Ownership Disclosure Form as included in the bid-ding document. 10. The address(es) referred to above is (are): Abul Khair Mohammad Hafizullah Khan, Joint Secretary, Local Government Division & Project Director, Improvement of Urban Public Health Preventive Services Project (IUPHPSP), DPHE Bhaban (level 8), 14 Shaheed Captain Mansur Ali Sarani, Kakrail, Dhaka-1000, Bangladesh. Phone no- +88-01711586160, email: pd.uphpp2024.lgd@gmail.com.",
+      "sectors": [],
+      "skill_tags": [],
+      "donor_tags": [],
+      "file_stored": "project_6.pdf",
+      "file_name": "Improvement of Urban Public Health Preventive Service Project_6 July 2026_DPHE.pdf",
+      "file_mime": "application/pdf"
     }
   ],
   "seq": {
-    "users": 4,
-    "projects": 2
+    "users": 7,
+    "projects": 6
   },
   "shortlistCache": {
-    "1": {
-      "fingerprint": "-194782609",
-      "result": {
-        "project": {
-          "id": 1,
-          "agent_id": 2,
-          "created_at": "2026-07-04T08:22:05.447Z",
-          "title": "Ministry of Housing",
-          "client": "World Bank",
-          "duration": "10 Months",
-          "location": "UK",
-          "notes": "Invitation for   Tender (Single Lot)   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division :   :   Ministry of Housing and Public Works  Agency :   :   Public Works Department (PWD)  Procuring Entity Name :   :   Executive Engineer, Jashore PWD Division, Jashore  Procuring Entity Code :   :   khlJes  Procuring Entity District :   :   Jashore  Invitation For   :   Works  Invitation Reference No   :   ACE ,PWD,Khulna,Memo-25.36.....1597, Date- 19/08/20  Date   :   19/08/2024  KEY INFORMATION  Procurement Method   :   NCT Open Tendering Method  FUNDING INFORMATION  Budget and Source of Funds :   :   Development Budget GOB  Development Partner   :   N/A  PARTICULAR INFORMATION  Project/Programme Code   :  Project/Programme Name   :  Tender Package No   :   Jash.MCH/WD-06  Tender Package Name   :   Construction Emergency Staff Dormitory for Hospital , Construction of Staff Nurses Dormitory at Jashore under the Project of -\" Establishment of 500-Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised)(Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised))\nTender Publication Date   :   11/09/2024  Tender Last Selling Date   :   08/10/2024  Tender Closing Date and Time   :   09/10/2024 04:00 PM  Tender Opening Date and Time   :   09/10/2024 12:00 AM  Office Address Information  Selling Tender Document (Principal)   e_GP  Receiving Tender Document   e_GP  Opening Tender Document   e_GP  Selling Tender Document (Others)   e_GP  Place/Date/Time of Tender Meeting (Optional)   :   Place : e_GP   Date: 10/09/2024   Time: 02:00 PM\nINFORMATION FOR TENDERER  Eligibility of Tenderer :   :   (A) Minimum Number of Years of General Experience in Construction Works Shall be 10 years. (B) Must have successful completion of at least 1 number of 4 storied RCC building work(in/c civil,sanitary, electrification works) of Government / semi\u0000Government / autonomous organization of Bangladesh during last 05 years amounting minimum Tk.1100.00 Lakh in a single Contract during last 05 years. (C) The Tenderer shall have a minimum average annual construction turnover amounting Tk. 1800.00 Lakh. This must be supported by total certified payment received for contracts in progress or work complete under Government / semi- Government / autonomous organization of Bangladesh during last 05 years. Interested tenderer are requested to provide payment certificate mentioning Fiscal year and share percent (in case of JVCA) in the certificate. (D) Tenderer must have a Minimum Liquid Assets/Credit facilities/Credit Line(unconditional) Tk. 400.00 Lakh (Must be Issued Within publication of IFT in egp system to The Last Date of Lodgment of The Tender and must be followed by the appropriate format (PW3-7)). (E) Minimum Tender Capacity must be Tk. 1300.00 Lakh. Relevant documents in support of the tender capacity must be submit with the tender: (F) Tenderer Must submit with the tender: (i) Upto date Income Tax Clearance Certificate, Trade License, ABC Category Contractorship & Supervisory License from Electricity Licensing Board. (ii) Valid VAT Registration Certificate. Please follow the instructions stated in TDS , PCC , ITT , GCC , section 2,4,6, 7, 8, 9 (document tab) of this tender. Other Notable Terms & conditions are pointed out at TDS, PCC, ITT & GCC.  Brief Description of Goods or Works :   :   Construction Emergency Staff Dormitory for Hospital , Construction of Staff Nurses Dormitory at Jashore under the Project of -\" Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised)( Establishment of 500- Beded Hospital & Ancillary Buildings in Jessore,Cox's Bazar,Pabna and Abdul Malek Ukil Medical College (AMUMC) And Jononeta Nurul Hoque Adhunik Hospital, Noakhali. (1st revised))  Brief Description of Related Services :   :\nTender Document Price :   :   4000.00  Tender Lot Information  Lot No   Identification   Location  Security Amount  Completion Time in Weeks/Months  1.   Tender/Proposal ID : 1012436  Jashore   4500000   30-Jun-2026  PROCURING ENTITY DETAILS  Name of Official Inviting Tender :   :   Office of the Executive Engineer, Jashore PWD Division, Jashore.  Designation of Official Inviting Tender :   :   Executive Engineer.  Address of Official Inviting Tender :   :   Executive Engineer, Jashore PWD Division, Jashore.  Contact Details of Official Inviting Tender :   :   Phone: 02477762794 , Fax: 02477762318, Email: ee_jessr@pwd.gov.bd  The procuring entity reserves the right to accept or reject all tenders",
-          "sectors": [],
-          "skill_tags": [],
-          "donor_tags": []
-        },
-        "ranked": [
-          {
-            "candidate": {
-              "full_name": "Md. Humayun Kobir",
-              "address": "House #263, Satarkul Road, Uttar Badda, Dhaka",
-              "nationality": "Bangladeshi",
-              "about_me": "A dynamic and achievement-oriented Civil Engineering professional with over 7 years of hands-on experience in project management, site supervision, construction execution, and quality assurance. Proven ability to deliver infrastructure, commercial, and residential projects on time and within budget. Skilled in team leadership, vendor coordination, risk management, and ATS-compliant reporting. Seeking a Probationary Officer or Management Trainee role to leverage technical expertise, strategic planning, and operational excellence in a growth-oriented organization. Strong administration, organizing, and time management skills with the ability to work under pressure and handle confidential matters. Always ready to learn new technologies; a strong team player with solid analytical reasoning and problem-solving skills. Self-motivated, assertive, and possessing excellent communication skills with a positive, balanced, and professional demeanor. A smart, young, energetic, and dynamic self-starter with an outgoing personality and strong interpersonal skills, capable of working independently at a high pace.",
-              "sectors": [],
-              "skill_tags": [
-                "Procurement",
-                "R"
-              ],
-              "donor_tags": [],
-              "languages": [
-                {
-                  "language": "Bengali",
-                  "level": "Native"
-                },
-                {
-                  "language": "English",
-                  "level": "C1"
-                }
-              ],
-              "cv_filename": ""
-            },
-            "total": 55,
-            "reasoning": "Md. Humayun Kobir has 7.5 years of solid experience in civil engineering project management and site supervision in Bangladesh, including multi-story buildings, providing a strong technical foundation to understand tender requirements. However, his experience is primarily with private firms, not explicitly with Government of Bangladesh projects, and he lacks the senior-level strategic or financial expertise needed for a high-level consultancy role, as well as any indication of international experience required for the UK location.",
-            "strengths": [
-              "Substantial (7.5 years) experience in project management, site supervision, and construction execution",
-              "Experience includes structural works and multi-story building projects",
-              "Strong technical background with digital skills in project management and estimating software",
-              "Experience in budget control and bill certification for labor, contractors, and material suppliers"
-            ],
-            "gaps": [
-              "Experience not explicitly with Government of Bangladesh (GOB) or semi-GOB projects of the specified scale",
-              "Lacks senior-level expertise or strategic/financial understanding of large tenders (e.g., assessing contractor turnover, liquid assets)",
-              "Total experience (7.5 years) is still below the 10 years general experience benchmark for contractors",
-              "No international experience or stated ability to work in the UK"
-            ]
-          },
-          {
-            "candidate": {
-              "full_name": "MD RIADDUZZAMAN",
-              "address": "Bashundhara, Dhaka",
-              "nationality": "",
-              "about_me": "Results-driven Civil Engineering professional with over 3 years of hands-on experience in high-rise residential and commercial construction. Proven track record in end-to-end project supervision from drawing review and contractor coordination to quality control and timely delivery. Adept at managing multi-stakeholder construction sites, enforcing safety standards, and optimizing resources to minimize waste. Committed to delivering projects that meet the highest standards of structural integrity and client satisfaction.",
-              "sectors": [
-                "Governance",
-                "Public financial management"
-              ],
-              "skill_tags": [
-                "Stakeholder facilitation",
-                "Capacity building",
-                "Procurement",
-                "R"
-              ],
-              "donor_tags": [],
-              "languages": [],
-              "cv_filename": ""
-            },
-            "total": 25,
-            "reasoning": "MD RIADDUZZAMAN is too junior with only 3 years of experience for a consultancy role advising on large GOB tenders, especially with a World Bank client. While he has exposure to GOB through an LGED internship, his primary experience is with a private developer, and he lacks the deep understanding of GOB tender specifics or the financial aspects required for contractor evaluation. His resume also contains confusing dates regarding his current employment.",
-            "strengths": [
-              "Exposure to Government of Bangladesh (GOB) through LGED internship",
-              "Basic understanding of tender evaluation processes",
-              "Direct experience with high-rise residential construction technical aspects",
-              "Experience in site supervision and quality control"
-            ],
-            "gaps": [
-              "Limited overall professional experience (3 years)",
-              "Primary experience not explicitly with Government of Bangladesh (GOB) projects, except for an internship",
-              "Insufficient financial evaluation knowledge for large tenders (e.g., turnover, liquid assets)",
-              "No international experience or stated ability to work in the UK",
-              "Confusing dates in work history (current role listed as starting in 2026)"
-            ]
-          }
-        ],
-        "mode": "ai"
-      },
-      "cachedAt": "2026-07-04T11:45:48.792Z"
-    },
     "2": {
-      "fingerprint": "-605371980",
+      "fingerprint": "-1832525667",
       "result": {
         "project": {
           "id": 2,
@@ -489,6 +816,847 @@
           "file_mime": "application/pdf"
         },
         "ranked": [
+          {
+            "candidate": {
+              "user_id": 6,
+              "full_name": "Dr. Khan Sarifuzzaman",
+              "email": "khansarifuzzaman@gmail.com",
+              "phone": "01797223313",
+              "address": "Plot# 06, Avenue# 06, Sector# 17/H - 1, Uttara, Dhaka - 1230, Bangladesh",
+              "nationality": "Bangladesh",
+              "date_of_birth": "",
+              "about_me": "Proactive lecturer and research leader with over 12 years of experience teaching various courses in Political Science and Social Science Research Methodology at college, university, and research organizations. Led five research projects, including a Ph.D. thesis, a fellowship, a research grant, and two consultancies. Published two peer-reviewed articles, three books, and over 50 columns. Expertise in qualitative and quantitative research, focusing on rights & protection, education, violence, and policy issues. Proficient in qualitative data collection methods like FGD, KII, IDI, and Case Studies, and experienced in designing and conducting research using PRA tools. Actively involved in research and grants for disadvantaged child education and the protection of vulnerable communities.",
+              "work_experience": [
+                {
+                  "description": null,
+                  "end_date": null,
+                  "location": "Bangladesh",
+                  "organization": "Shanto - Mariam University of Creative Technology (SMUCT)",
+                  "start_date": "January 2024",
+                  "title": "Faculty Member, Government & Politics"
+                },
+                {
+                  "description": null,
+                  "end_date": "September 2023",
+                  "location": null,
+                  "organization": "Scholars’ School & College",
+                  "start_date": "January 2015",
+                  "title": "Assistant Professor, Social Science Faculty"
+                },
+                {
+                  "description": "Led end-line evaluation for 'Gender Responsive Education and Skill Programme in CHT (GRESP)' project. Responsibilities included coordination, organizing field studies, designing data collection and management systems, developing Kobo toolbox applications, and assisting with data analysis and report writing.",
+                  "end_date": "2024",
+                  "location": null,
+                  "organization": "BISR Consultants Ltd",
+                  "start_date": "2023",
+                  "title": "Consultant"
+                },
+                {
+                  "description": "Conducted 'An Analytical Study on the Quality of Science Education at Secondary Level of Aliyah Madrasahs in Bangladesh: Challenges and Opportunities.'",
+                  "end_date": null,
+                  "location": "Dhaka",
+                  "organization": "Bangladesh Bureau of Educational Information & Statistics (BANBEIS), Ministry of Education",
+                  "start_date": null,
+                  "title": "Consultant"
+                },
+                {
+                  "description": "Led research activities for the project 'Major Problems Faced by Undergraduate Students Towards Their Academic Progress at SMUCT'.",
+                  "end_date": "June 2025",
+                  "location": null,
+                  "organization": "Shanto - Mariam University of Creative Technology (SMUCT)",
+                  "start_date": "July 2024",
+                  "title": "Principal Researcher"
+                },
+                {
+                  "description": "Led research activities for the government-awarded project: 'The Teaching Learning Environment of Qwami Madrasa in Bangladesh'.",
+                  "end_date": "2022",
+                  "location": null,
+                  "organization": "Social Science Research Council (SSRC), Planning Ministry, Bangladesh",
+                  "start_date": "2021",
+                  "title": "Research Fellow"
+                },
+                {
+                  "description": "Assisted Lead Researcher Dr. Tasneem Siddiqui and program personnel in reviewing documents, conducting field studies, and preparing publications. Involved in literature review, KII, FGD, and questionnaire surveys.",
+                  "end_date": "December 2014",
+                  "location": null,
+                  "organization": "Refugee and Migratory Movements Research Unit (RMMRU)",
+                  "start_date": "December 2009",
+                  "title": "Research Assistant & Research Associate"
+                },
+                {
+                  "description": "Conducted and led the Ph.D. research titled 'Risk Assessment of Violent Extremism in the Learning Environment of Secondary Educational Institutions in Bangladesh'.",
+                  "end_date": "2024",
+                  "location": null,
+                  "organization": "University of Dhaka",
+                  "start_date": "2020",
+                  "title": "Researcher (Ph.D.)"
+                },
+                {
+                  "description": "Conducted and led the M.Phil. research titled 'Relationship between Political Islam and Democracy: An Egyptian Experience'.",
+                  "end_date": "2017",
+                  "location": null,
+                  "organization": "University of Dhaka",
+                  "start_date": "2012",
+                  "title": "Researcher (M.Phil.)"
+                },
+                {
+                  "description": "Conducted and led the Masters research titled 'Problems of Governance in Bangladesh'.",
+                  "end_date": "2006",
+                  "location": null,
+                  "organization": "University of Dhaka",
+                  "start_date": "2005",
+                  "title": "Researcher (Masters)"
+                }
+              ],
+              "education": [
+                {
+                  "degree": "Ph.D.",
+                  "institution": "University of Dhaka",
+                  "year": "2024"
+                },
+                {
+                  "degree": "M.Phil.",
+                  "institution": "University of Dhaka",
+                  "year": "2017"
+                },
+                {
+                  "degree": "B.Ed.",
+                  "institution": "National University",
+                  "year": "2012"
+                },
+                {
+                  "degree": "MSS (Political Science)",
+                  "institution": "University of Dhaka",
+                  "year": "2006"
+                },
+                {
+                  "degree": "BSS (Hons) Political Science",
+                  "institution": "University of Dhaka",
+                  "year": "2005"
+                },
+                {
+                  "degree": "H.S.C (Humanities)",
+                  "institution": "Jessore Education Board",
+                  "year": "2000"
+                },
+                {
+                  "degree": "S.S.C (Business Studies)",
+                  "institution": "Jessore Education Board",
+                  "year": "1998"
+                }
+              ],
+              "languages": [
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "C1"
+                }
+              ],
+              "digital_skills": "Proficient in qualitative and quantitative research design, proposal writing, literature review, questionnaire development, data collection, data analysis, data presentation, and report writing. Experienced with SPSS and Kobo toolbox for quantitative and qualitative data collection and management.",
+              "other_skills": "",
+              "additional_info": "",
+              "sectors": [
+                "Governance",
+                "Education",
+                "Social protection"
+              ],
+              "skill_tags": [
+                "M&E",
+                "Stakeholder facilitation",
+                "Policy drafting",
+                "Capacity building",
+                "Impact evaluation",
+                "R"
+              ],
+              "donor_tags": [],
+              "cv_filename": ""
+            },
+            "total": 70,
+            "reasoning": "This candidate's background as a lecturer, research leader, and expert in Social Science Research Methodology aligns strongly with the core task of conducting 'trade related studies and policy studies' and 'business related surveys.' While specific mention of 'trade' or 'economics' within his research areas is missing, his methodological and analytical skills are highly relevant.",
+            "strengths": [
+              "Over 12 years of experience as a research leader and consultant",
+              "Expertise in Social Science Research Methodology",
+              "Experience in conducting and leading multiple research projects/consultancies",
+              "Background in Political Science (relevant to policy studies)",
+              "Published researcher"
+            ],
+            "gaps": [
+              "Lack of explicit mention of trade, economics, or business as primary research domains",
+              "Detailed work experience is not provided, making it hard to verify the nature of his consultancies",
+              "No explicit mention of development partner funding, though likely"
+            ]
+          },
+          {
+            "candidate": {
+              "user_id": 5,
+              "full_name": "Engr. Kazi Mominul Hoque, Peng",
+              "email": "c3@gmail.com",
+              "phone": "",
+              "address": "",
+              "nationality": "Bangladesh",
+              "date_of_birth": "",
+              "about_me": "",
+              "work_experience": [
+                {
+                  "description": "The project objective is to introduce a community-based approach to urban improvements that would serve as a first step towards addressing the growing number of slums and informal settlements in Bangladesh. The Electro-Mechanical Engineer would conduct the related detailed design of electrical works, inclusive of related mechanical component design, finalize the related scope and prepare detailed design, drawings and cost estimates of the electrical works. Finalize various Detailed Engineering Design (DED), inclusive of all data and design pertaining to HT (11KV) installation and LT domestic switch gear installation, sub-station provisions; street lighting; Solar System supply and installation; and generator standby systems, motor, pumps, motor control panel board; and required MCCB, valves, meters. Prepare electrical and mechanical design consideration for stipulation in the Bid Documents; Assist in preparation of technical specification, cost estimates and bill of quantities for related works; Technical scrutiny of project proposals; Prepare the design and specifications for installation of motor, pumps and other mechanical and electrical works; Prepare relevant and related technical material for training modules, under the Project’s Training Plan, and conduct the necessary training at field level.",
+                  "end_date": "Present",
+                  "location": "Bangladesh",
+                  "organization": "IMC Worldwide Ltd. In association with DPM.",
+                  "start_date": "June 2019",
+                  "title": "Consultancy Services as Electro-Mechanical Engineer for Low Income Community Housing Support Project, LICHSP"
+                },
+                {
+                  "description": "Electrical Design Engineer. Designing and Tender preparation of the following packages: Electrical Works (LT), Electrical Works (HT), Substation, Generators, Lift services, Building Automation System (BAS), Telephone system, PA system, Computer Network system, Server system, Fire Detection and Protection system, CCTV Camera system, RFID system, Access Control system, Sewage Treatment Plant (STP), Top Supervision of the above-mentioned works, Shop drawing approval, Quality control of Materials, Lead the team in week end meeting, Liaison with the Top Management of Govt, Report writing on work progress, HVAC system, etc. Bill checking and forwarding with comment to Govt. for payment. Site visit and Meeting with the Executive Chairman of BEZA (Secretary).",
+                  "end_date": "May 2019",
+                  "location": "Bangladesh",
+                  "organization": "RPMC, World Bank Project Consultant BEZA.",
+                  "start_date": "February 2019",
+                  "title": "Consultant (Electro-Mechanical Design Engineer)"
+                },
+                {
+                  "description": "Duties and responsibilities included but not limited to: Architectural, Mechanical, Electrical, Civil, Landscaping, plumbing and Sanitary, interior decoration, Cafeteria, Cleaning & Paste Control, Deep Tube Well, Transport, New project, Estate, Legal Issues, Plantation, Flowering of Campus in regular basis and also with seasonal flowers, logistics, manage Events, Seminars and students clubs activities. Supervised and Managed Engineers, Officers and staffs of 241 Nos. (directly 110 & from 3rd party 131 Nos.); operate and Maintenance of 11KV substation, HT and LT switch gears, ACB of sizes 4200A, 3200A, 2500A etc. 4000kW Power Plant (Generators), 600 KVA ON Line UPS HVAC system of 2750TR (Chiller: 5x550TR). Select Vendors for Cafeteria services and to manage their activities. Acted as Member-Secretary of the following Committees; Campus Development Committee (CDC); Technical Committee (TC); Space Allocation Committee (SAC) and member of a lot of committees as such Procurement Committee (PC), Finance committee, Club committee, PF Committee and similar others; Organize and co-ordinate tendering process to select contractor of different disciplines; Co-ordinate, supervise and overall Engineering Management of existing campus and all related activities of NSU new campus project. Monitoring the progress of operation and Maintenance work and ensure that the work is being done as per the original architectural and other designs. Advice necessary measures for the existing as well as the new campus development and prepare regular development report of the construction work. Report of any discrepancies/differences of the operation and Maintenance work and taking proper measures to solve the crisis. Maintain liaison with relevant and appropriate Government bodies like RAJUK, Ministry of works, DESA, WASA, Titas Gas, Traffic Police, City Corporation and ward commissioner etc. Supervise / management of the personnel who are under the department of O & M. Ensure that all financial operations and transactions of the development work of the existing and new campus project comply with budgetary provisions and have approval of the competent authority. Represent the university in conducting different tenders/bids of the campus and advice the authority on engineering issues. Perform other duties as assigned by the authority.",
+                  "end_date": "January 2018",
+                  "location": "Bangladesh",
+                  "organization": "North South University",
+                  "start_date": "July 2012",
+                  "title": "Director (Operation and Maintenance)"
+                },
+                {
+                  "description": "Management and Supervision Consultants (World Bank Project), Municipal Services Project Phase - II : Responsible for monitoring and Evaluation of Electro-Mechanical activities of 72 sites; (i) Evaluation of Tender documents for E/M work; (ii) Solar Street Light; (iii) Building Electrification; (iv) Deep Tube Well and Water supply, Water treatment plant etc.",
+                  "end_date": "Jun 2012",
+                  "location": "Bangladesh",
+                  "organization": "JV of Aqua, RPMC, EPC and Hifab (Sweden), World Bank Project",
+                  "start_date": "July 2011",
+                  "title": "Consultant (Electro-Mechanical)"
+                },
+                {
+                  "description": "Design for Multi-storied Apartment Buildings: Electrical wiring, electrical substation (transformer, LT panel, HT Panel, PFI). MDB, DB, SDB etc. Selection of generator, HT power line, solar panel, selection of water pump. Assessment of energy consumption in water pump and building including energy savings system; design for a number of industries, electrical wiring, electrical substation, load sanction from DESCO; selection of water pump, Water Treatment Plant (WTP), gas sanction, etc. Responsibilities also involved Engineering compliance and implementation of national energy saving policy and environmental training.",
+                  "end_date": "June 2011",
+                  "location": null,
+                  "organization": "Concept Engineering Consultant",
+                  "start_date": "Jan 2011",
+                  "title": "General Manager"
+                },
+                {
+                  "description": "Solar Project: Developed business plan, recruitment and marketing policy, financial budget forecast and expected profit margin etc. Designed Solar Project; calculation of solar panels, battery rating, assessment of energy consumption, charge controller, inverter etc. Develop technical specifications, tender documents, BOQ and drawings; monitoring and evaluation of the overall activities of the 2-sistern concerns of Navana Group; attended meetings with Ministers, Secretaries, top officials of various organizations. teams activities were to participate in tender and after implementation provide them the required backup support for the solar energy, energy efficiency, CCTV, PA, access control, time attendance, fire detection and protection, X-Ray baggage scanner, energy meter etc. and overall administration, fund management, product sourcing, liaison with Group Chairman and Vice Chairman, leading the team in Navana Board Meeting. Visited China and Singapore for selection of solar panels, solar street light, solar pump and their related components and imported Spanish Brand “Zytech” Solar Panels from China and undertook related training of design, installation and operation of all energy efficiency electrical equipment’s.",
+                  "end_date": "Dec 2010",
+                  "location": "Bangladesh",
+                  "organization": "Navana Renewable Energy and Navana Interlinks Limited",
+                  "start_date": "Jul 2009",
+                  "title": "General Manager"
+                },
+                {
+                  "description": "North South University Campus Development Project : Monitored the works of the consultants, contractors and report to the Project Director regularly. Preparation of tender documents, BOQ, General Condition of Contract (GCC), Special Condition of Contract (SCC), Particular Condition of Contract (PCC). Prepared specification, drawings, BOQ, invitation of tender, participated pre-bid meeting, tender evaluation, assessed technical and financial offer, and awarded of contract for the electrical works (LT), electrical works (HT) and substation 3600 KVA, 11KV automatic voltage regulator (AVR), busbar trunking system (BBT) generators 4000 KW, 200 KVA UPS system, light fittings, cables (LT), cable (HT), earthing system, lightning protection system, ventilation of generator room, sewerage treatment plant (STP), telephone system, computer network system, server system, precision air conditioner of server room, dedicated power supply for server room, fire protection system, HVAC system, access control system, X-Ray baggage scanner access control system, and similar other packages. Calculated and purchased CFL bulbs. Liaison with the officials of Gas, Water, Power, Environment, Energy Regulatory Commission etc.",
+                  "end_date": "Jun 2009",
+                  "location": "Bangladesh",
+                  "organization": "North South University",
+                  "start_date": "Jun 2005",
+                  "title": "Project Manager"
+                },
+                {
+                  "description": "Design and installation of all Electro-Mechanical Installation: Implemented the electrical Works (LT), electrical works (HT) and substation, generators, telephone system, computer networking system, fire alarm system, CCTV camera system and access control system. Shop drawing preparation in coordination with other packages; supervision of the above works, procurement of local materials, liaison with the overseas suppliers for timely delivery of materials, quality control of materials, participate in the week-end meeting, monitoring and evaluation of the works of sub-contractors, liaison with top management of Siemens, Westin Hotel and the Consultants.",
+                  "end_date": "May 2005",
+                  "location": "Bangladesh",
+                  "organization": "Siemens Bangladesh Limited",
+                  "start_date": "Jun 2004",
+                  "title": "Project Manager"
+                },
+                {
+                  "description": "Sigma Pumps Limited: Project procurement and design and top supervision; worked for KSB Pump (Sigma Pumps Ltd), responsibility was to select pump on the basis of water flow requirement (CuM), head of water (M), power consumption by the pump (KW / HP). Pumps for chemicals, powder and mine. Pumps for other fluid (not water) considering fluid density, fluid temperature, fluid discharge and head.",
+                  "end_date": "May 2004",
+                  "location": "Bangladesh",
+                  "organization": "Concept Engineering Consultant",
+                  "start_date": "Apr 2002",
+                  "title": "Project Manager"
+                },
+                {
+                  "description": "Beximco Pharmaceuticals Ltd. (A USA - FDA Standard Project to Export Medicine in USA): Implementation of electrical works (LT), electrical works (HT) and substation, generators, light fittings, cables, earthing system, lightning protection system, telephone system, PA system, clock system (master and slave clock), fire alarm system, fire protection system, CCTV camera system, building automation system (BAS), water pump and gas line for Generators and similar others.",
+                  "end_date": "Mar 2002",
+                  "location": "Bangladesh",
+                  "organization": "Beximco Pharmaceuticals Limited",
+                  "start_date": "Jan 1996",
+                  "title": "Project Manager"
+                }
+              ],
+              "education": [
+                {
+                  "degree": "B.Sc. Engineering (Electrical and Electronic)",
+                  "institution": "Bangladesh University of Engineering and Technology (BUET), Bangladesh",
+                  "year": "1986"
+                }
+              ],
+              "languages": [
+                {
+                  "language": "English",
+                  "level": null
+                }
+              ],
+              "digital_skills": "AutoCAD, PLC Programming, Computer Network, Server",
+              "other_skills": "",
+              "additional_info": "",
+              "sectors": [
+                "Social protection",
+                "Energy",
+                "Climate finance"
+              ],
+              "skill_tags": [
+                "Procurement",
+                "Capacity building",
+                "M&E",
+                "Stakeholder facilitation",
+                "R"
+              ],
+              "donor_tags": [
+                "World Bank",
+                "EU"
+              ],
+              "cv_filename": ""
+            },
+            "total": 30,
+            "reasoning": "This candidate has substantial general experience (28+ years) and strong explicit experience with World Bank-funded projects and various consultancy roles. While they have some experience in business planning and energy consumption assessments, their core expertise is in electro-mechanical engineering and infrastructure, which does not align with the requirement for trade-related studies and policy analysis.",
+            "strengths": [
+              "Extensive general and consulting experience",
+              "Explicit experience with World Bank-funded projects",
+              "Experience in business planning and energy-sector assessments",
+              "Strong project management"
+            ],
+            "gaps": [
+              "Core expertise is in electro-mechanical engineering, not trade or economic policy",
+              "Business assessment experience is limited to the energy sector, not broad trade or commercial policy"
+            ]
+          },
+          {
+            "candidate": {
+              "user_id": 4,
+              "full_name": "A K M Momtaz Uddin",
+              "email": "c2@gmail.com",
+              "phone": "",
+              "address": "",
+              "nationality": "Bangladeshi",
+              "date_of_birth": "",
+              "about_me": "Deputy Team Leader / Senior Hydrologist /River Training Specialist",
+              "work_experience": [
+                {
+                  "description": null,
+                  "end_date": null,
+                  "location": null,
+                  "organization": "BCL Associates Limited",
+                  "start_date": "Oct 2018",
+                  "title": "Manager - Water Resources, Drainage & Hydrology"
+                },
+                {
+                  "description": "Responsible for review of hydrological report, collection of all available hydrological, morphological and climatic data, planning and executing hydrological and navigational survey, analysis of data for local requirement of drainage opening, analysing and determining flood levels, bed scour, bank movement, review of design of all river bank/ slope protection works and preparing specification of works. The Sylhet area also experiences very intensive rainfall (the highest in Bangladesh). Therefore, the Consultant has carefully analysed the rainfall intensity records in the area to identify the hydrological requirements of the bridges and culverts. In total, There are 10 major bridges, length varying from 80 metres to 830 metres and 53 minor bridges, length varying from 22 metres to 78 metres and also 309 culverts for smooth drainage that the consultant has monitored.",
+                  "end_date": "Feb 2020",
+                  "location": "Dhaka - Sylhet, Bangladesh",
+                  "organization": "BCL Associates Limited",
+                  "start_date": "Sep 2019",
+                  "title": "Senior Hydrologist (Reviewing and Updating Designs of Highway, Bridge, Flyover, Interchange and other Road Infrastructure)"
+                },
+                {
+                  "description": "Responsible for hydrological investigation, survey, collection and analysing of hydrological data to determining flood levels, bed scour, bank movement, and preparing report on upgrading of the highway into 4 - lane expressway including other appurtenant structures.",
+                  "end_date": "Jun 2020",
+                  "location": "Gabtoli - Savar - Nabinagar in Bangladesh",
+                  "organization": "BCL Associates Limited",
+                  "start_date": "Sep 2019",
+                  "title": "Senior Hydrologist (PPP Transaction Advisory Services for Upgrading of Gabtoli - Savar - Nabinagar)"
+                },
+                {
+                  "description": "Responsible for - Review of hydrological report prepared by CEGIS. Recommendation of design standard high water level, low water level and navigational requirement for design of highway geometry as well as cross drainage structures along the roads based on the model generated data, public opinion and frequency analysis of BWDB data; Design of river training works to protect the foundation of bridges; Detail design of road side drain and outfall structures and configuration of bridges and box culverts along the roads.",
+                  "end_date": "Aug 2019",
+                  "location": "Bangladesh",
+                  "organization": "BCL Associates Limited",
+                  "start_date": "Dec 2018",
+                  "title": "Sr Hydrologist/ River Training Specialist (Additional Financing to the Subregional Transport Project)"
+                },
+                {
+                  "description": "Supervising and providing technical guidance to the Additional Director Generals of the Board and providing administrative decision to the projects, Coordination to the Ministry of Water Resources and Planning Commission. Responsible for providing support, managing and control of national projects all over Bangladesh funded by WB/ADB/JICA/GoB, policy making and administration of the department, Coordination to the Ministry of Water Resources and Planning Commission.",
+                  "end_date": "Jan 2018",
+                  "location": "Dhaka, Bangladesh",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Nov 2017",
+                  "title": "Director General"
+                },
+                {
+                  "description": "Technical support, guidance and control of projects under Eastern Region. Responsible for providing support, guidance, managing and controlling of 42 national projects (including Char Development and Settlement Project (CDSP - IV), Irrigation Management & Improvement Project (IMIP), Haor Flood Management and Livelihood Improvement Project, Climate Smart Agricultural Water Management Project). Expedite payment process for works/services, project consultants, contractors and associated parties and stakeholders. Support, guidance and approved/recommended to the procurement process.",
+                  "end_date": "Oct 2017",
+                  "location": "Dhaka, Kishoreganj, Habiganj, Sunamganj, Netrokona, Feni, Jashore, Sylhet, Cumilla, Chattogram and Faridpur in Bangladesh",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Sep 2016",
+                  "title": "Additional Director General (East Region)"
+                },
+                {
+                  "description": "Technical guidance to the Superintending Engineers of different circles under the zone, reviewing the Annual Procurement Plans, DPPs of different projects and attending in meeting at Board, Ministry and Planning Commission. Responsible for providing support, guidance, managing and controlling of projects (including Sirajganj Hard Point, Bank Protection of Jamuna River, Bank Protection of Padma River, Flood & River Bank Erosion Risk Management Mitigation Project). Expedite payment process to facilitate consultants, contractors and associated parties. Support, guidance and approved/recommended to the procurement process.",
+                  "end_date": "Aug 2016",
+                  "location": "North Western Zone, Rajshahi, Bangladesh",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Jul 2015",
+                  "title": "Chief Engineer"
+                },
+                {
+                  "description": "Administrative activities of Bogura O&M Circle. Responsible for providing support, guidance, managing and controlling of projects (including Protection of Sirajganj Hard Point, Right Bank Protection of Jamuna River, Management and Monitoring of River Training Works). Expedite payment process to facilitate consultants, contractors and associated parties. Support, guidance and approved/recommended to the procurement process.",
+                  "end_date": "Jun 2015",
+                  "location": "Bogura, Sirajganj, Kazipur in Bangladesh",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Oct 2012",
+                  "title": "Superintending Engineer, Bogura O&M Circle"
+                },
+                {
+                  "description": "Procurement process, supervision and managing of town protection project. Responsible for project management and top supervision of town protection works. Expedite payment process to facilitated consultants, contractors and associated parties. Support, guidance and approved/recommended to the procurement process.",
+                  "end_date": "Sep 2012",
+                  "location": "Dhaka, Narayanganj, Demra in Bangladesh",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Jan 2012",
+                  "title": "Superintending Engineer / Project Director"
+                },
+                {
+                  "description": "Supporting the Project Director in implementing different component of the project works. Responsible for assisting the Project Director in implementation of the project works, monitoring performance of consultants, contractors and facilitate their activities, providing administrative and financial support. Reviewing hydrological analysis done by the design consultant.",
+                  "end_date": "Dec 2011",
+                  "location": "Pabna, Bangladesh",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Aug 2011",
+                  "title": "Superintending Engineer / Project Management Officer, JMREMP"
+                },
+                {
+                  "description": null,
+                  "end_date": "Jul 2011",
+                  "location": null,
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Jun 2003",
+                  "title": "Executive Engineer, Different Divisions"
+                },
+                {
+                  "description": null,
+                  "end_date": "May 2003",
+                  "location": null,
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Sep 1989",
+                  "title": "Sub-Divisional Engineer, Different Field Offices"
+                },
+                {
+                  "description": null,
+                  "end_date": "Aug 1989",
+                  "location": "Dhaka",
+                  "organization": "Bangladesh Water Development Board (BWDB)",
+                  "start_date": "Jan 1983",
+                  "title": "Assistant Engineer/Sub-Divisional Engineer of different design offices"
+                }
+              ],
+              "education": [
+                {
+                  "degree": "MSc Engineering (Water Resources)",
+                  "institution": "Bangladesh University of Engineering and Technology (BUET), Dhaka",
+                  "year": "1988"
+                },
+                {
+                  "degree": "BSc in Civil Engineering",
+                  "institution": "BUET, Dhaka",
+                  "year": "1982"
+                }
+              ],
+              "languages": [
+                {
+                  "language": "English",
+                  "level": "C2"
+                },
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                }
+              ],
+              "digital_skills": "Basic Language programming, Fortran Language programming",
+              "other_skills": "",
+              "additional_info": "",
+              "sectors": [
+                "Climate finance",
+                "Public financial management"
+              ],
+              "skill_tags": [
+                "Procurement",
+                "Policy drafting",
+                "Stakeholder facilitation",
+                "Capacity building",
+                "R"
+              ],
+              "donor_tags": [
+                "World Bank",
+                "ADB"
+              ],
+              "cv_filename": ""
+            },
+            "total": 25,
+            "reasoning": "This candidate possesses extensive general experience (40+ years) and significant experience with development partner-funded projects and large-scale assessments within a consulting firm and government agency. However, their expertise is exclusively in water resources, hydrology, and civil engineering, making them a complete subject matter mismatch for trade-related studies and business policy analysis.",
+            "strengths": [
+              "Extensive general experience in consulting-like roles",
+              "Vast experience with development partner-funded projects",
+              "Leadership and policy roles within a government body",
+              "Experience conducting major sectoral assessments (in hydrology)"
+            ],
+            "gaps": [
+              "No experience in trade, business, economics, or commercial policy studies",
+              "Sectoral assessment experience is in an unrelated field (hydrology)"
+            ]
+          },
+          {
+            "candidate": {
+              "user_id": 1,
+              "full_name": "MD RIADDUZZAMAN",
+              "email": "riadduzzaman@gmail.com",
+              "phone": "+880 1806 - 465410",
+              "address": "Bashundhara, Dhaka",
+              "nationality": "",
+              "date_of_birth": "",
+              "about_me": "Results-driven Civil Engineering professional with over 3 years of hands-on experience in high-rise residential and commercial construction. Proven track record in end-to-end project supervision from drawing review and contractor coordination to quality control and timely delivery. Adept at managing multi-stakeholder construction sites, enforcing safety standards, and optimizing resources to minimize waste. Committed to delivering projects that meet the highest standards of structural integrity and client satisfaction.",
+              "work_experience": [
+                {
+                  "description": "Reviewed all types of project drawings, including RAJUK, Architectural, Structural and Perspective plans, identifying discrepancies and coordinating with relevant departments for timely corrections. Supervised day-to-day construction activities on-site, ensuring work is executed as per drawings, specifications, and schedule. Coordinated and instructed contractors to execute work according to the planned work program. Prepared monthly work schedules, achievement reports and monitored daily progress to maintain project timelines. Conducted on-site training for workers to enhance skills and ensure superior construction quality. Inspected material quality, enforced safety protocols and ensured the security of both construction activities and workforce. Focused on minimizing material wastage through proper handling and execution oversight. Ensured effective project merchandising and branding throughout the construction period. Maintained high standards of construction quality, ensuring timely project completion and client satisfaction.",
+                  "end_date": "Present",
+                  "location": "91 Gulshan Avenue, Dhaka",
+                  "organization": "Asset Developments & Holdings Ltd",
+                  "start_date": "March 2026",
+                  "title": "Assistant Project Engineer"
+                },
+                {
+                  "description": null,
+                  "end_date": "February 2026",
+                  "location": "91 Gulshan Avenue, Dhaka",
+                  "organization": "Asset Developments & Holdings Ltd",
+                  "start_date": "October 2023",
+                  "title": "Junior Project Engineer"
+                },
+                {
+                  "description": null,
+                  "end_date": "October 2023",
+                  "location": "91 Gulshan Avenue, Dhaka",
+                  "organization": "Asset Developments & Holdings Ltd",
+                  "start_date": "March 2023",
+                  "title": "Apprentice Engineer"
+                },
+                {
+                  "description": "Gained practical experience in rural infrastructure projects, including road and bridge construction. Assisted in field inspections and site supervision under the guidance of senior engineers. Studied engineering drawings and construction documentation relevant to government projects. Developed understanding of project estimation, BOQ preparation and tender evaluation processes. Learned about quality control practices, safety measures and environmental considerations in civil works. Participated in meetings and site visits that deepened understanding of public infrastructure planning and implementation.",
+                  "end_date": "February 2023",
+                  "location": "Bangladesh",
+                  "organization": "Local Government Engineering Department (LGED)",
+                  "start_date": "August 2022",
+                  "title": "Engineering Intern"
+                }
+              ],
+              "education": [
+                {
+                  "degree": "Diploma in Civil Engineering",
+                  "institution": "Sylhet Polytechnic Institute",
+                  "year": "2023"
+                },
+                {
+                  "degree": "Higher Secondary Certificate (HSC) – Science",
+                  "institution": "Sylhet Government College",
+                  "year": "2018"
+                },
+                {
+                  "degree": "Secondary School Certificate (SSC) – Science",
+                  "institution": "Rasamoy Memorial High School",
+                  "year": "2016"
+                }
+              ],
+              "languages": [],
+              "digital_skills": "",
+              "other_skills": "",
+              "additional_info": "",
+              "sectors": [
+                "Governance",
+                "Public financial management"
+              ],
+              "skill_tags": [
+                "Stakeholder facilitation",
+                "Capacity building",
+                "Procurement",
+                "R"
+              ],
+              "donor_tags": [],
+              "cv_filename": ""
+            },
+            "total": 0,
+            "reasoning": "This candidate is a civil engineer with 3 years of experience primarily in construction supervision, which is entirely unrelated to the requirement for trade-related studies and policy analysis. They lack any experience in consulting, research, surveys, or economics.",
+            "strengths": [],
+            "gaps": [
+              "No consulting experience",
+              "No experience in trade/policy studies or business surveys",
+              "Insufficient general experience",
+              "Expertise in unrelated field (civil engineering)"
+            ]
+          },
+          {
+            "candidate": {
+              "user_id": 3,
+              "full_name": "Md. Humayun Kobir",
+              "email": "hunayun603773@gmail.com",
+              "phone": "+880 1751 - 192449",
+              "address": "House #263, Satarkul Road, Uttar Badda, Dhaka",
+              "nationality": "Bangladeshi",
+              "date_of_birth": "",
+              "about_me": "A dynamic and achievement-oriented Civil Engineering professional with over 7 years of hands-on experience in project management, site supervision, construction execution, and quality assurance. Proven ability to deliver infrastructure, commercial, and residential projects on time and within budget. Skilled in team leadership, vendor coordination, risk management, and ATS-compliant reporting. Seeking a Probationary Officer or Management Trainee role to leverage technical expertise, strategic planning, and operational excellence in a growth-oriented organization. Strong administration, organizing, and time management skills with the ability to work under pressure and handle confidential matters. Always ready to learn new technologies; a strong team player with solid analytical reasoning and problem-solving skills. Self-motivated, assertive, and possessing excellent communication skills with a positive, balanced, and professional demeanor. A smart, young, energetic, and dynamic self-starter with an outgoing personality and strong interpersonal skills, capable of working independently at a high pace.",
+              "work_experience": [
+                {
+                  "description": "Supervised daily construction activities ensuring alignment with project timelines and milestones. Monitored site compliance with technical drawings, safety standards, and quality specifications. Maintained work schedules based on BOQ and coordinated with subcontractors to resolve issues. Controlled project budgets and certified bills for labor, contractors, and material suppliers. Prepared daily and weekly progress reports for senior management and stakeholder review. Managed material procurement and liaised with supply chain teams to prevent delays.",
+                  "end_date": "Present",
+                  "location": "Dhaka, Bangladesh",
+                  "organization": "ABM Water Company Ltd.",
+                  "start_date": "March 2021",
+                  "title": "Assistant Project Engineer (Civil)"
+                },
+                {
+                  "description": "Developed and maintained civil layout plans for refugee camp construction projects. Ensured work progressed per Master Project Schedule and BOQ specifications. Supervised skilled mason and labor teams to maintain productivity and safety compliance. Certified vendor and contractor bills while managing daily site activity reporting. Coordinated material requisitions with supply chain to support uninterrupted construction.",
+                  "end_date": "February 2021",
+                  "location": "Ukhia, Cox’s Bazar",
+                  "organization": "Infinity Construction",
+                  "start_date": "February 2019",
+                  "title": "Assistant Project Engineer (Civil)"
+                },
+                {
+                  "description": "Oversaw civil layout engineering and installation for multi-story building projects. Monitored contractor performance and certified completion-based billing accurately. Executed structural works including piling, foundations, RCC, and finishing systems. Managed onsite activities for water tanks, retaining walls, slabs, beams, and sanitary works.",
+                  "end_date": "January 2019",
+                  "location": "Dhaka, Bangladesh",
+                  "organization": "S.M.A Engineering",
+                  "start_date": "December 2016",
+                  "title": "Site Engineer (Civil)"
+                }
+              ],
+              "education": [
+                {
+                  "degree": "Diploma in Engineering, Civil Technology",
+                  "institution": "Dinajpur Polytechnic Institute",
+                  "year": "2016"
+                },
+                {
+                  "degree": "Secondary School Certificate (SSC), Science",
+                  "institution": "Binod-Nogor High School",
+                  "year": "2012"
+                }
+              ],
+              "languages": [
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "C1"
+                }
+              ],
+              "digital_skills": "Proficient in Project Management Tools (AutoCAD 2D & 3D, MS Project, Microsoft Word, Excel) and Construction Software (AutoCAD Civil 3D, MS Office Suite, Estimating Software).",
+              "other_skills": "",
+              "additional_info": "",
+              "sectors": [],
+              "skill_tags": [
+                "Procurement",
+                "R"
+              ],
+              "donor_tags": [],
+              "cv_filename": ""
+            },
+            "total": 0,
+            "reasoning": "As a civil engineer with 7 years of experience in construction project management, this candidate's background is completely misaligned with the requirements for trade and policy studies. They demonstrate no experience in consulting, research, or economic analysis.",
+            "strengths": [],
+            "gaps": [
+              "No consulting experience",
+              "No experience in trade/policy studies or business surveys",
+              "Insufficient general experience",
+              "Expertise in unrelated field (civil engineering)"
+            ]
+          },
+          {
+            "candidate": {
+              "user_id": 7,
+              "full_name": "MD. TUHIN ALAM",
+              "email": "tuhinalam.uap@gmail.com",
+              "phone": "01789-470425",
+              "address": "7/C/3, South Begunbari, Tejgoan Industrial Area-A, Dhaka-1208",
+              "nationality": "",
+              "date_of_birth": "",
+              "about_me": "Success comes through hard work and creativity as part of belief. I am creative, hardworking, and able to perform well under pressure. I enjoy sharing knowledge, adapting quickly to new concepts, and taking on new challenges. I work well in teams, have the ability to multitask, and possess strong communication skills.",
+              "work_experience": [
+                {
+                  "description": "Manage all typing-related tasks efficiently and accurately. Maintain office files, documents, and vouchers in a systematic and organized manner. Handle all banking-related activities including cheque and cash deposits, preparing bank drafts, and other transactions. Assist in organizing meetings, trainings, and program arrangements. Design creative materials such as banners, posters, reports, and other print-ready content using graphic design tools. Provide technical and administrative support to the IT and Communication teams. Coordinate procurement of office stationery and other non-inventory items as needed. Prepare and distribute employee ID cards, name tags, and business cards as required. Oversee housekeeping activities and ensure cleanliness and hygiene standards are maintained within the office.Support in managing canteen operations and oversee daily tasks and scheduling of support staff.",
+                  "end_date": "Till date",
+                  "location": null,
+                  "organization": "BISR Consultants Ltd.",
+                  "start_date": "Nov 2023",
+                  "title": "Computer Operator"
+                },
+                {
+                  "description": "Graphic Design, Facebook Marketing, Content Boosting, Managing Communication of the Admission Section, Coordinating Courses, Event Management, Capturing Videos and Documentation, Maintenance of office files.",
+                  "end_date": "Oct 2023",
+                  "location": null,
+                  "organization": "Haque Law Academy",
+                  "start_date": "Sep 2022",
+                  "title": "Computer Operator"
+                }
+              ],
+              "education": [
+                {
+                  "degree": "B.Sc in Civil Engineering",
+                  "institution": "Sonargoan University (SU), Dhaka",
+                  "year": "Ongoing"
+                },
+                {
+                  "degree": "HSC (Science)",
+                  "institution": "Kazipur Govt. Mansur Ali College, Sirajganj",
+                  "year": "2023"
+                },
+                {
+                  "degree": "SSC (Science)",
+                  "institution": "Beltoil Alahi Baksa-Riaj Uddin (E-R) Multilateral High School",
+                  "year": "2020"
+                }
+              ],
+              "languages": [
+                {
+                  "language": "Bangla",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "Good"
+                }
+              ],
+              "digital_skills": "AutoCad, Office Application (Word, Excel, PowerPoint, Internet), Graphic Design (Illustrator, Photoshop, InDesign, Canva), Video Editing (Capcut, Filmora, AI), Digital Marketing (Facebook)",
+              "other_skills": "",
+              "additional_info": "",
+              "sectors": [],
+              "skill_tags": [
+                "Capacity building",
+                "Procurement",
+                "Stakeholder facilitation",
+                "R"
+              ],
+              "donor_tags": [],
+              "cv_filename": ""
+            },
+            "total": 0,
+            "reasoning": "No score returned.",
+            "strengths": [],
+            "gaps": []
+          }
+        ],
+        "mode": "ai"
+      },
+      "cachedAt": "2026-07-05T13:55:39.154Z"
+    },
+    "3": {
+      "fingerprint": "1179334803",
+      "result": {
+        "project": {
+          "id": 3,
+          "agent_id": 2,
+          "created_at": "2026-07-05T12:42:44.350Z",
+          "title": "Capacity building of women traders on trade related regulatory regime and E-Commerce solutions and procedures in 08 Divisional HQ including Reform dialogues (Policy Dialogues) to resolve the challenges facing the women traders.",
+          "client": "Bangladesh Regional Connectivity Project-1 (BRCP-1)",
+          "duration": "139 days",
+          "location": "Dhaka",
+          "notes": "Invitation for   Request for Expressions of Interest   Status: Approved  GOVERNMENT OF THE PEOPLE'S REPUBLIC OF BANGLADESH  Ministry/Division   :   Ministry of Commerce  Agency   :   Ministry of Commerce  Procuring Entity Name   :   Bangladesh Regional Connectivity Project-1 (BRCP-1)  Procuring Entity Code   :   2230029  Procuring Entity District   :   Dhaka  Expression of Interest for Selection of   :   Consulting Firm   (National)   (Lump-Sump)  Title Of Service   :   Capacity building of women traders on trade related regulatory regime and E-Commerce solutions and procedures in 08 Divisional HQ including Reform dialogues (Policy Dialogues) to resolve the challenges facing the women traders.  EOI Ref. No.   :   26.00.0000.066.07.067.26-81  Date   :   10/06/2026  KEY INFORMATION  Procurement Sub-Method   :   Consultants Qualifications Selection (CQS)  FUNDING INFORMATION  Budget and Source of Funds   :   Development Budget Grant/Credit  Development Partners   :  PARTICULAR INFORMATION  Project/Programme Name   :  EOI Closing Date and Time   :   28/06/2026 2.00  Publication Date   :   14/06/2026  6/14/26, 11:21 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10619.html   1/3\nINFORMATION FOR APPLICANT  Brief Description of Assignment   :   Quality and Cost Based Selection (QCBS) method OR Consultant's Qualification - based Selection (CQS) method  Experience, Resources and Delivery Capacity Required   :   1. The Consulting firm shall have the legal capacity to enter into the contract with minimum 10 (Ten) years of general experience out of which at least 05 (five) years of experience in training management for public and private sector; 2. The minimum specific experience as lead consultant in providing training of at least cumulatively 500 (Five Hundred) numbers of trainees completed training course over last 05 (five) years shall be required. 3. The firm should have experience in working with development projects funded by any development partner; 4. The firm should have successfully completed at least one service contract related to capacity development (designing training module/organize training program) in any sector for women entrepreneurship development in last 05(five) years; 5. The required average annual turnover of the consulting firm shall be at least of the amount of Tk. 01 (One) Crore for the last three years; and 6. A capacity statement on available training infrastructure facilities, IT equipment, logistics support, transport and office space.  Other Details (if applicable)   :  Association with foreign firms is   :   Not Applicable  Eoi Detail Information  Ref No   Phasing Of Services   Location   Start Date   Completion Date  SD-61   One phase   Dhaka   15/07/2026   30/11/2026  6/14/26, 11:21 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10619.html   2/3\nPROCURING ENTITY DETAILS  Name of Official Inviting EOI   :   Shaila Yasmin  Designation of Official Inviting EOI   :   Project Director (Joint Secretary)  Address of Official Inviting EOI   :   Bangladesh Regional Connectivity Project- 1, Level-12 (West side), Probashi Kollayn Bhaban, 71-72 Eskaton Garden Road, Dhaka-1000  Contact details of Official Inviting EOI   :   Phone : +880255138022, Fax : , Email : pdbrcp1moc@gmail.com  The procuring entity reserves the right to accept or reject all tenders  6/14/26, 11:21 PM   BPPA | Bangladesh Public Procurement Authority  https://www.bppa.gov.bd/advertisement-services/details-10619.html   3/3",
+          "sectors": [],
+          "skill_tags": [],
+          "donor_tags": [],
+          "file_stored": "project_3.pdf",
+          "file_name": "CAPACI_1.PDF",
+          "file_mime": "application/pdf"
+        },
+        "ranked": [
+          {
+            "candidate": {
+              "full_name": "Dr. Khan Sarifuzzaman",
+              "address": "Plot# 06, Avenue# 06, Sector# 17/H - 1, Uttara, Dhaka - 1230, Bangladesh",
+              "nationality": "Bangladesh",
+              "about_me": "Proactive lecturer and research leader with over 12 years of experience teaching various courses in Political Science and Social Science Research Methodology at college, university, and research organizations. Led five research projects, including a Ph.D. thesis, a fellowship, a research grant, and two consultancies. Published two peer-reviewed articles, three books, and over 50 columns. Expertise in qualitative and quantitative research, focusing on rights & protection, education, violence, and policy issues. Proficient in qualitative data collection methods like FGD, KII, IDI, and Case Studies, and experienced in designing and conducting research using PRA tools. Actively involved in research and grants for disadvantaged child education and the protection of vulnerable communities.",
+              "sectors": [
+                "Governance",
+                "Education",
+                "Social protection"
+              ],
+              "skill_tags": [
+                "M&E",
+                "Stakeholder facilitation",
+                "Policy drafting",
+                "Capacity building",
+                "Impact evaluation",
+                "R"
+              ],
+              "donor_tags": [],
+              "languages": [
+                {
+                  "language": "Bengali",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "C1"
+                }
+              ],
+              "cv_filename": ""
+            },
+            "total": 70,
+            "reasoning": "Dr. Khan Sarifuzzaman is the most relevant candidate, with over 12 years of experience in lecturing and social science research, directly supporting capacity building and policy dialogue aspects. His background in Political Science and Social Science Research Methodology is highly pertinent to understanding regulatory regimes and the socio-economic context of women traders, although specific E-commerce expertise is missing.",
+            "strengths": [
+              "Extensive experience in lecturing and teaching (capacity building)",
+              "Strong background in Political Science and Social Science Research Methodology",
+              "Experience in leading research projects and consultancies",
+              "Relevant for 'Reform dialogues (Policy Dialogues)' through research and column writing",
+              "Relevant for understanding the context of 'women traders'"
+            ],
+            "gaps": [
+              "No explicit experience in E-Commerce solutions and procedures",
+              "Specific expertise in 'trade-related regulatory regime' needs to be inferred from general political science background",
+              "Not explicitly stated if consultancies/grants were from major development partners"
+            ]
+          },
+          {
+            "candidate": {
+              "full_name": "Engr. Kazi Mominul Hoque, Peng",
+              "address": "",
+              "nationality": "Bangladesh",
+              "about_me": "",
+              "sectors": [
+                "Social protection",
+                "Energy",
+                "Climate finance"
+              ],
+              "skill_tags": [
+                "Procurement",
+                "Capacity building",
+                "M&E",
+                "Stakeholder facilitation",
+                "R"
+              ],
+              "donor_tags": [
+                "World Bank",
+                "EU"
+              ],
+              "languages": [
+                {
+                  "language": "English",
+                  "level": null
+                }
+              ],
+              "cv_filename": ""
+            },
+            "total": 10,
+            "reasoning": "Engr. Kazi Mominul Hoque has strong general project management experience, including with World Bank projects, and has been involved in preparing training modules (likely technical). While he has broader management and business development experience, his core expertise in electro-mechanical engineering does not align with the specific subject matter of this capacity building project.",
+            "strengths": [
+              "Extensive project management experience",
+              "Experience with World Bank funded projects",
+              "Experience in preparing tender documents and procurement",
+              "Some experience in designing/conducting training modules (technical)",
+              "Liaison experience with government officials"
+            ],
+            "gaps": [
+              "No specific experience in trade-related regulatory regimes",
+              "No specific experience in E-Commerce solutions or procedures",
+              "Limited direct experience in capacity building for women entrepreneurship",
+              "Core technical domain (electro-mechanical engineering) is irrelevant to project content"
+            ]
+          },
           {
             "candidate": {
               "full_name": "A K M Momtaz Uddin",
@@ -522,17 +1690,18 @@
               ],
               "cv_filename": ""
             },
-            "total": 45,
-            "reasoning": "A K M Momtaz Uddin possesses strong high-level project management, policy-making, and development partner project experience from his long career with BWDB and a consulting firm. However, his core expertise is in water resources and infrastructure engineering, not explicitly in trade-related studies or business sector assessments as required for this project's subject matter.",
+            "total": 5,
+            "reasoning": "A K M Momtaz Uddin is a highly experienced professional in water resources, hydrology, and large-scale infrastructure projects, including those funded by development partners. However, his domain expertise is entirely unrelated to the project's focus on trade, e-commerce, and women's entrepreneurship.",
             "strengths": [
-              "Extensive senior-level government and consulting experience",
-              "Strong track record with development partner-funded projects (WB/ADB/JICA)",
-              "Experience in policy-making and project management at national level",
-              "Experience in conducting technical studies and assessments (hydrological)"
+              "Extensive experience with large-scale development projects",
+              "Experience with projects funded by development partners (WB/ADB/JICA)",
+              "High-level project management and policy experience (within water sector)"
             ],
             "gaps": [
-              "Lack of direct experience in trade-related studies or policy analysis",
-              "No explicit experience in business-related surveys outside of infrastructure/hydrology"
+              "No experience in trade-related regulatory regimes",
+              "No experience in E-Commerce solutions or procedures",
+              "No experience in capacity building for women traders",
+              "No experience in policy dialogues"
             ]
           },
           {
@@ -555,16 +1724,14 @@
               "languages": [],
               "cv_filename": ""
             },
-            "total": 5,
-            "reasoning": "MD RIADDUZZAMAN's experience is exclusively in civil construction project supervision, which is entirely unrelated to the requirement for trade-related studies and policy assessments. He lacks any demonstrated background in consulting services, business surveys, or policy analysis.",
-            "strengths": [
-              "Experience in civil construction project supervision",
-              "Quality control and site management skills"
-            ],
+            "total": 0,
+            "reasoning": "MD RIADDUZZAMAN's entire experience is in civil engineering and construction, which is completely irrelevant to capacity building for women traders on trade, e-commerce, or regulatory regimes. His skills and project experience do not align with any aspect of this consultancy assignment.",
+            "strengths": [],
             "gaps": [
-              "No consulting experience in studies or policy",
-              "No experience in trade-related studies",
-              "No experience in business surveys or sectoral assessment"
+              "No experience in trade-related regulatory regimes",
+              "No experience in E-Commerce solutions or procedures",
+              "No experience in capacity building for women traders",
+              "No experience in policy dialogues"
             ]
           },
           {
@@ -591,22 +1758,51 @@
               ],
               "cv_filename": ""
             },
-            "total": 5,
-            "reasoning": "Md. Humayun Kobir's extensive experience in civil engineering and construction management does not align with the project's focus on trade-related studies and policy assessments. His work history shows no involvement in business surveys, sectoral analysis, or policy formulation.",
-            "strengths": [
-              "Extensive civil project management and site supervision",
-              "Experience with infrastructure and residential projects"
-            ],
+            "total": 0,
+            "reasoning": "Md. Humayun Kobir's professional background is exclusively in civil engineering and construction project management. He lacks any expertise or experience in the fields of trade, e-commerce, regulatory policy, or women entrepreneurship development.",
+            "strengths": [],
             "gaps": [
-              "No consulting experience in studies or policy",
-              "No experience in trade-related studies",
-              "No experience in business surveys or sectoral assessment"
+              "No experience in trade-related regulatory regimes",
+              "No experience in E-Commerce solutions or procedures",
+              "No experience in capacity building for women traders",
+              "No experience in policy dialogues"
             ]
+          },
+          {
+            "candidate": {
+              "full_name": "MD. TUHIN ALAM",
+              "address": "7/C/3, South Begunbari, Tejgoan Industrial Area-A, Dhaka-1208",
+              "nationality": "",
+              "about_me": "Success comes through hard work and creativity as part of belief. I am creative, hardworking, and able to perform well under pressure. I enjoy sharing knowledge, adapting quickly to new concepts, and taking on new challenges. I work well in teams, have the ability to multitask, and possess strong communication skills.",
+              "sectors": [],
+              "skill_tags": [
+                "Capacity building",
+                "Procurement",
+                "Stakeholder facilitation",
+                "R"
+              ],
+              "donor_tags": [],
+              "languages": [
+                {
+                  "language": "Bangla",
+                  "level": "Native"
+                },
+                {
+                  "language": "English",
+                  "level": "Good"
+                }
+              ],
+              "cv_filename": ""
+            },
+            "total": 0,
+            "reasoning": "No score returned.",
+            "strengths": [],
+            "gaps": []
           }
         ],
         "mode": "ai"
       },
-      "cachedAt": "2026-07-04T15:38:25.576Z"
+      "cachedAt": "2026-07-05T13:44:46.927Z"
     }
   }
 }

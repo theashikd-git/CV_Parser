@@ -1,35 +1,95 @@
+/*
+  Xpie — front-end app (runs in the browser).
+
+  This single file controls the whole page. It talks to the server through
+  small API calls (see the `api` helper) and swaps the screen between:
+    - the login / register screen        (renderAuth)
+    - the candidate area (build a CV)     (renderCandidate)
+    - the agency area (projects/CVs/sort) (renderAgent)
+
+  We do not use any framework — just plain JavaScript that builds HTML
+  strings and puts them inside the page's <div id="root">.
+*/
+
+// Tell the PDF library where to load its worker from (needed to read PDFs).
 pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
+// TAX holds the lists of sectors / skills / donors, loaded once from the server.
 let TAX = { SECTORS: [], SKILLS: [], DONORS: [] };
 const root = document.getElementById('root');
 
-/* ---------- utilities ---------- */
+/* ---------- small helper functions used everywhere ---------- */
+
+// Show a short message at the bottom of the screen for 2 seconds.
 function toast(msg, isErr) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'toast show' + (isErr ? ' err' : '');
   setTimeout(() => t.className = 'toast', 2000);
 }
+
+// Call the server. Example: api('/login', 'POST', { email, password }).
+// Returns the server's JSON, or throws an error we can show to the user.
 async function api(path, method = 'GET', body) {
   const opts = { method, headers: {} };
-  if (body) { opts.headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
+  if (body) {
+    opts.headers['Content-Type'] = 'application/json';
+    opts.body = JSON.stringify(body);
+  }
   const res = await fetch('/api' + path, opts);
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || ('Request failed: ' + res.status));
   return data;
 }
-function esc(s) { return (s == null ? '' : String(s)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
-function initials(name) { return (name || '?').split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase() || '?'; }
 
-/* ---------- boot ---------- */
+// Make text safe to put inside HTML (turns < > & " into harmless codes).
+function esc(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Turn a name into up-to-2 initials, e.g. "Amara Okonkwo" -> "AO".
+function initials(name) {
+  if (!name) return '?';
+  const letters = name.split(' ').filter(Boolean).map(word => word[0]);
+  return letters.slice(0, 2).join('').toUpperCase() || '?';
+}
+
+/* ---------- boot: runs once when the page loads ---------- */
+// Load the tag lists, then decide which screen to show.
+// In TEST MODE we skip login and jump straight in (as a candidate by default).
+let TEST_MODE = false;
+
 (async function boot() {
   try { TAX = await api('/taxonomy'); } catch {}
+  try {
+    const config = await api('/config');
+    TEST_MODE = config.testMode;
+  } catch {}
+
+  if (TEST_MODE) {
+    // No login needed — sign in to the test candidate account and show the app.
+    await testLogin('candidate');
+    return;
+  }
+
+  // Normal mode: if already logged in, go in; otherwise show the login screen.
   try {
     const me = await api('/me');
     if (me.loggedIn) return enterApp(me.role);
   } catch {}
   renderAuth('login', 'candidate');
 })();
+
+// Used only in test mode: log in to a fixed test account for the given role.
+async function testLogin(role) {
+  await api('/test-login', 'POST', { role });
+  enterApp(role);
+}
 
 /* ---------- AUTH ---------- */
 function renderAuth(mode, role) {
@@ -84,20 +144,44 @@ function renderAuth(mode, role) {
   };
 }
 
+// Builds the top bar + page wrapper shared by every logged-in screen.
+// In test mode the top-right shows a Candidate/Agent toggle instead of "Log out".
 function shell(role, inner) {
+  let topRight;
+  if (TEST_MODE) {
+    // Two buttons to switch role instantly; the current one is highlighted.
+    topRight = `
+      <span class="test-flag">TEST MODE</span>
+      <div class="role-toggle">
+        <button class="rt ${role==='candidate'?'on':''}" id="toCandidate">Candidate</button>
+        <button class="rt ${role==='agent'?'on':''}" id="toAgent">Agent</button>
+      </div>`;
+  } else {
+    topRight = `
+      <span class="role-badge ${role}">${role==='agent'?'Agency account':'Candidate account'}</span>
+      <button class="lnk" id="logoutBtn">Log out</button>`;
+  }
+
   return `
     <div class="nav">
       <div class="brand">Xpie <span>${role}</span></div>
-      <div class="nav-right">
-        <span class="role-badge ${role}">${role==='agent'?'Agency account':'Candidate account'}</span>
-        <button class="lnk" id="logoutBtn">Log out</button>
-      </div>
+      <div class="nav-right">${topRight}</div>
     </div>
     <div class="wrap" id="viewWrap">${inner}</div>
     <div class="app-footer">Designed and developed by <span class="fb">Xpie Team</span></div>`;
 }
+
+// Connects the top-bar buttons after the shell is drawn.
 function wireShell() {
-  document.getElementById('logoutBtn').onclick = async () => { await api('/logout', 'POST'); renderAuth('login', 'candidate'); };
+  if (TEST_MODE) {
+    document.getElementById('toCandidate').onclick = () => testLogin('candidate');
+    document.getElementById('toAgent').onclick = () => testLogin('agent');
+  } else {
+    document.getElementById('logoutBtn').onclick = async () => {
+      await api('/logout', 'POST');
+      renderAuth('login', 'candidate');
+    };
+  }
 }
 
 function enterApp(role) {
@@ -105,7 +189,11 @@ function enterApp(role) {
   else renderAgent();
 }
 
-/* ---------- CANDIDATE ---------- */
+/* ==========================================================
+   CANDIDATE AREA
+   Where a candidate builds their CV. renderCandidate loads
+   their saved profile, then drawCandidate builds the form.
+   ========================================================== */
 let profile = null;
 async function renderCandidate() {
   root.innerHTML = shell('candidate', `<div class="empty"><span class="spinner"></span> Loading your profile…</div>`);
