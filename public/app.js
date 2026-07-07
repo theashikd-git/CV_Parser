@@ -245,7 +245,7 @@ function drawCandidate() {
   wrap.innerHTML = `
     <div class="eyebrow">My Europass-style profile</div>
     <h1>Your living CV</h1>
-    <p class="sub">Fill it in manually, or upload a CV file to auto-fill the fields, then edit. Agencies match their projects against this profile and update it at any time.</p>
+    <p class="sub">Fill it in manually, or upload a CV file to auto-fill the fields, then edit. Agencies match their projects against this profile update it any time.</p>
 
     <div class="card">
       <h2>Auto-fill from a CV file</h2>
@@ -489,7 +489,7 @@ async function handleCV(file) {
       text = await extractText(file);
       // If a PDF has (almost) no text, it's a scanned image → render pages and OCR them.
       if (ext === 'pdf' && text.trim().length < 40) {
-        status.innerHTML = `<span class="spinner"></span> Looks like a scanned document — reading the pages…`;
+        status.innerHTML = `<span class="spinner"></span> Looks like a scanned document reading the pages…`;
         images = await pdfToImages(file, 5);
         text = '';
       }
@@ -506,9 +506,9 @@ async function handleCV(file) {
     const { parsed } = await api('/parse-cv', 'POST', body);
     applyParsed(parsed);
     profile.cv_filename = file.name;
-    status.textContent = 'Done — fields filled in below. Review, edit, then Save profile.';
+    status.textContent = 'Done fields filled in below. Review, edit, then Save profile.';
   } catch (e) {
-    status.textContent = 'Auto-fill failed: ' + e.message + ' — you can still fill the form manually.';
+    status.textContent = 'Auto-fill failed: ' + e.message + ' you can still fill the form manually.';
   }
 }
 function applyParsed(d) {
@@ -629,7 +629,7 @@ async function handleProjectFile(file) {
     } else {
       text = await extractText(file);
       if (ext === 'pdf' && text.trim().length < 40) {
-        status.innerHTML = `<span class="spinner"></span> Looks like a scanned document — reading the pages…`;
+        status.innerHTML = `<span class="spinner"></span> Looks like a scanned document reading the pages…`;
         images = await pdfToImages(file, 5);
         text = '';
       }
@@ -649,9 +649,9 @@ async function handleProjectFile(file) {
       if (images && parsed.requirement_text && !document.getElementById('np_notes').value.trim()) {
         document.getElementById('np_notes').value = parsed.requirement_text;
       }
-      status.textContent = `Loaded "${file.name}" — details auto-filled. Review everything, then post.`;
+      status.textContent = `Loaded "${file.name}" details auto-filled. Review everything, then post.`;
     } catch (e) {
-      status.textContent = `Loaded "${file.name}". Auto-fill unavailable (${e.message}) — fill fields manually.`;
+      status.textContent = `Loaded "${file.name}". Auto-fill unavailable (${e.message}) fill fields manually.`;
     }
   } catch (e) {
     status.textContent = 'Could not read file: ' + e.message;
@@ -889,8 +889,8 @@ async function loadSortResults(projId, forceRefresh) {
       <div class="stat"><div class="sv">${strong}</div><div class="sl">strong matches (50+)</div></div>
       <div class="stat"><div class="sv">~${ranked.length} min</div><div class="sl">manual screening saved</div></div>
     </div>
-    ${cached ? `<div class="sub" style="margin:-4px 0 16px;color:var(--sage);">Reused a saved ranking — nothing changed since last time, so no new AI scoring was run. Click Re-rank to force a fresh scoring.</div>` : ''}
-    ${mode === 'fallback' ? `<div class="sub" style="margin:-8px 0 16px;color:var(--bad);">AI scoring unavailable (no Gemini key or quota) — showing a basic keyword-based ranking instead.</div>` : ''}
+    ${cached ? `<div class="sub" style="margin:-4px 0 16px;color:var(--sage);">Reused a saved ranking nothing changed since last time, so no new AI scoring was run. Click Re-rank to force a fresh scoring.</div>` : ''}
+    ${mode === 'fallback' ? `<div class="sub" style="margin:-8px 0 16px;color:var(--bad);">AI scoring unavailable (no Gemini key or quota) showing a basic keyword-based ranking instead.</div>` : ''}
     ${ranked.map((r, i) => `
       <div class="rank-card ${i===0&&r.total>0?'top':''}" data-rank="${i}" style="cursor:pointer;">
         <div class="rank-top">
