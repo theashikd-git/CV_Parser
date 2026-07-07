@@ -142,6 +142,31 @@ app.put('/api/profile', requireAuth('candidate'), (req, res) => {
   res.json({ ok: true });
 });
 
+// Save the current form as a BRAND-NEW candidate (used by "Save as new candidate").
+// Each call adds a separate person to the pool, so you can load many CVs for testing.
+app.post('/api/candidates/new', requireAuth('candidate'), (req, res) => {
+  const b = req.body || {};
+  const base = {
+    full_name: b.full_name || '', email: b.email || '', phone: b.phone || '',
+    address: b.address || '', nationality: b.nationality || '', date_of_birth: b.date_of_birth || '',
+    about_me: b.about_me || '',
+    work_experience: Array.isArray(b.work_experience) ? b.work_experience : [],
+    education: Array.isArray(b.education) ? b.education : [],
+    languages: Array.isArray(b.languages) ? b.languages : [],
+    digital_skills: b.digital_skills || '', other_skills: b.other_skills || '',
+    additional_info: b.additional_info || '', cv_filename: b.cv_filename || ''
+  };
+  if (!base.full_name.trim()) return res.status(400).json({ error: 'Please add at least a name before saving.' });
+  // Derive matching tags from the CV content, plus any tags parsing already suggested.
+  const derived = deriveTags(base);
+  const merge = (a, b2) => Array.from(new Set([...(a || []), ...(b2 || [])]));
+  base.sectors = merge(b.sectors, derived.sectors);
+  base.skill_tags = merge(b.skill_tags, derived.skill_tags);
+  base.donor_tags = merge(b.donor_tags, derived.donor_tags);
+  const created = store.addCandidateFromData(base);
+  res.json({ ok: true, user_id: created.user_id });
+});
+
 /* ---------- CV parse (Gemini) ---------- */
 let ai = null;
 if (process.env.GEMINI_API_KEY) {
