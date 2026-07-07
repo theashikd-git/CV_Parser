@@ -71,7 +71,31 @@ const store = {
   },
   allCandidateProfiles() {
     const candidateIds = new Set(data.users.filter(u => u.role === 'candidate').map(u => u.id));
-    return data.profiles.filter(p => candidateIds.has(p.user_id));
+    // Only include real candidates (skip the empty placeholder profile from the test account).
+    return data.profiles.filter(p => candidateIds.has(p.user_id) && (p.full_name || '').trim() !== '');
+  },
+
+  // Create a brand-new candidate (its own user + profile) from CV data.
+  // Used by "Save as new candidate" so each uploaded CV becomes a separate person in the pool.
+  addCandidateFromData(fields) {
+    const id = ++data.seq.users;
+    const email = `candidate-${id}@xpie.local`;
+    const user = { id, email, password_hash: '', role: 'candidate', created_at: new Date().toISOString() };
+    data.users.push(user);
+    const profile = {
+      user_id: id,
+      full_name: fields.full_name || '', email: fields.email || '', phone: fields.phone || '',
+      address: fields.address || '', nationality: fields.nationality || '', date_of_birth: fields.date_of_birth || '',
+      about_me: fields.about_me || '',
+      work_experience: fields.work_experience || [], education: fields.education || [], languages: fields.languages || [],
+      digital_skills: fields.digital_skills || '', other_skills: fields.other_skills || '',
+      sectors: fields.sectors || [], skill_tags: fields.skill_tags || [], donor_tags: fields.donor_tags || [],
+      additional_info: fields.additional_info || '', cv_filename: fields.cv_filename || '',
+      updated_at: new Date().toISOString()
+    };
+    data.profiles.push(profile);
+    persist();
+    return profile;
   },
 
   /* projects */
