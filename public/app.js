@@ -72,8 +72,8 @@ let TEST_MODE = false;
   } catch {}
 
   if (TEST_MODE) {
-    // No login needed — sign in to the test candidate account and show the app.
-    await testLogin('candidate');
+    // Demo mode: show a front page where the user picks Candidate or Agent (no login).
+    renderDemoLanding();
     return;
   }
 
@@ -85,10 +85,45 @@ let TEST_MODE = false;
   renderAuth('login', 'candidate');
 })();
 
-// Used only in test mode: log in to a fixed test account for the given role.
+// Used only in test mode: log in to a fixed test account for the given role, then open the app.
 async function testLogin(role) {
   await api('/test-login', 'POST', { role });
   enterApp(role);
+}
+
+/* ---------- DEMO LANDING PAGE (test mode only) ---------- */
+// A simple front page with two big options. No email or password needed —
+// clicking a card signs in to the matching test account and opens that area.
+function renderDemoLanding() {
+  root.innerHTML = `
+    <div class="landing">
+      <div class="landing-top">
+        <div class="landing-logo">Xpie</div>
+        <div class="landing-tag">CV profiles &amp; project matching — demo</div>
+        <span class="test-flag">TEST MODE · no login required</span>
+      </div>
+
+      <div class="landing-cards">
+        <div class="landing-card" id="pickCandidate">
+          <div class="lc-icon">◐</div>
+          <h3>Enter as Candidate</h3>
+          <p>Build and edit a CV profile. Upload a CV to auto-fill it, then save.</p>
+          <div class="lc-go">Open candidate area →</div>
+        </div>
+
+        <div class="landing-card" id="pickAgent">
+          <div class="lc-icon">◑</div>
+          <h3>Enter as Agency</h3>
+          <p>Post a project, view CVs, and rank candidates against a requirement.</p>
+          <div class="lc-go">Open agency area →</div>
+        </div>
+      </div>
+
+      <div class="landing-foot">Designed and developed by <span class="fb">Xpie Team</span></div>
+    </div>`;
+
+  document.getElementById('pickCandidate').onclick = () => testLogin('candidate');
+  document.getElementById('pickAgent').onclick = () => testLogin('agent');
 }
 
 /* ---------- AUTH ---------- */
@@ -149,13 +184,14 @@ function renderAuth(mode, role) {
 function shell(role, inner) {
   let topRight;
   if (TEST_MODE) {
-    // Two buttons to switch role instantly; the current one is highlighted.
+    // Two buttons to switch role instantly; the current one is highlighted. Plus a Home link.
     topRight = `
       <span class="test-flag">TEST MODE</span>
       <div class="role-toggle">
         <button class="rt ${role==='candidate'?'on':''}" id="toCandidate">Candidate</button>
         <button class="rt ${role==='agent'?'on':''}" id="toAgent">Agent</button>
-      </div>`;
+      </div>
+      <button class="lnk" id="toHome">Home</button>`;
   } else {
     topRight = `
       <span class="role-badge ${role}">${role==='agent'?'Agency account':'Candidate account'}</span>
@@ -176,6 +212,7 @@ function wireShell() {
   if (TEST_MODE) {
     document.getElementById('toCandidate').onclick = () => testLogin('candidate');
     document.getElementById('toAgent').onclick = () => testLogin('agent');
+    document.getElementById('toHome').onclick = () => renderDemoLanding();
   } else {
     document.getElementById('logoutBtn').onclick = async () => {
       await api('/logout', 'POST');
