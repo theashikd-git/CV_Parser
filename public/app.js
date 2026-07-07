@@ -99,7 +99,7 @@ function renderDemoLanding() {
     <div class="landing">
       <div class="landing-top">
         <div class="landing-logo">Xpie</div>
-        <div class="landing-tag">CV profiles &amp; project matching — demo</div>
+        <div class="landing-tag">CV profiles &amp; project matching demo</div>
         <span class="test-flag">TEST MODE · no login required</span>
       </div>
 
@@ -245,7 +245,7 @@ function drawCandidate() {
   wrap.innerHTML = `
     <div class="eyebrow">My Europass-style profile</div>
     <h1>Your living CV</h1>
-    <p class="sub">Fill it in manually, or upload a CV file to auto-fill the fields, then edit. Agencies match their projects against this profile — update it any time.</p>
+    <p class="sub">Fill it in manually, or upload a CV file to auto-fill the fields, then edit. Agencies match their projects against this profile and update it at any time.</p>
 
     <div class="card">
       <h2>Auto-fill from a CV file</h2>
