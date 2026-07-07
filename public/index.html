@@ -26,6 +26,26 @@
   .role-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 11px;border-radius:100px;}
   .role-badge.agent{background:#EAF0EC;color:var(--good);}
   .role-badge.candidate{background:#FBF0E8;color:var(--terracotta);}
+  .test-flag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;background:#FBE9DC;color:var(--terracotta);padding:4px 9px;border-radius:100px;}
+  .role-toggle{display:flex;gap:3px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .role-toggle .rt{border:none;background:none;font-size:12.5px;font-weight:500;color:var(--sage);padding:6px 12px;border-radius:6px;cursor:pointer;}
+  .role-toggle .rt.on{background:var(--ink);color:var(--paper);}
+
+  /* demo landing page */
+  .landing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;}
+  .landing-top{margin-bottom:38px;}
+  .landing-logo{font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;letter-spacing:-.01em;}
+  .landing-tag{color:var(--sage);font-size:14px;margin:6px 0 14px;}
+  .landing-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:660px;width:100%;}
+  @media(max-width:640px){.landing-cards{grid-template-columns:1fr;}}
+  .landing-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 26px;text-align:left;cursor:pointer;transition:border-color .15s ease, transform .15s ease;}
+  .landing-card:hover{border-color:var(--terracotta);transform:translateY(-2px);}
+  .landing-card .lc-icon{font-size:26px;margin-bottom:14px;}
+  .landing-card h3{font-family:'Source Serif 4',serif;font-size:19px;margin:0 0 8px;}
+  .landing-card p{color:var(--sage);font-size:13px;line-height:1.6;margin:0 0 20px;}
+  .landing-card .lc-go{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--terracotta);}
+  .landing-foot{margin-top:36px;color:var(--sage);font-size:11.5px;}
+  .landing-foot .fb{font-family:'Source Serif 4',serif;font-weight:600;color:var(--ink);}
   .lnk{font-size:12px;color:var(--sage);background:none;border:1px solid var(--line);border-radius:7px;padding:6px 12px;}
   .lnk:hover{border-color:var(--ink);color:var(--ink);}
 
